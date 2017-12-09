@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    //hello my name is shalom and i am very smart
     class Mother
     {
         readonly string  id;
@@ -85,6 +86,32 @@ namespace BE
             set
             {
                 address = value;
+            }
+        }
+
+        public string SearchingArea
+        {
+            get
+            {
+                return searchingArea;
+            }
+
+            set
+            {
+                searchingArea = value;
+            }
+        }
+
+        public string Comments
+        {
+            get
+            {
+                return comments;
+            }
+
+            set
+            {
+                comments = value;
             }
         }
 
