@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Contract
+    public class Contract
     {
         private static int number = 0;
         private string childId;
-        private string NannyId;
+        private string nannyId;
+        private string motherId;
         private bool haveMet;
         private bool haveSigned;
         private double payForHour;
@@ -32,7 +33,7 @@ namespace BE
             }
         }
 
-        public string NannyId1
+        public string NannyId
         {
             get
             {
@@ -133,6 +134,31 @@ namespace BE
             set
             {
                 endDate = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+            set
+            {
+                number = value;
+            }
+        }
+
+        public string MotherId
+        {
+            get
+            {
+                return motherId;
+            }
+
+            set
+            {
+                motherId = value;
             }
         }
         //public override string ToString()

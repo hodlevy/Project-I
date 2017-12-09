@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Nanny 
+    public class Nanny 
     {
         readonly string id;
         private string lastName;
@@ -95,6 +95,188 @@ namespace BE
             set
             {
                 phoneNumber = value;
+            }
+        }
+
+        public string Address
+        {
+            get
+            {
+                return address;
+            }
+
+            set
+            {
+                address = value;
+            }
+        }
+
+        public bool IsElevator
+        {
+            get
+            {
+                return isElevator;
+            }
+
+            set
+            {
+                isElevator = value;
+            }
+        }
+
+        public int Floor
+        {
+            get
+            {
+                return floor;
+            }
+
+            set
+            {
+                floor = value;
+            }
+        }
+
+        public int Experience
+        {
+            get
+            {
+                return experience;
+            }
+
+            set
+            {
+                experience = value;
+            }
+        }
+
+        public int MaxChildren
+        {
+            get
+            {
+                return maxChildren;
+            }
+
+            set
+            {
+                maxChildren = value;
+            }
+        }
+
+        public int MinAge
+        {
+            get
+            {
+                return minAge;
+            }
+
+            set
+            {
+                minAge = value;
+            }
+        }
+
+        public int MaxAge
+        {
+            get
+            {
+                return maxAge;
+            }
+
+            set
+            {
+                maxAge = value;
+            }
+        }
+
+        public bool IfHourPaid
+        {
+            get
+            {
+                return ifHourPaid;
+            }
+
+            set
+            {
+                ifHourPaid = value;
+            }
+        }
+
+        public double PayForHour
+        {
+            get
+            {
+                return payForHour;
+            }
+
+            set
+            {
+                payForHour = value;
+            }
+        }
+
+        public double PayForMonth
+        {
+            get
+            {
+                return payForMonth;
+            }
+
+            set
+            {
+                payForMonth = value;
+            }
+        }
+
+        public bool[] IsWorking
+        {
+            get
+            {
+                return isWorking;
+            }
+
+            set
+            {
+                isWorking = value;
+            }
+        }
+
+        public TimeSpan[,] WorkHours
+        {
+            get
+            {
+                return workHours;
+            }
+
+            set
+            {
+                workHours = value;
+            }
+        }
+
+        public bool VacationCheck
+        {
+            get
+            {
+                return vacationCheck;
+            }
+
+            set
+            {
+                vacationCheck = value;
+            }
+        }
+
+        public string Recommendation
+        {
+            get
+            {
+                return recommendation;
+            }
+
+            set
+            {
+                recommendation = value;
             }
         }
 

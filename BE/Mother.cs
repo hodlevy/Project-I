@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-   //amit you are stupid
-   //hello
-    class Mother
+    public class Mother
     {
         readonly string  id;
         private string lastName;
@@ -113,6 +111,32 @@ namespace BE
             set
             {
                 comments = value;
+            }
+        }
+
+        public TimeSpan[,] NeedsNannyHours
+        {
+            get
+            {
+                return needsNannyHours;
+            }
+
+            set
+            {
+                needsNannyHours = value;
+            }
+        }
+
+        public bool[] NeedsNanny
+        {
+            get
+            {
+                return needsNanny;
+            }
+
+            set
+            {
+                needsNanny = value;
             }
         }
 
