@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-   //no you are not
+   //amit you are stupid
     class Mother
     {
         readonly string  id;
