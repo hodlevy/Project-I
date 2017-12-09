@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    //hello my name is shalom and i am very smart
+   //no you are not
     class Mother
     {
         readonly string  id;
