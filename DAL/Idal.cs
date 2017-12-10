@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    interface Idal
+    public interface Idal
     {
         void AddNanny(BE.Nanny nanny);
         void DeleteNanny(BE.Nanny nanny);

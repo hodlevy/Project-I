@@ -8,7 +8,7 @@ namespace BE
 {
     public class Child
     {
-        readonly string id;
+        private string id;
         private string motherId;
         private string firstName;
         private DateTime birthDate;

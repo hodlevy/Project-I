@@ -8,7 +8,7 @@ namespace BE
 {
     public class Mother
     {
-        readonly string  id;
+        private string  id;
         private string lastName;
         private string firstName;
         private string phoneNumber;
@@ -71,6 +71,14 @@ namespace BE
 
             set
             {
+                bool flag = true;
+                foreach (char c in value)
+                {
+                    if (c < '0' || c > '9')
+                        flag = false;
+                }
+                if (!flag)
+                    throw new Exception("Phone number must to be with only digits!!");
                 phoneNumber = value;
             }
         }

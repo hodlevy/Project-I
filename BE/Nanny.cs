@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Nanny 
+    public class Nanny
     {
-        readonly string id;
+        private string id;
         private string lastName;
         private string firstName;
         private DateTime birthDate;
@@ -24,7 +24,7 @@ namespace BE
         private double payForHour;
         private double payForMonth;
         private bool[] isWorking = new bool[6];
-        private TimeSpan[,] workHours = new TimeSpan[6,3];
+        private TimeSpan[,] workHours = new TimeSpan[6, 3];
         private bool vacationCheck;
         private string recommendation;
         //public override string ToString()
@@ -35,10 +35,10 @@ namespace BE
         {
             set
             {
-                    if (IDCheck(value))
-                        id = value;
-                    else
-                        throw new Exception("Wrong ID Number"); 
+                if (IDCheck(value))
+                    id = value;
+                else
+                    throw new Exception("Wrong ID Number");
             }
             get
             {
@@ -94,6 +94,14 @@ namespace BE
 
             set
             {
+                bool flag = true;
+                foreach (char c in value)
+                {
+                    if (c < '0' || c > '9')
+                        flag = false;
+                }
+                if (!flag)
+                    throw new Exception ("Phone number must to be with only digits!!");
                 phoneNumber = value;
             }
         }
