@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using GoogleMapsApi;
 
 namespace BL
 {
@@ -169,5 +170,18 @@ namespace BL
         {
             return DataSource.listContract;
         }
+    }
+    public static int CalculateDistance(string source, string dest)
+    {
+        var drivingDirectionRequest = new GoogleMapsApi.Entities.Directions.Request.DirectionsRequest
+        {
+            TravelMode = GoogleMapsApi.Entities.Directions.Request.TravelMode.Walking,
+            Origin = source,
+            Destination = dest,
+        };
+        GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+        GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
+        GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
+        return leg.Distance.Value;
     }
 }
