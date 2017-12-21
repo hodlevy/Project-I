@@ -182,6 +182,23 @@ namespace BL
                 //לשים ברשימה את 5 המטפלות הכי קרובות לדרישות
             }
             return nannies;
-        }
+        }//חסר חלק
+        List<Child> LonleyChildren()
+        {
+            List<Child> children = null;
+            bool flag;
+            foreach (Child child in DataSource.listChild)
+            {
+                flag = false;
+                foreach (Contract contract in DataSource.listContract)
+                {
+                    if (child.Id == contract.ChildId)
+                        flag = true;
+                }
+                if (!flag)
+                    children.Add(child);
+            }
+            return children;
+        }//אפשר לייעל מאוד מבחינת זמן ריצה, השאלה היא אם רוצים
     }
 }
