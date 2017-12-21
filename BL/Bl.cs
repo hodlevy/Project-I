@@ -160,5 +160,28 @@ namespace BL
             List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
             return list;
         }
+        List<Nanny> PotentiallyNannies(Mother mother)
+        {
+            List<Nanny> nannies = null;
+            bool flag;
+            foreach (Nanny nanny in DataSource.listNanny)
+            {
+                flag = true;
+                for (int i = 0; i < 6; i++)
+                {
+                    if (!nanny.IsWorking[i] && mother.NeedsNanny[i])
+                        flag = false;
+                    else if (nanny.WorkHours[i, 0] >= mother.NeedsNannyHours[i, 0] || nanny.WorkHours[i, 1] <= mother.NeedsNannyHours[i, 1])
+                        flag = false;
+                }
+                if (flag)
+                    nannies.Add(nanny);
+            }
+            if (nannies == null)
+            {
+                //לשים ברשימה את 5 המטפלות הכי קרובות לדרישות
+            }
+            return nannies;
+        }
     }
 }
