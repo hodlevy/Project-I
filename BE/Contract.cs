@@ -19,7 +19,13 @@ namespace BE
         private bool perWhat;
         private DateTime beginDate;
         private DateTime endDate;
-
+        // צריך לעשות את ה2% הנחה לכל אח
+        public double MonthlyPayment()
+        {
+            if (perWhat)
+                return PayForMonth;
+            return 4 * payForHour;
+        }
         public string ChildId
         {
             get

@@ -19,6 +19,7 @@ namespace BL
         }
         void initialization()
         {
+
             //כאן נאתחל כמה מופעים להרצה הראשונה
         }
         #region Nanny
@@ -74,6 +75,7 @@ namespace BL
         #region Contract
         void AddContract(Contract contract)
         {
+            int children = 0;
             int childMonthes = 0;
             foreach (Child child in DataSource.listChild)
             {
@@ -92,7 +94,18 @@ namespace BL
             }
             if (!flag)
                 throw new Exception("Nanny doesn't exist");
-            flag = false;
+
+            foreach (Contract contr in DataSource.listContract)
+            {
+                if (id == contr.NannyId)
+                    children++;
+            }
+            foreach (Nanny nan in DataSource.listNanny)
+            {
+                if (nan.Id == id)
+                    if (children > nan.MaxChildren)
+                        throw new Exception("The nanny has no place for the child");
+            }
             id = contract.MotherId;
             foreach (Mother mother in DataSource.listMother)
             {
