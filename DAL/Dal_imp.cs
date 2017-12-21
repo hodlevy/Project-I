@@ -7,7 +7,7 @@ using BE;
 
 namespace DAL
 {
-    public class Dal_imp : Idal
+    internal class Dal_imp : Idal
     {
         void Idal.AddNanny(Nanny nanny)
         {
@@ -157,6 +157,13 @@ namespace DAL
         List<Contract> Idal.AllContracts()
         {
             return DataSource.listContract;
+        }
+        public Dal_imp()
+        {
+            DataSource.listNanny = new List<Nanny>();
+            DataSource.listMother = new List<Mother>();
+            DataSource.listChild = new List<Child>();
+            DataSource.listContract = new List<Contract>();
         }
     }
 }
