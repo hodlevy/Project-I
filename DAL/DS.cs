@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 
 namespace DAL
 {
     public class DataSource
     {
-        public static List<BE.Nanny> listNanny;
-        public static List<BE.Mother> listMother;
-        public static List<BE.Child> listChild;
-        public static List<BE.Contract> listContract;
+        public static List<Nanny> listNanny;
+        public static List<Mother> listMother;
+        public static List<Child> listChild;
+        public static List<Contract> listContract;
     }
 }

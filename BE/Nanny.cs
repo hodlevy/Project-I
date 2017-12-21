@@ -8,10 +8,10 @@ namespace BE
 {
     public class Nanny
     {
-        private string id;
+        readonly string id;
         private string lastName;
         private string firstName;
-        private DateTime birthDate;
+        readonly DateTime birthDate;
         private string phoneNumber;
         private string address;
         private bool isElevator;

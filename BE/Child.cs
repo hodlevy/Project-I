@@ -8,10 +8,10 @@ namespace BE
 {
     public class Child
     {
-        private string id;
-        private string motherId;
+        readonly string id;
+        readonly string motherId;
         private string firstName;
-        private DateTime birthDate;
+        readonly DateTime birthDate;
         private bool isSpecialNeeds;
         private string specialNeeds;
         //public override string ToString()

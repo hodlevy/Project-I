@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
-//using GoogleMapsApi;
+using GoogleMapsApi;
 
 namespace BL
 {
@@ -19,42 +19,41 @@ namespace BL
         }
         void initialization()
         {
-
             //כאן נאתחל כמה מופעים להרצה הראשונה
         }
         #region Nanny
-        void AddNanny(Nanny nanny)
+        void IBL.AddNanny(Nanny nanny)
         {
             int nannyAge = DateTime.Now.Year - nanny.BirthDate.Year;
             if (nannyAge < 18)
                 throw new Exception("Nanny is too young!");
             MyDal.AddNanny(nanny);
         }
-        void DeleteNanny(Nanny nanny)
+        void IBL.DeleteNanny(Nanny nanny)
         {
             MyDal.DeleteNanny(nanny);
         }
-        void UpdateNanny(Nanny nanny)
+        void IBL.UpdateNanny(Nanny nanny)
         {
             MyDal.UpdateNanny(nanny);
         }
         #endregion
         #region Mother
-        void AddMother(Mother mother)
+        void IBL.AddMother(Mother mother)
         {
             MyDal.AddMother(mother);
         }
-        void DeleteMother(Mother mother)
+        void IBL.DeleteMother(Mother mother)
         {
             MyDal.DeleteMother(mother);
         }
-        void UpdateMother(Mother mother)
+        void IBL.UpdateMother(Mother mother)
         {
             MyDal.UpdateMother(mother);
         }
         #endregion
         #region Child
-        void AddChild(Child child)
+        void IBL.AddChild(Child child)
         {
             int month = DateTime.Now.Month - child.BirthDate.Month;
             int year = DateTime.Now.Year - child.BirthDate.Year;
@@ -63,107 +62,103 @@ namespace BL
             else
                 throw new Exception("The child is too young!");
         }
-        void DeleteChild(Child child)
+        void IBL.DeleteChild(Child child)
         {
             MyDal.DeleteChild(child);
         }
-        void UpdateChild(Child child)
+        void IBL.UpdateChild(Child child)
         {
             MyDal.UpdateChild(child);
         }
         #endregion
         #region Contract
-        void AddContract(Contract contract)
+        void IBL.AddContract(Contract contract)
         {
-            int children = 0;
-            int childMonthes = 0;
-            foreach (Child child in DataSource.listChild)
-            {
-                if (contract.ChildId == child.Id)
-                    childMonthes = child.BirthDate.Month;
-            }
-            //if (child.BirthDate.y )
-            bool flag = false;
-            string id = contract.NannyId;
-            foreach (Nanny nanny in DataSource.listNanny)
-            {
-                if (id == nanny.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (!flag)
-                throw new Exception("Nanny doesn't exist");
+            Nanny nanny = GetNanny(contract.NannyId);
+            List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
+            if (list.Count() == nanny.MaxChildren)
+                throw new Exception("This is the maximum number of children!");
+            Mother mother = GetMother(contract.MotherId);
+            list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
+            double discount = (list.Count() - 1) * 0.02;
 
-            foreach (Contract contr in DataSource.listContract)
-            {
-                if (id == contr.NannyId)
-                    children++;
-            }
-            foreach (Nanny nan in DataSource.listNanny)
-            {
-                if (nan.Id == id)
-                    if (children > nan.MaxChildren)
-                        throw new Exception("The nanny has no place for the child");
-            }
-            id = contract.MotherId;
-            foreach (Mother mother in DataSource.listMother)
-            {
-                if (id == mother.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (!flag)
-                throw new Exception("Mother doesn't exist");
-            contract.Number++;
-            DataSource.listContract.Add(contract);
+
+            MyDal.AddContract(contract);
         }
-        void DeleteContract(Contract contract)
+        void IBL.DeleteContract(Contract contract)
         {
             MyDal.DeleteContract(contract);
         }
-        void UpdateContract(Contract contract)
+        void IBL.UpdateContract(Contract contract)
         {
-            foreach (Contract contract2 in DataSource.listContract)
-            {
-                if (contract.Number == contract2.Number)
-                {
-                    DataSource.listContract.Remove(contract2);
-                    DataSource.listContract.Add(contract);
-                    break;
-                }
-            }
+            MyDal.UpdateContract(contract);
         }
         #endregion
-        List<Nanny> AllNannys()
+        #region Lists
+        List<Nanny> IBL.AllNannys()
         {
             return DataSource.listNanny;
         }
-        List<Mother> AllMothers()
+        List<Mother> IBL.AllMothers()
         {
             return DataSource.listMother;
         }
-        List<Child> AllChildren()
+        List<Child> IBL.AllChildren()
         {
             return DataSource.listChild;
         }
-        List<Contract> AllContracts()
+        List<Contract> IBL.AllContracts()
         {
             return DataSource.listContract;
         }
+        #endregion
+        public static int CalculateDistance(string source, string dest)
+        {
+            var drivingDirectionRequest = new GoogleMapsApi.Entities.Directions.Request.DirectionsRequest
+            {
+                TravelMode = GoogleMapsApi.Entities.Directions.Request.TravelMode.Walking,
+                Origin = source,
+                Destination = dest,
+            };
+            GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
+            GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
+            return leg.Distance.Value;
+        }
+        Nanny GetNanny(string nannyID)
+        {
+            Nanny nanny = new Nanny();
+            //List<Nanny> list = DataSource.listNanny.FindAll(x => x.Id == nannyID);
+            var v = from item in DataSource.listNanny
+                    where item.Id == nannyID
+                    select item;
+            nanny = v.First();
+            return nanny;
+        }
+        Mother GetMother(string motherID)
+        {
+            Mother mother = new Mother();
+            //List<Mother> list = DataSource.listMother.FindAll(x => x.Id == motherID);
+            var v = from item in DataSource.listMother
+                    where item.Id == motherID
+                    select item;
+            mother = v.First();
+            return mother;
+        }
+        Child GetChild(string childID)
+        {
+            Child child = new Child();
+            //List<Child> list = DataSource.listChild.FindAll(x => x.Id == childID);
+            var v = from item in DataSource.listChild
+                    where item.Id == childID
+                    select item;
+            child = v.First();
+            return child;
+        }
+        List<Nanny> VacationCheck_AllNanny()
+        {
+            List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
+            return list;
+        }
     }
-    //public static int CalculateDistance(string source, string dest)
-    //{
-    //    var drivingDirectionRequest = new GoogleMapsApi.Entities.Directions.Request.DirectionsRequest
-    //    {
-    //        TravelMode = GoogleMapsApi.Entities.Directions.Request.TravelMode.Walking,
-    //        Origin = source,
-    //        Destination = dest,
-    //    };
-    //    GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
-    //    GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
-    //    GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
-    //    return leg.Distance.Value;
-    //}
 }

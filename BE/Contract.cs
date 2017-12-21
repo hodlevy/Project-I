@@ -9,9 +9,9 @@ namespace BE
     public class Contract
     {
         private static int number = 0;
-        private string childId;
-        private string nannyId;
-        private string motherId;
+        readonly string childId;
+        readonly string nannyId;
+        readonly string motherId;
         private bool haveMet;
         private bool haveSigned;
         private double payForHour;
