@@ -9,120 +9,115 @@ namespace DAL
 {
     internal class Dal_imp : Idal
     {
+        public Dal_imp()
+        {
+            DataSource.listNanny = new List<Nanny>();
+            DataSource.listMother = new List<Mother>();
+            DataSource.listChild = new List<Child>();
+            DataSource.listContract = new List<Contract>();
+        }
+        #region Nanny
         void Idal.AddNanny(Nanny nanny)
         {
-            bool flag = false;
-            foreach (Nanny nanny2 in DataSource.listNanny)
-            {
-                if (nanny.Id == nanny2.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (flag)
+            Nanny nanny2 = GetNanny(nanny.Id);
+            if(nanny2 != null)
                 throw new Exception("Nanny already exist");
-            DataSource.listNanny.Add(nanny);
+            DataSource.listNanny.Add(nanny2);
         }
         void Idal.DeleteNanny(Nanny nanny)
         {
-            DataSource.listNanny.Remove(nanny);
+            Nanny nanny2 = GetNanny(nanny.Id);
+            if (nanny2 == null)
+                throw new Exception("Nanny doesn't exist");
+            DataSource.listNanny.Remove(nanny2);
         }
         void Idal.UpdateNanny(Nanny nanny)
         {
-            foreach (Nanny nanny2 in DataSource.listNanny)
+            Nanny nanny2 = GetNanny(nanny.Id);
+            if (nanny2 == null)
+                throw new Exception("Nanny doesn't exist");
+            foreach (Nanny nan in DataSource.listNanny)
             {
-                if (nanny.Id == nanny2.Id)
+                if (nanny2.Id == nan.Id)
                 {
-                    DataSource.listNanny.Remove(nanny2);
-                    DataSource.listNanny.Add(nanny);
+                    DataSource.listNanny.Remove(nan);
+                    DataSource.listNanny.Add(nanny2);
                     break;
                 }
             }
         }
+        #endregion
+        #region Mother
         void Idal.AddMother(Mother mother)
         {
-            bool flag = false;
-            foreach (Mother mother2 in DataSource.listMother)
-            {
-                if (mother.Id == mother2.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (flag)
+            Mother mother2 = GetMother(mother.Id);
+            if (mother2 != null)
                 throw new Exception("Mother already exist");
-            DataSource.listMother.Add(mother);
+            DataSource.listMother.Add(mother2);
         }
         void Idal.DeleteMother(Mother mother)
         {
-            DataSource.listMother.Remove(mother);
+            Mother mother2 = GetMother(mother.Id);
+            if (mother2 == null)
+                throw new Exception("Mother doesn't exist");
+            DataSource.listMother.Remove(mother2);
         }
         void Idal.UpdateMother(Mother mother)
         {
-            foreach (Mother mother2 in DataSource.listMother)
+            Mother mother2 = GetMother(mother.Id);
+            if (mother2 == null)
+                throw new Exception("Mother doesn't exist");
+            foreach (Mother mom in DataSource.listMother)
             {
-                if (mother2.Id == mother.Id)
+                if (mother2.Id == mom.Id)
                 {
-                    DataSource.listMother.Remove(mother2);
-                    DataSource.listMother.Add(mother);
+                    DataSource.listMother.Remove(mom);
+                    DataSource.listMother.Add(mother2);
                     break;
                 }
             }
         }
+        #endregion
+        #region Child
         void Idal.AddChild(Child child)
         {
-            bool flag = false;
-            foreach (Child child2 in DataSource.listChild)
-            {
-                if (child.Id == child2.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (flag)
+            Child child2 = GetChild(child.Id);
+            if (child2 != null)
                 throw new Exception("Child already exist");
-            DataSource.listChild.Add(child);
+            DataSource.listChild.Add(child2);
         }
         void Idal.DeleteChild(Child child)
         {
-            DataSource.listChild.Remove(child);
+            Child child2 = GetChild(child.Id);
+            if (child2 == null)
+                throw new Exception("Child doesn't exist");
+            DataSource.listChild.Remove(child2);
         }
         void Idal.UpdateChild(Child child)
         {
-            foreach (Child child2 in DataSource.listChild)
+            Child child2 = GetChild(child.Id);
+            if (child2 == null)
+                throw new Exception("Child doesn't exist");
+            foreach (Child ch in DataSource.listChild)
             {
-                if (child2.Id == child.Id)
+                if (child2.Id == ch.Id)
                 {
-                    DataSource.listChild.Remove(child2);
-                    DataSource.listChild.Add(child);
+                    DataSource.listChild.Remove(ch);
+                    DataSource.listChild.Add(child2);
                     break;
                 }
             }
         }
+        #endregion
+        #region Contract
         void Idal.AddContract(Contract contract)
         {
-            bool flag = false;
-            string id = contract.NannyId;
-            foreach (Nanny nanny in DataSource.listNanny)
-            {
-                if (id == nanny.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (!flag)
-                throw new Exception("Nanny doesn't exist");
-            flag = false;
-            id = contract.MotherId;
-            foreach (Mother mother in DataSource.listMother)
-            {
-                if (id == mother.Id)
-                {
-                    flag = true;
-                }
-            }
-            if (!flag)
-                throw new Exception("Mother doesn't exist");
+            Nanny nanny = GetNanny(contract.NannyId);
+            if (nanny != null)
+                throw new Exception("Nanny already exist");
+            Mother mother = GetMother(contract.MotherId);
+            if (mother != null)
+                throw new Exception("Mother already exist");
             contract.Number++;
             DataSource.listContract.Add(contract);
         }
@@ -142,6 +137,8 @@ namespace DAL
                 }
             }
         }
+        #endregion
+        #region Lists
         List<Nanny> Idal.AllNannys()
         {
             return DataSource.listNanny;
@@ -158,12 +155,33 @@ namespace DAL
         {
             return DataSource.listContract;
         }
-        public Dal_imp()
+        #endregion
+        Nanny GetNanny(string nannyID)
         {
-            DataSource.listNanny = new List<Nanny>();
-            DataSource.listMother = new List<Mother>();
-            DataSource.listChild = new List<Child>();
-            DataSource.listContract = new List<Contract>();
+            Nanny nanny = new Nanny();
+            var v = from item in DataSource.listNanny
+                    where item.Id == nannyID
+                    select item;
+            nanny = v.First();
+            return nanny;
+        }
+        Mother GetMother(string motherID)
+        {
+            Mother mother = new Mother();
+            var v = from item in DataSource.listMother
+                    where item.Id == motherID
+                    select item;
+            mother = v.First();
+            return mother;
+        }
+        Child GetChild(string childID)
+        {
+            Child child = new Child();
+            var v = from item in DataSource.listChild
+                    where item.Id == childID
+                    select item;
+            child = v.First();
+            return child;
         }
     }
 }

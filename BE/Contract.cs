@@ -20,6 +20,7 @@ namespace BE
         private DateTime beginDate;
         private DateTime endDate;
         // צריך לעשות את ה2% הנחה לכל אח
+        // ה2% מופיע ב בי-אל ואני חושב שגם זה צריך
         public double MonthlyPayment()
         {
             if (perWhat)
@@ -43,12 +44,12 @@ namespace BE
         {
             get
             {
-                return NannyId;
+                return nannyId;
             }
 
             set
             {
-                NannyId = value;
+                nannyId = value;
             }
         }
 

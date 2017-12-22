@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
+        <Menu>
+            <MenuItem Header="Nanny">
+                <MenuItem Header="Add"/>
+                <MenuItem Header="Delete"/>
+                <MenuItem Header="Update"/>
+            </MenuItem>
+            <MenuItem Header="Mother">
+                <MenuItem Header="Add"/>
+                <MenuItem Header="Delete"/>
+                <MenuItem Header="Update"/>
+            </MenuItem>
+            <MenuItem Header="Child">
+                <MenuItem Header="Add"/>
+                <MenuItem Header="Delete"/>
+                <MenuItem Header="Update"/>
+            </MenuItem>
+            <MenuItem Header="Contract">
+                <MenuItem Header="Add"/>
+                <MenuItem Header="Delete"/>
+                <MenuItem Header="Update"/>
+            </MenuItem>
+            <MenuItem Header="Lists">
+                <MenuItem Header="Nanny"/>
+                <MenuItem Header="Mother"/>
+                <MenuItem Header="Child"/>
+                <MenuItem Header="Contract"/>
+            </MenuItem>
+        </Menu>
+
     </Grid>
 </Window>

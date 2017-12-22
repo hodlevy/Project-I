@@ -31,15 +31,89 @@ namespace BE
         //{
         //    return base.ToString();
         //}
+        public Nanny(string ID, string last_name, string first_name, DateTime birth_date, string phone_number, string address_, bool is_elevator,
+            int floor_, int experience_, int max_children, int min_age, int max_age, bool if_hour_paid, double pay_for_hour, double pay_for_month,
+            bool vacation_check, string recommendation_, bool[] is_working, TimeSpan[,] work_hours)
+        {
+            if (IDCheck(ID))
+                id = ID;
+            else
+                throw new Exception("Wrong ID Number");
+            lastName = last_name;
+            firstName = first_name;
+            if (birth_date > DateTime.Now)
+                throw new Exception("Wrong Birth Date");
+            else
+                birthDate = birth_date;
+            phoneNumber = phone_number;
+            address = address_;
+            isElevator = is_elevator;
+            floor = floor_;
+            experience = experience_;
+            maxChildren = max_children;
+            minAge = min_age;
+            maxAge = max_age;
+            ifHourPaid = if_hour_paid;
+            payForHour = pay_for_hour;
+            payForMonth = pay_for_month;
+            vacationCheck = vacation_check;
+            recommendation = recommendation_;
+            isWorking = is_working;
+            workHours = work_hours;
+        }
+        public Nanny(Nanny nanny)
+        {
+            if (IDCheck(nanny.id))
+                id = nanny.id;
+            else
+                throw new Exception("Wrong ID Number");
+            lastName = nanny.lastName;
+            firstName = nanny.firstName;
+            if (nanny.birthDate > DateTime.Now)
+                throw new Exception("Wrong Birth Date");
+            else
+                birthDate = nanny.birthDate;
+            phoneNumber = nanny.phoneNumber;
+            address = nanny.address;
+            isElevator = nanny.isElevator;
+            floor = nanny.floor;
+            experience = nanny.experience;
+            maxChildren = nanny.maxChildren;
+            minAge = nanny.minAge;
+            maxAge = nanny.maxAge;
+            ifHourPaid = nanny.ifHourPaid;
+            payForHour = nanny.payForHour;
+            payForMonth = nanny.payForMonth;
+            vacationCheck = nanny.vacationCheck;
+            recommendation = nanny.recommendation;
+            isWorking = nanny.isWorking;
+            workHours = nanny.workHours;
+        }
+        public Nanny()
+        {
+            id = null;
+            lastName = null;
+            firstName = null;
+            birthDate = DateTime.Now;
+            phoneNumber = null;
+            address = null;
+            isElevator = false;
+            floor = 0;
+            experience = 0;
+            maxChildren = 0;
+            minAge = 0;
+            maxAge = 0;
+            ifHourPaid = false;
+            payForHour = 0;
+            payForMonth = 0;
+            vacationCheck = false;
+            recommendation = null;
+            isWorking = null;
+            workHours = null;
+        }
+        #region Properties
         public string Id
         {
-            set
-            {
-                if (IDCheck(value))
-                    id = value;
-                else
-                    throw new Exception("Wrong ID Number");
-            }
             get
             {
                 return id;
@@ -78,11 +152,6 @@ namespace BE
             {
                 return birthDate;
             }
-
-            set
-            {
-                birthDate = value;
-            }
         }
 
         public string PhoneNumber
@@ -101,7 +170,7 @@ namespace BE
                         flag = false;
                 }
                 if (!flag)
-                    throw new Exception ("Phone number must to be with only digits!!");
+                    throw new Exception("Phone number must to be with only digits!!");
                 phoneNumber = value;
             }
         }
@@ -310,5 +379,6 @@ namespace BE
 
             return (count % 10 == 0);
         }
+        #endregion
     }
 }

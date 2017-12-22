@@ -10,24 +10,24 @@ namespace DAL
     public interface Idal
     {
         #region Nanny
-        void AddNanny(BE.Nanny nanny);
-        void DeleteNanny(BE.Nanny nanny);
-        void UpdateNanny(BE.Nanny nanny);
+        void AddNanny(Nanny nanny);
+        void DeleteNanny(Nanny nanny);
+        void UpdateNanny(Nanny nanny);
         #endregion
         #region Mother
-        void AddMother(BE.Mother mother);
-        void DeleteMother(BE.Mother mother);
-        void UpdateMother(BE.Mother mother);
+        void AddMother(Mother mother);
+        void DeleteMother(Mother mother);
+        void UpdateMother(Mother mother);
         #endregion
         #region Child
-        void AddChild(BE.Child child);
-        void DeleteChild(BE.Child child);
-        void UpdateChild(BE.Child child);
+        void AddChild(Child child);
+        void DeleteChild(Child child);
+        void UpdateChild(Child child);
         #endregion
         #region Contract
-        void AddContract(BE.Contract contract);
-        void DeleteContract(BE.Contract contract);
-        void UpdateContract(BE.Contract contract);
+        void AddContract(Contract contract);
+        void DeleteContract(Contract contract);
+        void UpdateContract(Contract contract);
         #endregion
         List<Nanny> AllNannys();
         List<Mother> AllMothers();

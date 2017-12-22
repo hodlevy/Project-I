@@ -80,7 +80,7 @@ namespace BL
                 throw new Exception("This is the maximum number of children!");
             Mother mother = GetMother(contract.MotherId);
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
-            double discount = (list.Count() - 1) * 0.02;
+            double discount = (list.Count() - 1) * 0.02; // זה ה2%
 
 
             MyDal.AddContract(contract);
@@ -124,36 +124,6 @@ namespace BL
             GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
             GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
             return leg.Distance.Value;
-        }
-        Nanny GetNanny(string nannyID)
-        {
-            Nanny nanny = new Nanny();
-            //List<Nanny> list = DataSource.listNanny.FindAll(x => x.Id == nannyID);
-            var v = from item in DataSource.listNanny
-                    where item.Id == nannyID
-                    select item;
-            nanny = v.First();
-            return nanny;
-        }
-        Mother GetMother(string motherID)
-        {
-            Mother mother = new Mother();
-            //List<Mother> list = DataSource.listMother.FindAll(x => x.Id == motherID);
-            var v = from item in DataSource.listMother
-                    where item.Id == motherID
-                    select item;
-            mother = v.First();
-            return mother;
-        }
-        Child GetChild(string childID)
-        {
-            Child child = new Child();
-            //List<Child> list = DataSource.listChild.FindAll(x => x.Id == childID);
-            var v = from item in DataSource.listChild
-                    where item.Id == childID
-                    select item;
-            child = v.First();
-            return child;
         }
         List<Nanny> VacationCheck_AllNanny()
         {
@@ -200,5 +170,23 @@ namespace BL
             }
             return children;
         }//אפשר לייעל מאוד מבחינת זמן ריצה, השאלה היא אם רוצים
+        Nanny GetNanny(string nannyID)
+        {
+            Nanny nanny = new Nanny();
+            var v = from item in DataSource.listNanny
+                    where item.Id == nannyID
+                    select item;
+            nanny = v.First();
+            return nanny;
+        }
+        Mother GetMother(string motherID)
+        {
+            Mother mother = new Mother();
+            var v = from item in DataSource.listMother
+                    where item.Id == motherID
+                    select item;
+            mother = v.First();
+            return mother;
+        }
     }
 }

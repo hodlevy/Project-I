@@ -17,19 +17,59 @@ namespace BE
         private bool[] needsNanny = new bool[6];
         private TimeSpan[,] needsNannyHours = new TimeSpan[6, 3];
         private string comments;
-        //public override string ToString()
-        //{
-        //    return base.ToString();
-        //}
+        public override string ToString()
+        {
+            string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nPhone number: " + phoneNumber +
+                "\nAddress: " + address;
+            // ?להוסיף איזה שעות היא צריכה
+            return print;
+        }
+        public Mother()
+        {
+            id = null;
+            lastName = null;
+            firstName = null;
+            phoneNumber = null;
+            address = null;
+            searchingArea = null;
+            needsNanny = null;
+            needsNannyHours = null;
+            comments = null;
+        }
+        public Mother(Mother mother)
+        {
+            if (IDCheck(mother.id))
+                id = mother.id;
+            else
+                throw new Exception("Wrong ID Number");
+            lastName = mother.lastName;
+            firstName = mother.firstName;
+            phoneNumber = mother.firstName;
+            address = mother.address;
+            searchingArea = mother.searchingArea;
+            needsNanny = mother.needsNanny;
+            needsNannyHours = mother.needsNannyHours;
+            comments = mother.comments;
+        }
+        public Mother(string ID, string last_name, string first_name, string phone_number, string address_, string searching_area,
+            bool[] needs_nanny, TimeSpan[,] needs_nanny_hours, string comments_)
+        {
+            if (IDCheck(ID))
+                id = ID;
+            else
+                throw new Exception("Wrong ID Number");
+            lastName = last_name;
+            firstName = first_name;
+            phoneNumber = phone_number;
+            address = address_;
+            searchingArea = searching_area;
+            needsNanny = needs_nanny;
+            needsNannyHours = needs_nanny_hours;
+            comments = comments_;
+        }
+        #region Properties
         public string Id
         {
-            set
-            {
-                if (IDCheck(value))
-                    id = value;
-                else
-                    throw new Exception("Wrong ID Number");
-            }
             get
             {
                 return id;
@@ -170,5 +210,6 @@ namespace BE
 
             return (count % 10 == 0);
         }
+        #endregion
     }
 }
