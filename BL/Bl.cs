@@ -96,7 +96,7 @@ namespace BL
             if (list.Count() != 0)
                 discount = (list.Count() - 1) * 0.02;
             contract.Salary = contract.MonthlyPayment() * (1 - discount);
-            ////////////////////////////
+
             MyDal.AddContract(contract);
         }
         void IBL.DeleteContract(Contract contract)
@@ -163,10 +163,21 @@ namespace BL
             }
             if (nannies == null)
             {
+                //[DataSource.listNanny.Count(),2] fitting;
+                //int days;
+                //foreach (Nanny nanny in DataSource.listNanny)
+                //{
+                //    days = 0;
+                //    for (int i = 0; i < 6; i++)
+                //    {
+                //        if (mother.NeedsNanny[i] && nanny.IsWorking[i])
+                //            days++;
+                //    }
+                //}
                 //לשים ברשימה את 5 המטפלות הכי קרובות לדרישות
             }
             return nannies;
-        }//חסר חלק
+        }
         List<Child> LonleyChildren()
         {
             List<Child> children = null;
@@ -201,6 +212,27 @@ namespace BL
                     select item;
             mother = v.First();
             return mother;
+        }
+        IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false)
+        {
+            List<Nanny> list = DataSource.listNanny;
+            if(isSorted)
+            {
+                list.Sort();
+            }
+            IEnumerable<IGrouping<int, Nanny>> result;
+            if (ifMinMax)
+            {
+                result = from nanny in list
+                             group nanny by nanny.MaxAge;
+                
+            }
+            else
+            {
+                result = from nanny in list
+                             group nanny by nanny.MinAge;
+            }
+            return result;
         }
 
     }
