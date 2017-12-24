@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
+        <!--<StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
         <Menu>
             <MenuItem Header="Nanny">
                 <MenuItem Header="Add"/>
@@ -35,7 +35,7 @@
                 <MenuItem Header="Child"/>
                 <MenuItem Header="Contract"/>
             </MenuItem>
-        </Menu>
+        </Menu>-->
 
     </Grid>
 </Window>

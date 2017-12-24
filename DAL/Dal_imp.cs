@@ -113,26 +113,32 @@ namespace DAL
         void Idal.AddContract(Contract contract)
         {
             Nanny nanny = GetNanny(contract.NannyId);
-            if (nanny != null)
-                throw new Exception("Nanny already exist");
+            if (nanny == null)
+                throw new Exception("Nanny doesn't exist");
             Mother mother = GetMother(contract.MotherId);
-            if (mother != null)
-                throw new Exception("Mother already exist");
+            if (mother == null)
+                throw new Exception("Mother doesn't exist");
             contract.Number++;
             DataSource.listContract.Add(contract);
         }
         void Idal.DeleteContract(Contract contract)
         {
-            DataSource.listContract.Remove(contract);
+            Contract contract2 = GetContract(contract.Number);
+            if (contract2 == null)
+                throw new Exception("Contract doesn't exist");
+            DataSource.listContract.Remove(contract2);
         }
         void Idal.UpdateContract(Contract contract)
         {
-            foreach (Contract contract2 in DataSource.listContract)
+            Contract contract2 = GetContract(contract.Number);
+            if (contract2 == null)
+                throw new Exception("Contract doesn't exist");
+            foreach (Contract contra in DataSource.listContract)
             {
-                if (contract.Number == contract2.Number)
+                if (contract2.Number == contra.Number)
                 {
-                    DataSource.listContract.Remove(contract2);
-                    DataSource.listContract.Add(contract);
+                    DataSource.listContract.Remove(contra);
+                    DataSource.listContract.Add(contract2);
                     break;
                 }
             }
@@ -149,13 +155,23 @@ namespace DAL
         }
         List<Child> Idal.AllChildren()
         {
-            return DataSource.listChild;
+            List<Child> listChild = null;
+            foreach (Mother mother in DataSource.listMother)
+            {
+                foreach (Child child in DataSource.listChild)
+                {
+                    if (child.MotherId == mother.Id)
+                        listChild.Add(child);
+                }
+            }
+            return listChild;
         }
         List<Contract> Idal.AllContracts()
         {
             return DataSource.listContract;
         }
         #endregion
+        #region Get Function
         Nanny GetNanny(string nannyID)
         {
             Nanny nanny = new Nanny();
@@ -183,5 +199,15 @@ namespace DAL
             child = v.First();
             return child;
         }
+        Contract GetContract(int number)
+        {
+            Contract contract = new Contract();
+            var v = from item in DataSource.listContract
+                    where item.Number == number
+                    select item;
+            contract = v.First();
+            return contract;
+        }
+        #endregion
     }
 }

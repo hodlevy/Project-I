@@ -25,6 +25,18 @@ namespace BL
         void IBL.AddNanny(Nanny nanny)
         {
             int nannyAge = DateTime.Now.Year - nanny.BirthDate.Year;
+            if (nannyAge == 18)
+            {
+                int monthes = DateTime.Now.Month - nanny.BirthDate.Month;
+                if (monthes < 0)
+                    throw new Exception("Nanny is too young!");
+                if (monthes == 0)
+                {
+                    int days = DateTime.Now.Day - nanny.BirthDate.Day;
+                    if (days < 0)
+                        throw new Exception("Nanny is too young!");
+                }
+            }
             if (nannyAge < 18)
                 throw new Exception("Nanny is too young!");
             MyDal.AddNanny(nanny);
@@ -80,9 +92,11 @@ namespace BL
                 throw new Exception("This is the maximum number of children!");
             Mother mother = GetMother(contract.MotherId);
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
-            double discount = (list.Count() - 1) * 0.02; // זה ה2%
-
-
+            double discount = 0;
+            if (list.Count() != 0)
+                discount = (list.Count() - 1) * 0.02;
+            contract.Salary = contract.MonthlyPayment() * (1 - discount);
+            ////////////////////////////
             MyDal.AddContract(contract);
         }
         void IBL.DeleteContract(Contract contract)
@@ -169,7 +183,7 @@ namespace BL
                     children.Add(child);
             }
             return children;
-        }//אפשר לייעל מאוד מבחינת זמן ריצה, השאלה היא אם רוצים
+        }
         Nanny GetNanny(string nannyID)
         {
             Nanny nanny = new Nanny();
@@ -188,5 +202,6 @@ namespace BL
             mother = v.First();
             return mother;
         }
+
     }
 }

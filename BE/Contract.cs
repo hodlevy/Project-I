@@ -19,8 +19,7 @@ namespace BE
         private bool perWhat;
         private DateTime beginDate;
         private DateTime endDate;
-        // צריך לעשות את ה2% הנחה לכל אח
-        // ה2% מופיע ב בי-אל ואני חושב שגם זה צריך
+        private double salary;
         public double MonthlyPayment()
         {
             if (perWhat)
@@ -33,11 +32,6 @@ namespace BE
             {
                 return childId;
             }
-
-            set
-            {
-                childId = value;
-            }
         }
 
         public string NannyId
@@ -45,11 +39,6 @@ namespace BE
             get
             {
                 return nannyId;
-            }
-
-            set
-            {
-                nannyId = value;
             }
         }
 
@@ -162,10 +151,18 @@ namespace BE
             {
                 return motherId;
             }
+        }
+
+        public double Salary
+        {
+            get
+            {
+                return salary;
+            }
 
             set
             {
-                motherId = value;
+                salary = value;
             }
         }
         //public override string ToString()
