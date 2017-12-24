@@ -15,7 +15,7 @@ namespace BE
         private string address;
         private string searchingArea;
         private bool[] needsNanny = new bool[6];
-        private TimeSpan[,] needsNannyHours = new TimeSpan[6, 3];
+        private TimeSpan[,] needsNannyHours = new TimeSpan[6, 2];
         private string comments;
         public override string ToString()
         {
@@ -51,7 +51,7 @@ namespace BE
             needsNannyHours = mother.needsNannyHours;
             comments = mother.comments;
         }
-        public Mother(string ID, string last_name, string first_name, string phone_number, string address_, string searching_area,
+        public Mother(string ID, string first_name, string last_name, string phone_number, string address_, string searching_area,
             bool[] needs_nanny, TimeSpan[,] needs_nanny_hours, string comments_)
         {
             if (IDCheck(ID))

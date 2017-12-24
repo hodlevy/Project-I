@@ -19,7 +19,44 @@ namespace BL
         }
         void initialization()
         {
-            //כאן נאתחל כמה מופעים להרצה הראשונה
+            Nanny Ayala_Zehavi = new Nanny
+            ("123456782", "Ayala", "zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, false, "", new bool[] { true, true, true, true, true, false },
+                new TimeSpan[,]
+                {
+                    {TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(15.75) },{TimeSpan.FromHours(9),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
+                }
+                );
+            Nanny Moria_Schneider = new Nanny
+            ("258746916", "Moria", "Schneider", new DateTime(1992, 4, 9), "Shakhal St 15, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, false, "", new bool[] { true, true, true, true, true, false },
+                new TimeSpan[,]
+                {
+                    {TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(7),TimeSpan.FromHours(15) },{TimeSpan.FromHours(7),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
+                }
+                );
+            DataSource.listNanny.Add(Ayala_Zehavi);
+            DataSource.listNanny.Add(Moria_Schneider);
+            Mother Ayelt_Shaked = new Mother
+            ("113542872", "Ayelt", "Shaked", "0521234566", "Shakhal St 23,Jerusalem", "Shakhal St 23,Jerusalem", new bool[] { true, true, true, true, true, false },
+               new TimeSpan[,]
+                {
+                    {TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(7),TimeSpan.FromHours(15) },{TimeSpan.FromHours(7),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
+                }, "");
+            Mother Gilat_Bennet = new Mother
+           ("111112223", "Gilat", "Bennet", "0541485421", "HaMem Gimel St 4, Jerusalem", "HaMem Gimel St 4, Jerusalem", new bool[] { false, true, true, true, true, false },
+              new TimeSpan[,]
+               {
+                    {TimeSpan.FromHours(0),TimeSpan.FromHours(0) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
+               }, "");
+            DataSource.listMother.Add(Ayelt_Shaked);
+            DataSource.listMother.Add(Gilat_Bennet);
+            Child Elad = new Child("322690124", "113542872", "Elad", new DateTime(2016, 6, 20), true, "Is STUPID");
+            Child Dror = new Child("302302039", "111112223", "Dror", new DateTime(2015, 1, 1), false, "");
+            DataSource.listChild.Add(Elad);
+            DataSource.listChild.Add(Dror);
+            Contract contract1 = new Contract("322690124", "123456782", "113542872", true, true, 30, 5000, true, new DateTime(2017, 6, 20), new DateTime(2017, 12, 20));
+            Contract contract2 = new Contract("302302039", "258746916", "111112223", true, true, 27, 4800, false, new DateTime(2015, 6, 1), new DateTime(2017, 12, 20));
+            DataSource.listContract.Add(contract1);
+            DataSource.listContract.Add(contract2);
         }
         #region Nanny
         void IBL.AddNanny(Nanny nanny)
@@ -95,7 +132,7 @@ namespace BL
             double discount = 0;
             if (list.Count() != 0)
                 discount = (list.Count() - 1) * 0.02;
-            contract.Salary = contract.MonthlyPayment() * (1 - discount);
+            contract.Salary = MonthlyPayment(contract) * (1 - discount);
 
             MyDal.AddContract(contract);
         }
@@ -216,7 +253,7 @@ namespace BL
         IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false)
         {
             List<Nanny> list = DataSource.listNanny;
-            if(isSorted)
+            if (isSorted)
             {
                 list.Sort();
             }
@@ -224,16 +261,63 @@ namespace BL
             if (ifMinMax)
             {
                 result = from nanny in list
-                             group nanny by nanny.MaxAge;
-                
+                         group nanny by nanny.MaxAge;
+
             }
             else
             {
                 result = from nanny in list
-                             group nanny by nanny.MinAge;
+                         group nanny by nanny.MinAge;
             }
             return result;
         }
-
+        public double MonthlyPayment(Contract contract)
+        {
+            if (contract.PerWhat)
+                return contract.PayForMonth;
+            double weeklyHours = 0;
+            Nanny nanny = GetNanny(contract.NannyId);
+            Mother mother = GetMother(contract.MotherId);
+            for (int i = 0; i < 6; i++)
+            {
+                weeklyHours += DailyWork(nanny, mother, i);
+            }
+            return 4 * contract.PayForHour * weeklyHours;
+        }
+        double DailyWork(Nanny nanny, Mother mother, int day)
+        {
+            double begin = 0, end = 0;
+            if (nanny.IsWorking[day] && mother.NeedsNanny[day])
+            {
+                if (nanny.WorkHours[day, 0] > mother.NeedsNannyHours[day, 0])
+                {
+                    begin = nanny.WorkHours[day, 0].Hours;
+                    begin += nanny.WorkHours[day, 0].Minutes / 60;
+                }
+                else
+                {
+                    begin = mother.NeedsNannyHours[day, 0].Hours;
+                    begin += mother.NeedsNannyHours[day, 0].Minutes / 60;
+                }
+                if (nanny.WorkHours[day, 1] > mother.NeedsNannyHours[day, 1])
+                {
+                    end = mother.NeedsNannyHours[day, 1].Hours;
+                    end += mother.NeedsNannyHours[day, 1].Minutes / 60;
+                }
+                else
+                {
+                    end = nanny.WorkHours[day, 1].Hours;
+                    end += nanny.WorkHours[day, 1].Minutes / 60;
+                }
+            }
+            return end - begin;
+        }
+        List<Contract> ContractCondition(Func<Contract, bool> condition)
+        {
+            List<Contract> contracts;
+            var v = from contract in DataSource.listContract
+                    where condition(contract)
+                    select  
+        }
     }
 }

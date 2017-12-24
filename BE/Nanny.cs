@@ -9,8 +9,8 @@ namespace BE
     public class Nanny
     {
         readonly string id;
-        private string lastName;
         private string firstName;
+        private string lastName;
         readonly DateTime birthDate;
         private string phoneNumber;
         private string address;
@@ -24,14 +24,14 @@ namespace BE
         private double payForHour;
         private double payForMonth;
         private bool[] isWorking = new bool[6];
-        private TimeSpan[,] workHours = new TimeSpan[6, 3];
+        private TimeSpan[,] workHours = new TimeSpan[6, 2];
         private bool vacationCheck;
         private string recommendation;
         //public override string ToString()
         //{
         //    return base.ToString();
         //}
-        public Nanny(string ID, string last_name, string first_name, DateTime birth_date, string phone_number, string address_, bool is_elevator,
+        public Nanny(string ID, string first_name, string last_name, DateTime birth_date, string phone_number, string address_, bool is_elevator,
             int floor_, int experience_, int max_children, int min_age, int max_age, bool if_hour_paid, double pay_for_hour, double pay_for_month,
             bool vacation_check, string recommendation_, bool[] is_working, TimeSpan[,] work_hours)
         {

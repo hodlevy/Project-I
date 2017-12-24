@@ -20,12 +20,47 @@ namespace BE
         private DateTime beginDate;
         private DateTime endDate;
         private double salary;
-        public double MonthlyPayment()
+        public Contract()
         {
-            if (perWhat)
-                return PayForMonth;
-            return 4 * payForHour;
+            childId = null;
+            nannyId = null;
+            motherId = null;
+            haveMet = false;
+            haveSigned = false;
+            payForHour = 0;
+            payForMonth = 0;
+            perWhat = false;
+            beginDate = DateTime.Now;
+            endDate = DateTime.Now;
         }
+        public Contract(Contract contract)
+        {
+            childId = contract.childId;
+            nannyId = contract.nannyId;
+            motherId = contract.motherId;
+            haveMet = contract.haveMet;
+            haveSigned = contract.haveSigned;
+            payForHour = contract.payForHour;
+            payForMonth = contract.payForMonth;
+            perWhat = contract.perWhat;
+            beginDate = contract.beginDate;
+            endDate = contract.endDate;
+        }
+        public Contract(string child_id, string nanny_id, string mother_id, bool have_met, bool have_signed,
+            double pay_for_hour, double pay_for_month, bool per_what, DateTime begin_date, DateTime end_date)
+        {
+            childId = child_id;
+            nannyId = nanny_id;
+            motherId = mother_id;
+            haveMet = have_met;
+            haveSigned = have_signed;
+            payForHour = pay_for_hour;
+            payForMonth = pay_for_month;
+            perWhat = per_what;
+            beginDate = begin_date;
+            endDate = end_date;
+        }
+        
         public string ChildId
         {
             get
