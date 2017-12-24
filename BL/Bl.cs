@@ -314,10 +314,16 @@ namespace BL
         }
         List<Contract> ContractCondition(Func<Contract, bool> condition)
         {
-            List<Contract> contracts;
-            var v = from contract in DataSource.listContract
-                    where condition(contract)
-                    select  
+            List<Contract> contracts = DataSource.listContract.FindAll(item => condition(item));
+            return contracts;
+        }
+        List<int> NumberContractCondition(Func<Contract, bool> condition)
+        {
+            List<Contract> list = ContractCondition(condition);
+            List<int> numbers = null;
+            foreach (Contract contract in list)
+                numbers.Add(contract.Number);
+            return numbers;
         }
     }
 }

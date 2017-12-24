@@ -30,6 +30,12 @@ namespace DAL
             if (nanny2 == null)
                 throw new Exception("Nanny doesn't exist");
             DataSource.listNanny.Remove(nanny2);
+            List<Contract> contracts = GetContractByID(nanny2.Id);
+            if(contracts != null)
+            {
+                foreach(Contract contract in contracts)
+                    DataSource.listContract.Remove(contract);
+            }
         }
         void Idal.UpdateNanny(Nanny nanny)
         {
@@ -61,6 +67,12 @@ namespace DAL
             if (mother2 == null)
                 throw new Exception("Mother doesn't exist");
             DataSource.listMother.Remove(mother2);
+            List<Contract> contracts = GetContractByID(mother2.Id);
+            if (contracts != null)
+            {
+                foreach (Contract contract in contracts)
+                    DataSource.listContract.Remove(contract);
+            }
         }
         void Idal.UpdateMother(Mother mother)
         {
@@ -84,6 +96,9 @@ namespace DAL
             Child child2 = GetChild(child.Id);
             if (child2 != null)
                 throw new Exception("Child already exist");
+            Mother mother = GetMother(child.MotherId);
+            if (mother == null)
+                throw new Exception("Mother doesn't exist");
             DataSource.listChild.Add(child2);
         }
         void Idal.DeleteChild(Child child)
@@ -92,6 +107,12 @@ namespace DAL
             if (child2 == null)
                 throw new Exception("Child doesn't exist");
             DataSource.listChild.Remove(child2);
+            List<Contract> contracts = GetContractByID(child2.Id);
+            if (contracts != null)
+            {
+                foreach (Contract contract in contracts)
+                    DataSource.listContract.Remove(contract);
+            }
         }
         void Idal.UpdateChild(Child child)
         {
@@ -207,6 +228,12 @@ namespace DAL
                     select item;
             contract = v.First();
             return contract;
+        }
+        List<Contract> GetContractByID(string ID)
+        {
+            List<Contract> contracts = null;
+            List<Contract> contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
+            return contracts;
         }
         #endregion
     }

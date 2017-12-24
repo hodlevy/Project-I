@@ -20,8 +20,7 @@ namespace BE
         public override string ToString()
         {
             string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nPhone number: " + phoneNumber +
-                "\nAddress: " + address;
-            // ?להוסיף איזה שעות היא צריכה
+                "\nAddress: " + address + "\nSearching Area: " + searchingArea + "\nComments: " + comments;
             return print;
         }
         public Mother()

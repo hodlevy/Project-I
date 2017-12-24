@@ -20,6 +20,13 @@ namespace BE
         private DateTime beginDate;
         private DateTime endDate;
         private double salary;
+        public override string ToString()
+        {
+            string print = "Number: " + number + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
+                "\nDoes They Have Met? " + haveMet.ToString() + "\nDoes They Have Signed? " + haveSigned.ToString() + "\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
+                "\nBegin-End Dates: " + beginDate.ToString() + " - " + endDate.ToString();
+            return print;
+        }
         public Contract()
         {
             childId = null;
@@ -60,7 +67,7 @@ namespace BE
             beginDate = begin_date;
             endDate = end_date;
         }
-        
+        #region Properties
         public string ChildId
         {
             get
@@ -200,9 +207,6 @@ namespace BE
                 salary = value;
             }
         }
-        //public override string ToString()
-        //{
-        //    return base.ToString();
-        //}
+        #endregion
     }
 }
