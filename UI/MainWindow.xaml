@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Nanny to Work" Height="400" Width="400">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
-        <Menu>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="182*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.RowSpan="3">
             <MenuItem Header="Nanny">
                 <MenuItem Header="Add" Click="Add_Nanny"/>
                 <MenuItem Header="Delete" Click="Delete_Nanny"/>
                 <MenuItem Header="Update" Click="Update_Nanny"/>
             </MenuItem>
             <MenuItem Header="Mother">
-                <MenuItem Header="Add"/>
-                <MenuItem Header="Delete"/>
-                <MenuItem Header="Update"/>
+                <MenuItem Header="Add" Click="Add_Mother"/>
+                <MenuItem Header="Delete" Click="Delete_Mother"/>
+                <MenuItem Header="Update" Click="Update_Mother"/>
             </MenuItem>
             <MenuItem Header="Child">
                 <MenuItem Header="Add" Click="Add_Child"/>
@@ -25,9 +29,9 @@
                 <MenuItem Header="Update" Click="Update_Child"/>
             </MenuItem>
             <MenuItem Header="Contract">
-                <MenuItem Header="Add"/>
-                <MenuItem Header="Delete"/>
-                <MenuItem Header="Update"/>
+                <MenuItem Header="Add" Click="Add_Contract"/>
+                <MenuItem Header="Delete" Click="Delete_Contract"/>
+                <MenuItem Header="Update" Click="Update_Contract"/>
             </MenuItem>
             <MenuItem Header="Lists">
                 <MenuItem Header="Nanny"/>
@@ -36,6 +40,8 @@
                 <MenuItem Header="Contract"/>
             </MenuItem>
         </Menu>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="The SUPER AWSOME Project of the Nannies" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="Red" TextAlignment="Center"/>
+        <Image x:Name="image" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Source="nanny.jpg"/>
 
     </Grid>
 </Window>

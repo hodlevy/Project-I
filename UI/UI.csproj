@@ -58,11 +58,29 @@
     <Compile Include="AddChildWin.xaml.cs">
       <DependentUpon>AddChildWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddContractWin.xaml.cs">
+      <DependentUpon>AddContractWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMotherWin.xaml.cs">
+      <DependentUpon>AddMotherWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteChildWin.xaml.cs">
       <DependentUpon>DeleteChildWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeleteContractWin.xaml.cs">
+      <DependentUpon>DeleteContractWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteMotherWin.xaml.cs">
+      <DependentUpon>DeleteMotherWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateChildWin.xaml.cs">
       <DependentUpon>UpdateChildWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateContractWin.xaml.cs">
+      <DependentUpon>UpdateContractWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateMotherWin.xaml.cs">
+      <DependentUpon>UpdateMotherWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateNannyWin.xaml.cs">
       <DependentUpon>UpdateNannyWin.xaml</DependentUpon>
@@ -71,11 +89,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddContractWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddMotherWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddNannyWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeleteChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteContractWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteMotherWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,6 +136,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UpdateChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateContractWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateMotherWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +188,9 @@
       <Project>{e99bce91-5f50-4c84-8e84-400696374c18}</Project>
       <Name>BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nanny.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

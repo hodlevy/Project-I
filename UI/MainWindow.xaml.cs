@@ -62,5 +62,36 @@ namespace UI
             UpdateChildWin updateChildWin = new UpdateChildWin();
             updateChildWin.ShowDialog();
         }
+
+        private void Add_Mother(object sender, RoutedEventArgs e)
+        {
+            AddMotherWin addMotherWin = new AddMotherWin();
+            addMotherWin.ShowDialog();
+        }
+        private void Delete_Mother(object sender, RoutedEventArgs e)
+        {
+            DeleteMotherWin deleteMotherWin = new DeleteMotherWin();
+            deleteMotherWin.ShowDialog();
+        }
+        private void Update_Mother(object sender, RoutedEventArgs e)
+        {
+            UpdateMotherWin updateMotherWin = new UpdateMotherWin();
+            updateMotherWin.ShowDialog();
+        }
+        private void Add_Contract(object sender, RoutedEventArgs e)
+        {
+            AddContractWin addContractWin = new AddContractWin();
+            addContractWin.ShowDialog();
+        }
+        private void Delete_Contract(object sender, RoutedEventArgs e)
+        {
+            DeleteContractWin deleteContractWin = new DeleteContractWin();
+            deleteContractWin.ShowDialog();
+        }
+        private void Update_Contract(object sender, RoutedEventArgs e)
+        {
+            UpdateContractWin updateContractWin = new UpdateContractWin();
+            updateContractWin.ShowDialog();
+        }
     }
 }
