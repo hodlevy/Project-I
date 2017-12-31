@@ -26,7 +26,6 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Number:"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="Child's ID:"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="Nanny's ID:"/>
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="Mother's ID:"/>
@@ -38,7 +37,6 @@
         <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="Begin Date:"/>
         <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="End Date:"/>
         <TextBlock x:Name="textBlock11" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="Salary:"/>
-        <TextBlock x:Name="textBlock12" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" DataContextChanged="textBlock12_DataContextChanged" />
         <TextBox x:Name="ChildID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="NannyID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>

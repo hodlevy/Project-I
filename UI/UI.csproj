@@ -73,6 +73,9 @@
     <Compile Include="DeleteMotherWin.xaml.cs">
       <DependentUpon>DeleteMotherWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NannyListWin.xaml.cs">
+      <DependentUpon>NannyListWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateChildWin.xaml.cs">
       <DependentUpon>UpdateChildWin.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NannyListWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateChildWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

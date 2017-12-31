@@ -24,11 +24,9 @@ namespace UI
         {
             InitializeComponent();
             bl = BL.FactoryBL.GetBL();
-        }
-        private void textBlock12_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
+            PrintDialog printDialog = new PrintDialog();
             BE.Contract contract = new BE.Contract();
-            textBlock12.Text = contract.Number.ToString();
+            printDialog.PrintVisual(textBlock12, contract.Number.ToString());
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

@@ -292,6 +292,51 @@ namespace BL
             }
             return result;
         }
+        public int DistanceByContract(BE.Contract contract)
+        {
+            int distance;
+            bool validId = false;
+            string motherAddres = "";
+            string nannyAddres = "";
+            foreach (Mother mo in DataSource.listMother)
+            {
+                if (mo.Id == contract.MotherId)
+                {
+                    motherAddres = mo.SearchingArea;
+                    validId = true;
+                    break;
+                }
+            }
+            if (!validId)
+                throw new Exception("invalid ID");
+            validId = false;
+            foreach (Nanny na in DataSource.listNanny)
+            {
+                if (na.Id == contract.NannyId)
+                {
+                    nannyAddres = na.Address;
+                    validId = true;
+                    break;
+                }
+            }
+            if (!validId)
+                throw new Exception("invalid ID");
+            distance = CalculateDistance(nannyAddres, motherAddres);
+            return distance;
+        }
+        public IEnumerable<IGrouping<int, Contract>> ContractByDistance(bool sorted)
+        {
+            IEnumerable<IGrouping<int, Contract>> results;
+
+            if (sorted)
+                results = from Contract c in DataSource.listContract
+                          orderby c
+                          group c by DistanceByContract(c) / 5;
+            else
+                results = from Contract c in DataSource.listContract
+                          group c by DistanceByContract(c) / 5;
+            return results;
+        }
         public double MonthlyPayment(Contract contract)
         {
             if (contract.PerWhat)

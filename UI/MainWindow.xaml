@@ -34,10 +34,10 @@
                 <MenuItem Header="Update" Click="Update_Contract"/>
             </MenuItem>
             <MenuItem Header="Lists">
-                <MenuItem Header="Nanny"/>
-                <MenuItem Header="Mother"/>
-                <MenuItem Header="Child"/>
-                <MenuItem Header="Contract"/>
+                <MenuItem Header="Nanny" Click="Nanny_List"/>
+                <MenuItem Header="Mother" Click="Mother_List"/>
+                <MenuItem Header="Child" Click="Child_List"/>
+                <MenuItem Header="Contract" Click="Contract_List"/>
             </MenuItem>
         </Menu>
         <TextBox x:Name="textBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="The SUPER AWSOME Project of the Nannies" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="Red" TextAlignment="Center"/>

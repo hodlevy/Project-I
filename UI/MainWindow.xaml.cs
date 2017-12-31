@@ -93,5 +93,22 @@ namespace UI
             UpdateContractWin updateContractWin = new UpdateContractWin();
             updateContractWin.ShowDialog();
         }
+        private void Nanny_List(object sender, RoutedEventArgs e)
+        {
+            NannyListWin nannyListWin = new NannyListWin();
+            nannyListWin.ShowDialog();
+        }
+        private void Mother_List(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Child_List(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Contract_List(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
