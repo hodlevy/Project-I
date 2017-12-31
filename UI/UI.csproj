@@ -55,18 +55,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddChildWin.xaml.cs">
+      <DependentUpon>AddChildWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteChildWin.xaml.cs">
+      <DependentUpon>DeleteChildWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateChildWin.xaml.cs">
+      <DependentUpon>UpdateChildWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateNannyWin.xaml.cs">
+      <DependentUpon>UpdateNannyWin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNannyWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteNannyWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddNannyWin.xaml.cs">
+      <DependentUpon>AddNannyWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeleteNannyWin.xaml.cs">
+      <DependentUpon>DeleteNannyWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UpdateChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateNannyWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

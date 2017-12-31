@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <!--<StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
+        <StackPanel HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517"/>
         <Menu>
             <MenuItem Header="Nanny">
-                <MenuItem Header="Add"/>
-                <MenuItem Header="Delete"/>
-                <MenuItem Header="Update"/>
+                <MenuItem Header="Add" Click="Add_Nanny"/>
+                <MenuItem Header="Delete" Click="Delete_Nanny"/>
+                <MenuItem Header="Update" Click="Update_Nanny"/>
             </MenuItem>
             <MenuItem Header="Mother">
                 <MenuItem Header="Add"/>
@@ -20,9 +20,9 @@
                 <MenuItem Header="Update"/>
             </MenuItem>
             <MenuItem Header="Child">
-                <MenuItem Header="Add"/>
-                <MenuItem Header="Delete"/>
-                <MenuItem Header="Update"/>
+                <MenuItem Header="Add" Click="Add_Child"/>
+                <MenuItem Header="Delete" Click="Delete_Child"/>
+                <MenuItem Header="Update" Click="Update_Child"/>
             </MenuItem>
             <MenuItem Header="Contract">
                 <MenuItem Header="Add"/>
@@ -35,7 +35,7 @@
                 <MenuItem Header="Child"/>
                 <MenuItem Header="Contract"/>
             </MenuItem>
-        </Menu>-->
+        </Menu>
 
     </Grid>
 </Window>

@@ -1,0 +1,81 @@
+﻿<Window x:Class="UI.UpdateNannyWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="Update Nanny" Height="1220" Width="330">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Grid.RowSpan="2" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" Grid.RowSpan="2" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" Grid.RowSpan="2" TextWrapping="Wrap" Text="Birth Date" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="Phone Number:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" Grid.RowSpan="2" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="Is Elevator?" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" Grid.RowSpan="2" TextWrapping="Wrap" Text="Floor:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="Experience:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" Grid.RowSpan="2" TextWrapping="Wrap" Text="Max Children:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" Grid.RowSpan="2" TextWrapping="Wrap" Text="Min Age:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock11" HorizontalAlignment="Stretch" Grid.Row="11" Grid.RowSpan="2" TextWrapping="Wrap" Text="Max Age:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock12" HorizontalAlignment="Stretch" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap" Text="If Hour Paid:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock13" HorizontalAlignment="Stretch" Grid.Row="13" Grid.RowSpan="2" TextWrapping="Wrap" Text="Pay For Hour:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock14" HorizontalAlignment="Stretch" Grid.Row="14" Grid.RowSpan="2" TextWrapping="Wrap" Text="PayFor Month:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock15" HorizontalAlignment="Stretch" Grid.Row="15" Grid.RowSpan="2" TextWrapping="Wrap" Text="Working Days:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock16" HorizontalAlignment="Stretch" Grid.Row="16" Grid.RowSpan="2" TextWrapping="Wrap" Text="Work Hours:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock17" HorizontalAlignment="Stretch" Grid.Row="17" Grid.RowSpan="2" TextWrapping="Wrap" Text="TMT Vacations?" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock18" HorizontalAlignment="Stretch" Grid.Row="18" Grid.RowSpan="2" TextWrapping="Wrap" Text="Recommendation:" VerticalAlignment="Top"/>
+        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
+        <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
+        <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
+        <Calendar x:Name="Date" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectionMode="SingleDate" SelectedDate=""/>
+        <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False" FontSize="32"/>
+        <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="MaxChild" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="MinAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="MaxAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <CheckBox x:Name="HourPayment" Content="Hour Payment" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False" FontSize="24"/>
+        <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <CheckBox x:Name="TMT" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False" FontSize="32"/>
+        <TextBox x:Name="Recommendation" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text=""/>
+        <CheckBox x:Name="Sunday" Content="Sunday" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Monday" Content="Monday" Grid.Column="1" HorizontalAlignment="Left" Margin="64,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Tuesday" Content="Tuesday" Grid.Column="1" HorizontalAlignment="Left" Margin="133,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Wednesday" Content="Wednesday" Grid.Column="1" HorizontalAlignment="Left" Margin="0,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Thursday" Content="Thursday" Grid.Column="1" HorizontalAlignment="Left" Margin="86,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Friday" Content="Friday" Grid.Column="1" HorizontalAlignment="Left" Margin="159,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click"/>
+
+    </Grid>
+</Window>
