@@ -10,16 +10,16 @@ namespace BL
     public interface IBL
     {
         void AddNanny(Nanny nanny);
-        void DeleteNanny(Nanny nanny);
+        void DeleteNanny(string ID);
         void UpdateNanny(Nanny nanny);
         void AddMother(Mother mother);
-        void DeleteMother(Mother mother);
+        void DeleteMother(string ID);
         void UpdateMother(Mother mother);
         void AddChild(Child child);
-        void DeleteChild(Child child);
+        void DeleteChild(string ID);
         void UpdateChild(Child child);
         void AddContract(Contract contract);
-        void DeleteContract(Contract contract);
+        void DeleteContract(int number);
         void UpdateContract(Contract contract);
         List<Nanny> AllNannys();
         List<Mother> AllMothers();

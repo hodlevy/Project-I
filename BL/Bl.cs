@@ -78,9 +78,9 @@ namespace BL
                 throw new Exception("Nanny is too young!");
             MyDal.AddNanny(nanny);
         }
-        void IBL.DeleteNanny(Nanny nanny)
+        void IBL.DeleteNanny(string ID)
         {
-            MyDal.DeleteNanny(nanny);
+            MyDal.DeleteNanny(ID);
         }
         void IBL.UpdateNanny(Nanny nanny)
         {
@@ -92,9 +92,9 @@ namespace BL
         {
             MyDal.AddMother(mother);
         }
-        void IBL.DeleteMother(Mother mother)
+        void IBL.DeleteMother(string ID)
         {
-            MyDal.DeleteMother(mother);
+            MyDal.DeleteMother(ID);
         }
         void IBL.UpdateMother(Mother mother)
         {
@@ -111,9 +111,9 @@ namespace BL
             else
                 throw new Exception("The child is too young!");
         }
-        void IBL.DeleteChild(Child child)
+        void IBL.DeleteChild(string ID)
         {
-            MyDal.DeleteChild(child);
+            MyDal.DeleteChild(ID);
         }
         void IBL.UpdateChild(Child child)
         {
@@ -136,9 +136,9 @@ namespace BL
 
             MyDal.AddContract(contract);
         }
-        void IBL.DeleteContract(Contract contract)
+        void IBL.DeleteContract(int number)
         {
-            MyDal.DeleteContract(contract);
+            MyDal.DeleteContract(number);
         }
         void IBL.UpdateContract(Contract contract)
         {
@@ -200,18 +200,39 @@ namespace BL
             }
             if (nannies == null)
             {
-                //[DataSource.listNanny.Count(),2] fitting;
-                //int days;
-                //foreach (Nanny nanny in DataSource.listNanny)
-                //{
-                //    days = 0;
-                //    for (int i = 0; i < 6; i++)
-                //    {
-                //        if (mother.NeedsNanny[i] && nanny.IsWorking[i])
-                //            days++;
-                //    }
-                //}
-                //לשים ברשימה את 5 המטפלות הכי קרובות לדרישות
+                int[] preferness = new int[DataSource.listNanny.Count()];
+                int days;
+                for (int i = 0; i < DataSource.listNanny.Count(); i++)
+                {
+                    preferness[i] = 0;
+                    days = 0;
+                    for (int j = 0; j < 6; j++)
+                    {
+                        if (mother.NeedsNanny[j] && DataSource.listNanny[i].IsWorking[j])
+                        {
+                            days++;
+                            if ((DataSource.listNanny[i].WorkHours[i, 0] >= mother.NeedsNannyHours[i, 0] || DataSource.listNanny[i].WorkHours[i, 1] <= mother.NeedsNannyHours[i, 1]))
+                                preferness[i] += 2;
+                        }
+                    }
+                    preferness[i]+=days;
+                }
+                int max;
+                for (int i = 0; i < 5 && i < DataSource.listNanny.Count; i++)
+                {
+                    max = 0;
+                    for (int j = 0; j < DataSource.listNanny.Count; j++)
+                    {
+                        if (max < preferness[j])
+                            max = preferness[j];
+                    }
+                    for (int j = 0; j < DataSource.listNanny.Count; j++)
+                    {
+                        if (preferness[j] == max)
+                            nannies.Add(DataSource.listNanny[j]);
+                        preferness[j] = 0;
+                    }
+                }
             }
             return nannies;
         }
