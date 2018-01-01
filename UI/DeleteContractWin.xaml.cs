@@ -19,18 +19,16 @@ namespace UI
     /// </summary>
     public partial class DeleteContractWin : Window
     {
-        public BL.IBL bl;
         public DeleteContractWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.DeleteContract(Convert.ToInt32(textBox.Text));
+                GetBL.bl.DeleteContract(Convert.ToInt32(textBox.Text));
             }
             catch (Exception str)
             {

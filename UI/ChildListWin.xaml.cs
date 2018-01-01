@@ -15,25 +15,24 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for DeleteMotherWin.xaml
+    /// Interaction logic for ChildListWin.xaml
     /// </summary>
-    public partial class DeleteMotherWin : Window
+    public partial class ChildListWin : Window
     {
-        public DeleteMotherWin()
+        public ChildListWin()
         {
             InitializeComponent();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            string str = "Children:\n\n";
+            List<BE.Child> list = GetBL.bl.AllChildren();
+            for (int i = 0; i < list.Count(); i++)
             {
-                GetBL.bl.DeleteMother(textBox.Text);
+                str += list[i].ToString() + "\n\n--------\n\n";
             }
-            catch (Exception str)
-            {
-                MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            textBox.Text = str;
         }
     }
 }

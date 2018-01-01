@@ -20,7 +20,12 @@ namespace BE
         public override string ToString()
         {
             string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nPhone number: " + phoneNumber +
-                "\nAddress: " + address + "\nSearching Area: " + searchingArea + "\nComments: " + comments;
+                "\nAddress: " + address + "\nSearching Area: " + searchingArea + "\nComments: " + comments + "\nNeeds Hours:";
+            for (int i = 0; i < 6; i++)
+            {
+                if (needsNanny[i])
+                    print += "\n" + (Days)i + ": " + needsNannyHours[i, 0].ToString() + " - " + needsNannyHours[i, 1].ToString();
+            }
             return print;
         }
         public Mother()

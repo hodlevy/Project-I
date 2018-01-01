@@ -24,11 +24,12 @@ namespace BE
         {
             string print = "Number: " + number + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
                 "\nDoes They Have Met? " + haveMet.ToString() + "\nDoes They Have Signed? " + haveSigned.ToString() + "\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
-                "\nBegin-End Dates: " + beginDate.ToString() + " - " + endDate.ToString();
+                "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
             return print;
         }
         public Contract()
         {
+            number++;
             childId = null;
             nannyId = null;
             motherId = null;
@@ -42,6 +43,7 @@ namespace BE
         }
         public Contract(Contract contract)
         {
+            number++;
             childId = contract.childId;
             nannyId = contract.nannyId;
             motherId = contract.motherId;
@@ -56,6 +58,7 @@ namespace BE
         public Contract(string child_id, string nanny_id, string mother_id, bool have_met, bool have_signed,
             double pay_for_hour, double pay_for_month, bool per_what, DateTime begin_date, DateTime end_date)
         {
+            number++;
             childId = child_id;
             nannyId = nanny_id;
             motherId = mother_id;

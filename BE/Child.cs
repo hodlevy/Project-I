@@ -16,7 +16,7 @@ namespace BE
         private string specialNeeds;
         public override string ToString()
         {
-            string print = "Name: " + firstName + "\nID: " + id + "\nMother's ID: " + motherId + "\nBirth Date: " + birthDate.ToString();
+            string print = "Name: " + firstName + "\nID: " + id + "\nMother's ID: " + motherId + "\nBirth Date: " + birthDate.ToShortDateString();
             if (isSpecialNeeds)
                 print += "\nSpecial Needs: " + specialNeeds;
             return print;

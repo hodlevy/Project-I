@@ -29,13 +29,18 @@ namespace BE
         private string recommendation;
         public override string ToString()
         {
-            string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nBirth Date: " + birthDate.ToString() + "\nPhone number: " + phoneNumber +
+            string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nBirth Date: " + birthDate.ToShortDateString() + "\nPhone number: " + phoneNumber +
                 "\nAddress: " + address + "\nThere Is an Elevator? " + isElevator.ToString() + "\nFloor: " + floor + "\nExperience: " + experience +
-                "\nMax Amount of Children: " + maxChildren + "\nRange Ages: " + minAge + " - " + maxAge + " monthes\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
-                "\nVacation according to TMT? " + vacationCheck.ToString() + "\nRecommendation: " + recommendation;
+                " years\nMax Amount of Children: " + maxChildren + "\nRange Ages: " + minAge + " - " + maxAge + " monthes\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
+                "\nVacation according to TMT? " + vacationCheck.ToString() + "\nRecommendation: " + recommendation + "\nWork Hours:";
+            for (int i = 0; i < 6; i++)
+            {
+                if (isWorking[i])
+                    print += "\n" + (Days)i + ": " + workHours[i, 0].ToString() + " - " + workHours[i, 1].ToString();
+            }
             return print;
         }
-        public Nanny(string ID, string first_name, string last_name, DateTime birth_date, string phone_number, string address_, bool is_elevator,
+        public Nanny(string ID, string first_name, string last_name, DateTime birth_date,  string address_, string phone_number,bool is_elevator,
             int floor_, int experience_, int max_children, int min_age, int max_age, bool if_hour_paid, double pay_for_hour, double pay_for_month,
             bool vacation_check, string recommendation_, bool[] is_working, TimeSpan[,] work_hours)
         {

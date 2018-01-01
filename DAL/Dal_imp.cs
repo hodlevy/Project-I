@@ -94,17 +94,17 @@ namespace DAL
         void Idal.AddChild(Child child)
         {
             Child child2 = GetChild(child.Id);
-            if (child2 != null)
+            if (child2.Id != null)
                 throw new Exception("Child already exist");
             Mother mother = GetMother(child.MotherId);
-            if (mother == null)
+            if (mother.Id == null)
                 throw new Exception("Mother doesn't exist");
             DataSource.listChild.Add(child2);
         }
         void Idal.DeleteChild(string ID)
         {
             Child child2 = GetChild(ID);
-            if (child2 == null)
+            if (child2.Id == null)
                 throw new Exception("Child doesn't exist");
             DataSource.listChild.Remove(child2);
             List<Contract> contracts = GetContractByID(child2.Id);
@@ -214,10 +214,14 @@ namespace DAL
         Child GetChild(string childID)
         {
             Child child = new Child();
-            var v = from item in DataSource.listChild
-                    where item.Id == childID
-                    select item;
-            child = v.First();
+            //var v = from item in DataSource.listChild
+            //        where item.Id == childID
+            //        select item;
+            //child = v.First();
+            List<Child> list = null;
+            list[0] = null;
+            list = DataSource.listChild.FindAll(item => item.Id == childID);
+            child = list[0];
             return child;
         }
         Contract GetContract(int number)

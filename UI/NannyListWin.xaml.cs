@@ -19,18 +19,20 @@ namespace UI
     /// </summary>
     public partial class NannyListWin : Window
     {
-        public BL.IBL bl;
         public NannyListWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
-            string list = bl.AllNannys().ToString();
-            printDialog.PrintVisual(grid, list);
+            string str = "Nannies:\n\n";
+            List<BE.Nanny> list = GetBL.bl.AllNannys();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                str += list[i].ToString() + "\n\n--------\n\n";
+            }
+            textBox.Text = str;
         }
     }
 }

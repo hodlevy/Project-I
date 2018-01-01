@@ -19,18 +19,16 @@ namespace UI
     /// </summary>
     public partial class DeleteNannyWin : Window
     {
-        public BL.IBL bl;
         public DeleteNannyWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.DeleteNanny(textBox.Text);
+                GetBL.bl.DeleteNanny(textBox.Text);
             }
             catch(Exception str)
             {

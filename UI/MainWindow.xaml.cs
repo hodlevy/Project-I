@@ -20,11 +20,10 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public BL.IBL bl;
         public MainWindow()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
+            GetBL.initBL();
         }
 
         private void Add_Nanny(object sender, RoutedEventArgs e)
@@ -100,15 +99,31 @@ namespace UI
         }
         private void Mother_List(object sender, RoutedEventArgs e)
         {
-
+            MotherListWin motherListWin = new MotherListWin();
+            motherListWin.ShowDialog();
         }
         private void Child_List(object sender, RoutedEventArgs e)
         {
-
+            ChildListWin childListWin = new ChildListWin();
+            childListWin.ShowDialog();
         }
         private void Contract_List(object sender, RoutedEventArgs e)
         {
+            ContractListWin contractListWin = new ContractListWin();
+            contractListWin.ShowDialog();
+        }
+    }
+    public class GetBL
+    {
+        public static BL.IBL bl;
 
+        public static void initBL()
+        {
+            bl = BL.FactoryBL.GetBL();
+        }
+        public static BL.IBL getBL()
+        {
+            return bl;
         }
     }
 }

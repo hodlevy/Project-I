@@ -19,11 +19,9 @@ namespace UI
     /// </summary>
     public partial class AddChildWin : Window
     {
-        public BL.IBL bl;
         public AddChildWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -31,7 +29,7 @@ namespace UI
             BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)Calendar.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
-                bl.AddChild(child);
+                GetBL.bl.AddChild(child);
             }
             catch(Exception str)
             {

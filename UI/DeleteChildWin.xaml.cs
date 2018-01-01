@@ -19,18 +19,16 @@ namespace UI
     /// </summary>
     public partial class DeleteChildWin : Window
     {
-        public BL.IBL bl;
         public DeleteChildWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.DeleteChild(textBox.Text);
+                GetBL.bl.DeleteChild(textBox.Text);
             }
             catch (Exception str)
             {

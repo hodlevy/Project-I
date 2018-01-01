@@ -19,18 +19,16 @@ namespace UI
     /// </summary>
     public partial class UpdateChildWin : Window
     {
-        public BL.IBL bl;
         public UpdateChildWin()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
             BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)Calendar.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
-                bl.UpdateChild(child);
+                GetBL.bl.UpdateChild(child);
             }
             catch (Exception str)
             {
