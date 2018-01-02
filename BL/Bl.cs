@@ -55,7 +55,9 @@ namespace BL
             DataSource.listChild.Add(Dror);
             Contract contract1 = new Contract("322690124", "123456782", "113542872", true, true, 30, 5000, true, new DateTime(2017, 6, 20), new DateTime(2017, 12, 20));
             Contract contract2 = new Contract("302302039", "258746916", "111112223", true, true, 27, 4800, false, new DateTime(2015, 6, 1), new DateTime(2017, 12, 20));
+            contract1.Salary = MonthlyPayment(contract1);
             DataSource.listContract.Add(contract1);
+            contract2.Salary = MonthlyPayment(contract2);
             DataSource.listContract.Add(contract2);
         }
         #region Nanny

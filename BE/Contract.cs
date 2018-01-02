@@ -24,7 +24,7 @@ namespace BE
         {
             string print = "Number: " + number + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
                 "\nDoes They Have Met? " + haveMet.ToString() + "\nDoes They Have Signed? " + haveSigned.ToString() + "\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
-                "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
+                "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString() + "\nSalary: " + salary;
             return print;
         }
         public Contract()
