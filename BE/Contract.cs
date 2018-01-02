@@ -9,6 +9,7 @@ namespace BE
     public class Contract
     {
         private static int number = 0;
+        readonly int code;
         readonly string childId;
         readonly string nannyId;
         readonly string motherId;
@@ -22,14 +23,14 @@ namespace BE
         private double salary;
         public override string ToString()
         {
-            string print = "Number: " + number + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
+            string print = "Number: " + code + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
                 "\nDoes They Have Met? " + haveMet.ToString() + "\nDoes They Have Signed? " + haveSigned.ToString() + "\nPay for Hour/Month: " + payForHour + "/" + payForMonth +
                 "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString() + "\nSalary: " + salary;
             return print;
         }
         public Contract()
         {
-            number++;
+            code = ++number;
             childId = null;
             nannyId = null;
             motherId = null;
@@ -43,7 +44,7 @@ namespace BE
         }
         public Contract(Contract contract)
         {
-            number++;
+            code = ++number;
             childId = contract.childId;
             nannyId = contract.nannyId;
             motherId = contract.motherId;
@@ -58,7 +59,7 @@ namespace BE
         public Contract(string child_id, string nanny_id, string mother_id, bool have_met, bool have_signed,
             double pay_for_hour, double pay_for_month, bool per_what, DateTime begin_date, DateTime end_date)
         {
-            number++;
+            code = ++number;
             childId = child_id;
             nannyId = nanny_id;
             motherId = mother_id;
@@ -208,6 +209,14 @@ namespace BE
             set
             {
                 salary = value;
+            }
+        }
+
+        public int Code
+        {
+            get
+            {
+                return code;
             }
         }
         #endregion

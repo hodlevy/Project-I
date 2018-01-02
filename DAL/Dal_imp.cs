@@ -139,24 +139,24 @@ namespace DAL
             Mother mother = GetMother(contract.MotherId);
             if (mother == null)
                 throw new Exception("Mother doesn't exist");
-            contract.Number++;
+            //contract.Number++;
             DataSource.listContract.Add(contract);
         }
         void Idal.DeleteContract(int number)
         {
             Contract contract2 = GetContract(number);
-            if (contract2 == null)
+            if (contract2.Code != number)
                 throw new Exception("Contract doesn't exist");
             DataSource.listContract.Remove(contract2);
         }
         void Idal.UpdateContract(Contract contract)
         {
-            Contract contract2 = GetContract(contract.Number);
+            Contract contract2 = GetContract(contract.Code);
             if (contract2 == null)
                 throw new Exception("Contract doesn't exist");
             foreach (Contract contra in DataSource.listContract)
             {
-                if (contract.Number == contra.Number)
+                if (contract.Code == contra.Code)
                 {
                     DataSource.listContract.Remove(contra);
                     DataSource.listContract.Add(contract);
@@ -224,7 +224,7 @@ namespace DAL
         {
             Contract contract = new Contract();
             List<Contract> list = null;
-            list = DataSource.listContract.FindAll(item => item.Number == number);
+            list = DataSource.listContract.FindAll(item => item.Code == number);
             if (list.Count() != 0)
                 contract = list[0];
             return contract;
