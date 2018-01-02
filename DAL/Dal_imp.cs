@@ -139,7 +139,6 @@ namespace DAL
             Mother mother = GetMother(contract.MotherId);
             if (mother == null)
                 throw new Exception("Mother doesn't exist");
-            //contract.Number++;
             DataSource.listContract.Add(contract);
         }
         void Idal.DeleteContract(int number)

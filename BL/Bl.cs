@@ -129,6 +129,10 @@ namespace BL
             List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
             if (list.Count() == nanny.MaxChildren)
                 throw new Exception("This is the maximum number of children!");
+            //Child child = GetChild(contract.ChildId);
+            //list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.ChildId == child.Id);
+            //if (list != null)
+            //    throw new Exception("There is already contract which the nanny take care of this child");
             Mother mother = GetMother(contract.MotherId);
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
@@ -272,6 +276,15 @@ namespace BL
                     select item;
             mother = v.First();
             return mother;
+        }
+        Child GetChild(string childID)
+        {
+            Child child = new Child();
+            var v = from item in DataSource.listChild
+                    where item.Id == childID
+                    select item;
+            child = v.First();
+            return child;
         }
         IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false)
         {

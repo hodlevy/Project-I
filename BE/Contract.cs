@@ -30,7 +30,7 @@ namespace BE
         }
         public Contract()
         {
-            code = ++number;
+            code = number;
             childId = null;
             nannyId = null;
             motherId = null;
@@ -44,7 +44,7 @@ namespace BE
         }
         public Contract(Contract contract)
         {
-            code = ++number;
+            code = number;
             childId = contract.childId;
             nannyId = contract.nannyId;
             motherId = contract.motherId;
