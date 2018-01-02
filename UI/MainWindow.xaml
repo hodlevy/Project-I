@@ -27,6 +27,7 @@
                 <MenuItem Header="Add" Click="Add_Child"/>
                 <MenuItem Header="Delete" Click="Delete_Child"/>
                 <MenuItem Header="Update" Click="Update_Child"/>
+                <MenuItem Header="Alone" Click="Alone_List"/>
             </MenuItem>
             <MenuItem Header="Contract">
                 <MenuItem Header="Add" Click="Add_Contract"/>

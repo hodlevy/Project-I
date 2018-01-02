@@ -112,6 +112,12 @@ namespace UI
             ContractListWin contractListWin = new ContractListWin();
             contractListWin.ShowDialog();
         }
+
+        private void Alone_List(object sender, RoutedEventArgs e)
+        {
+            LonelyChildrenWin lonelyChildrenWin = new LonelyChildrenWin();
+            lonelyChildrenWin.ShowDialog();
+        }
     }
     public class GetBL
     {

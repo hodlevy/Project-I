@@ -25,5 +25,7 @@ namespace BL
         List<Mother> AllMothers();
         List<Child> AllChildren();
         List<Contract> AllContracts();
+        List<Child> LonleyChildren();
+        List<Nanny> PotentiallyNannies(Mother mother);
     }
 }

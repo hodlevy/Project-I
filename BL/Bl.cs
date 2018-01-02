@@ -183,9 +183,9 @@ namespace BL
             List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
             return list;
         }
-        List<Nanny> PotentiallyNannies(Mother mother)
+        List<Nanny> IBL.PotentiallyNannies(Mother mother)
         {
-            List<Nanny> nannies = null;
+            List<Nanny> nannies = new List<Nanny>();
             bool flag;
             foreach (Nanny nanny in DataSource.listNanny)
             {
@@ -200,7 +200,7 @@ namespace BL
                 if (flag)
                     nannies.Add(nanny);
             }
-            if (nannies == null)
+            if (nannies.Count() == 0)
             {
                 int[] preferness = new int[DataSource.listNanny.Count()];
                 int days;
@@ -220,15 +220,15 @@ namespace BL
                     preferness[i]+=days;
                 }
                 int max;
-                for (int i = 0; i < 5 && i < DataSource.listNanny.Count; i++)
+                for (int i = 0; i < 5 && i < DataSource.listNanny.Count(); i++)
                 {
                     max = 0;
-                    for (int j = 0; j < DataSource.listNanny.Count; j++)
+                    for (int j = 0; j < DataSource.listNanny.Count(); j++)
                     {
                         if (max < preferness[j])
                             max = preferness[j];
                     }
-                    for (int j = 0; j < DataSource.listNanny.Count; j++)
+                    for (int j = 0; j < DataSource.listNanny.Count(); j++)
                     {
                         if (preferness[j] == max)
                             nannies.Add(DataSource.listNanny[j]);
@@ -238,9 +238,9 @@ namespace BL
             }
             return nannies;
         }
-        List<Child> LonleyChildren()
+        List<Child> IBL.LonleyChildren()
         {
-            List<Child> children = null;
+            List<Child> children = new List<Child>();
             bool flag;
             foreach (Child child in DataSource.listChild)
             {

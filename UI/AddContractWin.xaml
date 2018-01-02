@@ -12,19 +12,19 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="3.5*"/>
-            <RowDefinition Height="3.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="166*"/>
+            <RowDefinition Height="168*"/>
+
+            <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Number:"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="Child's ID:"/>
@@ -37,7 +37,6 @@
         <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="Per What?"/>
         <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="Begin Date:"/>
         <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="End Date:"/>
-        <TextBlock x:Name="textBlock11" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="Salary:"/>
         <TextBlock x:Name="Number" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" />
         <TextBox x:Name="ChildID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="NannyID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
@@ -46,10 +45,9 @@
         <CheckBox x:Name="Signed" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5"/>
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <CheckBox x:Name="Per" Content="Per Hour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
+        <CheckBox x:Name="Per" Content="Per Month" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
         <Calendar x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
         <Calendar x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
-        <TextBox x:Name="Salary" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32"/>
         <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
 
     </Grid>

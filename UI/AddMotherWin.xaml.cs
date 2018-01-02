@@ -32,11 +32,14 @@ namespace UI
             try
             {
                 GetBL.bl.AddMother(mother);
+                PotentialNannyWin potentialNannyWin = new PotentialNannyWin();
+                potentialNannyWin.Show();
             }
             catch (Exception str)
             {
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
         }
     }
 }
