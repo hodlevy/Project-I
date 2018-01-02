@@ -20,14 +20,14 @@ namespace DAL
         void Idal.AddNanny(Nanny nanny)
         {
             Nanny nanny2 = GetNanny(nanny.Id);
-            if(nanny2 != null)
+            if(nanny2.Id != null)
                 throw new Exception("Nanny already exist");
-            DataSource.listNanny.Add(nanny2);
+            DataSource.listNanny.Add(nanny);
         }
         void Idal.DeleteNanny(string ID)
         {
             Nanny nanny2 = GetNanny(ID);
-            if (nanny2 == null)
+            if (nanny2.Id == null)
                 throw new Exception("Nanny doesn't exist");
             DataSource.listNanny.Remove(nanny2);
             List<Contract> contracts = GetContractByID(nanny2.Id);
@@ -40,14 +40,14 @@ namespace DAL
         void Idal.UpdateNanny(Nanny nanny)
         {
             Nanny nanny2 = GetNanny(nanny.Id);
-            if (nanny2 == null)
+            if (nanny2.Id == null)
                 throw new Exception("Nanny doesn't exist");
             foreach (Nanny nan in DataSource.listNanny)
             {
-                if (nanny2.Id == nan.Id)
+                if (nanny.Id == nan.Id)
                 {
                     DataSource.listNanny.Remove(nan);
-                    DataSource.listNanny.Add(nanny2);
+                    DataSource.listNanny.Add(nanny);
                     break;
                 }
             }
@@ -57,14 +57,14 @@ namespace DAL
         void Idal.AddMother(Mother mother)
         {
             Mother mother2 = GetMother(mother.Id);
-            if (mother2 != null)
+            if (mother2.Id != null)
                 throw new Exception("Mother already exist");
-            DataSource.listMother.Add(mother2);
+            DataSource.listMother.Add(mother);
         }
         void Idal.DeleteMother(string ID)
         {
             Mother mother2 = GetMother(ID);
-            if (mother2 == null)
+            if (mother2.Id == null)
                 throw new Exception("Mother doesn't exist");
             DataSource.listMother.Remove(mother2);
             List<Contract> contracts = GetContractByID(mother2.Id);
@@ -77,14 +77,14 @@ namespace DAL
         void Idal.UpdateMother(Mother mother)
         {
             Mother mother2 = GetMother(mother.Id);
-            if (mother2 == null)
+            if (mother2.Id == null)
                 throw new Exception("Mother doesn't exist");
             foreach (Mother mom in DataSource.listMother)
             {
-                if (mother2.Id == mom.Id)
+                if (mother.Id == mom.Id)
                 {
                     DataSource.listMother.Remove(mom);
-                    DataSource.listMother.Add(mother2);
+                    DataSource.listMother.Add(mother);
                     break;
                 }
             }
@@ -99,7 +99,7 @@ namespace DAL
             Mother mother = GetMother(child.MotherId);
             if (mother.Id == null)
                 throw new Exception("Mother doesn't exist");
-            DataSource.listChild.Add(child2);
+            DataSource.listChild.Add(child);
         }
         void Idal.DeleteChild(string ID)
         {
@@ -124,7 +124,7 @@ namespace DAL
                 if (child2.Id == ch.Id)
                 {
                     DataSource.listChild.Remove(ch);
-                    DataSource.listChild.Add(child2);
+                    DataSource.listChild.Add(child);
                     break;
                 }
             }
@@ -156,10 +156,10 @@ namespace DAL
                 throw new Exception("Contract doesn't exist");
             foreach (Contract contra in DataSource.listContract)
             {
-                if (contract2.Number == contra.Number)
+                if (contract.Number == contra.Number)
                 {
                     DataSource.listContract.Remove(contra);
-                    DataSource.listContract.Add(contract2);
+                    DataSource.listContract.Add(contract);
                     break;
                 }
             }
@@ -196,41 +196,37 @@ namespace DAL
         Nanny GetNanny(string nannyID)
         {
             Nanny nanny = new Nanny();
-            var v = from item in DataSource.listNanny
-                    where item.Id == nannyID
-                    select item;
-            nanny = v.First();
+            List<Nanny> list = null;
+            list = DataSource.listNanny.FindAll(item => item.Id == nannyID);
+            if (list.Count() != 0)
+                nanny = list[0];
             return nanny;
         }
         Mother GetMother(string motherID)
         {
             Mother mother = new Mother();
-            var v = from item in DataSource.listMother
-                    where item.Id == motherID
-                    select item;
-            mother = v.First();
+            List<Mother> list = null;
+            list = DataSource.listMother.FindAll(item => item.Id == motherID);
+            if (list.Count() != 0)
+                mother = list[0];
             return mother;
         }
         Child GetChild(string childID)
         {
             Child child = new Child();
-            //var v = from item in DataSource.listChild
-            //        where item.Id == childID
-            //        select item;
-            //child = v.First();
             List<Child> list = null;
-            list[0] = null;
             list = DataSource.listChild.FindAll(item => item.Id == childID);
-            child = list[0];
+            if(list.Count() != 0)
+                child = list[0];
             return child;
         }
         Contract GetContract(int number)
         {
             Contract contract = new Contract();
-            var v = from item in DataSource.listContract
-                    where item.Number == number
-                    select item;
-            contract = v.First();
+            List<Contract> list = null;
+            list = DataSource.listContract.FindAll(item => item.Number == number);
+            if (list.Count() != 0)
+                contract = list[0];
             return contract;
         }
         List<Contract> GetContractByID(string ID)
