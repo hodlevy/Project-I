@@ -134,10 +134,10 @@ namespace DAL
         void Idal.AddContract(Contract contract)
         {
             Nanny nanny = GetNanny(contract.NannyId);
-            if (nanny == null)
+            if (nanny.Id == null)
                 throw new Exception("Nanny doesn't exist");
             Mother mother = GetMother(contract.MotherId);
-            if (mother == null)
+            if (mother.Id == null)
                 throw new Exception("Mother doesn't exist");
             DataSource.listContract.Add(contract);
         }

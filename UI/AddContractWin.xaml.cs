@@ -22,8 +22,7 @@ namespace UI
         public AddContractWin()
         {
             InitializeComponent();
-            BE.Contract contract = new BE.Contract();
-            string str = contract.Number.ToString();
+            string str = Convert.ToString(GetBL.bl.AllContracts().Count() + 1);
             Number.Text = str;
         }
 
