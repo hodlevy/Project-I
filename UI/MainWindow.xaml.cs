@@ -118,6 +118,11 @@ namespace UI
             LonelyChildrenWin lonelyChildrenWin = new LonelyChildrenWin();
             lonelyChildrenWin.ShowDialog();
         }
+        private void Vacation_Nanny(object sender, RoutedEventArgs e)
+        {
+            NannyVacationWin nannyVacationWin = new NannyVacationWin();
+            nannyVacationWin.ShowDialog();
+        }
     }
     public class GetBL
     {

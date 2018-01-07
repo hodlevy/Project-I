@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for NannyListWin.xaml
+    /// Interaction logic for NannyVacationWin.xaml
     /// </summary>
-    public partial class NannyListWin : Window
+    public partial class NannyVacationWin : Window
     {
-        public NannyListWin()
+        public NannyVacationWin()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string str = "Nannies:\n\n";
-            List<BE.Nanny> list = GetBL.bl.VacationCheck_AllNanny();
+            List<BE.Nanny> list = GetBL.bl.();
             for (int i = 0; i < list.Count(); i++)
             {
                 str += list[i].ToString() + "\n\n--------\n\n";

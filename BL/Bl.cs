@@ -11,12 +11,19 @@ namespace BL
 {
     public class Bl : IBL
     {
+        // the DAL element
         Idal MyDal;
+        /// <summary>
+        /// default constructor for BL layer
+        /// </summary>
         public Bl()
         {
             MyDal = Dal.GetDal();
             initialization();
         }
+        /// <summary>
+        /// initialization with 8 elements for the start
+        /// </summary>
         void initialization()
         {
             Nanny Ayala_Zehavi = new Nanny
@@ -61,8 +68,13 @@ namespace BL
             DataSource.listContract.Add(contract2);
         }
         #region Nanny
+        /// <summary>
+        /// add nanny
+        /// </summary>
+        /// <param name="nanny"></param>
         void IBL.AddNanny(Nanny nanny)
         {
+            // if the nanny is younger than 18
             int nannyAge = DateTime.Now.Year - nanny.BirthDate.Year;
             if (nannyAge == 18)
             {
@@ -80,32 +92,60 @@ namespace BL
                 throw new Exception("Nanny is too young!");
             MyDal.AddNanny(nanny);
         }
+        /// <summary>
+        /// delete nanny
+        /// </summary>
+        /// <param name="ID"></param>
         void IBL.DeleteNanny(string ID)
         {
             MyDal.DeleteNanny(ID);
         }
+        /// <summary>
+        /// update nanny
+        /// </summary>
+        /// <param name="nanny"></param>
         void IBL.UpdateNanny(Nanny nanny)
         {
             MyDal.UpdateNanny(nanny);
         }
         #endregion
         #region Mother
+        /// <summary>
+        /// add mother
+        /// </summary>
+        /// <param name="mother"></param>
         void IBL.AddMother(Mother mother)
         {
             MyDal.AddMother(mother);
         }
+        /// <summary>
+        /// delete mother
+        /// </summary>
+        /// <param name="ID"></param>
         void IBL.DeleteMother(string ID)
         {
             MyDal.DeleteMother(ID);
         }
+        /// <summary>
+        /// update mother
+        /// </summary>
+        /// <param name="mother"></param>
         void IBL.UpdateMother(Mother mother)
         {
             MyDal.UpdateMother(mother);
         }
         #endregion
         #region Child
+        /// <summary>
+        /// add child
+        /// </summary>
+        /// <param name="child"></param>
         void IBL.AddChild(Child child)
         {
+            // if the child hasn't born yet
+            if (DateTime.Now < child.BirthDate)
+                throw new Exception("The child hasn't born yet!");
+            // if the child is younger than 3 monthes
             int month = DateTime.Now.Month - child.BirthDate.Month;
             int year = DateTime.Now.Year - child.BirthDate.Year;
             if (month >= 3 || year > 0)
@@ -113,83 +153,114 @@ namespace BL
             else
                 throw new Exception("The child is too young!");
         }
+        /// <summary>
+        /// delete child
+        /// </summary>
+        /// <param name="ID"></param>
         void IBL.DeleteChild(string ID)
         {
             MyDal.DeleteChild(ID);
         }
+        /// <summary>
+        /// update child
+        /// </summary>
+        /// <param name="child"></param>
         void IBL.UpdateChild(Child child)
         {
             MyDal.UpdateChild(child);
         }
         #endregion
         #region Contract
+        /// <summary>
+        /// add contract
+        /// </summary>
+        /// <param name="contract"></param>
         void IBL.AddContract(Contract contract)
         {
+            // if it is the max amount of children for nanny
             Nanny nanny = GetNanny(contract.NannyId);
             List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
             if (list.Count() == nanny.MaxChildren)
                 throw new Exception("This is the maximum number of children!");
-            //Child child = GetChild(contract.ChildId);
-            //list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.ChildId == child.Id);
-            //if (list != null)
-            //    throw new Exception("There is already contract which the nanny take care of this child");
-
-            //bool flag = false;
-            //
-            //foreach (Child child2 in FactoryBL.GetBL().LonleyChildren())
-            //{
-            //    if (child.Id == child2.Id)
-            //        flag = true;
-            //}
-            //if (!flag)
-            //    throw new Exception("Contract already exist");
-
+            // if the contract already exist (the cild  already has a contract)
             Child child = GetChild(contract.ChildId);
             bool flag = true;
             foreach (Contract contract2 in DataSource.listContract)
             {
-                   if (child.Id == contract2.ChildId)
-                        flag = false;
+                if (child.Id == contract2.ChildId)
+                    flag = false;
             }
             if (!flag)
                 throw new Exception("Contract already exist");
-
+            // if the begin date is after the end date
+            if (contract.EndDate < contract.BeginDate)
+                throw new Exception("the contract ends before it begins");
+            // discount calculate
             Mother mother = GetMother(contract.MotherId);
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
             if (list.Count() != 0)
-                discount = (list.Count() - 1) * 0.02;
+                discount = (list.Count()) * 0.02;
             contract.Salary = MonthlyPayment(contract) * (1 - discount);
-
             MyDal.AddContract(contract);
         }
+        /// <summary>
+        /// delete contract
+        /// </summary>
+        /// <param name="number"></param>
         void IBL.DeleteContract(int number)
         {
             MyDal.DeleteContract(number);
         }
+        /// <summary>
+        /// update contract
+        /// </summary>
+        /// <param name="contract"></param>
         void IBL.UpdateContract(Contract contract)
         {
             MyDal.UpdateContract(contract);
         }
         #endregion
         #region Lists
+        /// <summary>
+        /// return the nanny's list
+        /// </summary>
+        /// <returns>nanny's list</returns>
         List<Nanny> IBL.AllNannys()
         {
             return DataSource.listNanny;
         }
+        /// <summary>
+        /// return the mother's list
+        /// </summary>
+        /// <returns>mother's list</returns>
         List<Mother> IBL.AllMothers()
         {
             return DataSource.listMother;
         }
+        /// <summary>
+        /// return the child's list
+        /// </summary>
+        /// <returns>child's list</returns>
         List<Child> IBL.AllChildren()
         {
             return DataSource.listChild;
         }
+        /// <summary>
+        /// return the contract's list
+        /// </summary>
+        /// <returns>contract's list</returns>
         List<Contract> IBL.AllContracts()
         {
             return DataSource.listContract;
         }
         #endregion
+        /// <summary>
+        /// google maps function for calculate distances
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns>distance</returns>
         public static int CalculateDistance(string source, string dest)
         {
             var drivingDirectionRequest = new GoogleMapsApi.Entities.Directions.Request.DirectionsRequest
@@ -203,7 +274,11 @@ namespace BL
             GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
             return leg.Distance.Value;
         }
-        List<Nanny> VacationCheck_AllNanny()
+        /// <summary>
+        /// returns all the nannies who worked according to the TMT vacations
+        /// </summary>
+        /// <returns>list</returns>
+        List<Nanny> IBL.VacationCheck_AllNanny()
         {
             List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
             return list;
@@ -238,7 +313,7 @@ namespace BL
                         if (mother.NeedsNanny[j] && DataSource.listNanny[i].IsWorking[j])
                         {
                             days++;
-                            if ((DataSource.listNanny[i].WorkHours[i, 0] >= mother.NeedsNannyHours[i, 0] || DataSource.listNanny[i].WorkHours[i, 1] <= mother.NeedsNannyHours[i, 1]))
+                            if ((DataSource.listNanny[i].WorkHours[j, 0] <= mother.NeedsNannyHours[j, 0] && DataSource.listNanny[i].WorkHours[j, 1] >= mother.NeedsNannyHours[j, 1]))
                                 preferness[i] += 2;
                         }
                     }
@@ -256,8 +331,11 @@ namespace BL
                     for (int j = 0; j < DataSource.listNanny.Count(); j++)
                     {
                         if (preferness[j] == max)
+                        {
                             nannies.Add(DataSource.listNanny[j]);
-                        preferness[j] = 0;
+                            preferness[j] = 0;
+                        }
+                        j = DataSource.listNanny.Count();
                     }
                 }
             }

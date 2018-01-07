@@ -17,6 +17,10 @@ namespace BE
         private bool[] needsNanny = new bool[6];
         private TimeSpan[,] needsNannyHours = new TimeSpan[6, 2];
         private string comments;
+        /// <summary>
+        /// To string override
+        /// </summary>
+        /// <returns>string to print</returns>
         public override string ToString()
         {
             string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nPhone number: " + phoneNumber +
@@ -28,6 +32,9 @@ namespace BE
             }
             return print;
         }
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Mother()
         {
             id = null;
@@ -40,6 +47,10 @@ namespace BE
             needsNannyHours = null;
             comments = null;
         }
+        /// <summary>
+        /// copy constructor
+        /// </summary>
+        /// <param name="mother"></param>
         public Mother(Mother mother)
         {
             if (IDCheck(mother.id))
@@ -55,6 +66,18 @@ namespace BE
             needsNannyHours = mother.needsNannyHours;
             comments = mother.comments;
         }
+        /// <summary>
+        /// constructor by everything
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="first_name"></param>
+        /// <param name="last_name"></param>
+        /// <param name="phone_number"></param>
+        /// <param name="address_"></param>
+        /// <param name="searching_area"></param>
+        /// <param name="needs_nanny"></param>
+        /// <param name="needs_nanny_hours"></param>
+        /// <param name="comments_"></param>
         public Mother(string ID, string first_name, string last_name, string phone_number, string address_, string searching_area,
             bool[] needs_nanny, TimeSpan[,] needs_nanny_hours, string comments_)
         {

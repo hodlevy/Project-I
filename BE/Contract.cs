@@ -21,6 +21,10 @@ namespace BE
         private DateTime beginDate;
         private DateTime endDate;
         private double salary;
+        /// <summary>
+        /// To string override
+        /// </summary>
+        /// <returns>string to print</returns>
         public override string ToString()
         {
             string print = "Number: " + code + "\nChild's ID: " + childId + "\nNanny's ID: " + nannyId + "\nMother's ID: " + motherId +
@@ -28,6 +32,9 @@ namespace BE
                 "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString() + "\nSalary: " + salary;
             return print;
         }
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Contract()
         {
             code = number;
@@ -42,6 +49,10 @@ namespace BE
             beginDate = DateTime.Now;
             endDate = DateTime.Now;
         }
+        /// <summary>
+        /// copy constructor
+        /// </summary>
+        /// <param name="contract"></param>
         public Contract(Contract contract)
         {
             code = number;
@@ -56,6 +67,19 @@ namespace BE
             beginDate = contract.beginDate;
             endDate = contract.endDate;
         }
+        /// <summary>
+        /// constructor by everything
+        /// </summary>
+        /// <param name="child_id"></param>
+        /// <param name="nanny_id"></param>
+        /// <param name="mother_id"></param>
+        /// <param name="have_met"></param>
+        /// <param name="have_signed"></param>
+        /// <param name="pay_for_hour"></param>
+        /// <param name="pay_for_month"></param>
+        /// <param name="per_what"></param>
+        /// <param name="begin_date"></param>
+        /// <param name="end_date"></param>
         public Contract(string child_id, string nanny_id, string mother_id, bool have_met, bool have_signed,
             double pay_for_hour, double pay_for_month, bool per_what, DateTime begin_date, DateTime end_date)
         {

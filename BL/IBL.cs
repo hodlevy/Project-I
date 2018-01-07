@@ -7,6 +7,9 @@ using BE;
 
 namespace BL
 {
+    /// <summary>
+    /// interface for BL layer
+    /// </summary>
     public interface IBL
     {
         void AddNanny(Nanny nanny);
@@ -27,5 +30,6 @@ namespace BL
         List<Contract> AllContracts();
         List<Child> LonleyChildren();
         List<Nanny> PotentiallyNannies(Mother mother);
+        List<Nanny> VacationCheck_AllNanny();
     }
 }

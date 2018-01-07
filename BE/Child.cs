@@ -14,6 +14,10 @@ namespace BE
         readonly DateTime birthDate;
         private bool isSpecialNeeds;
         private string specialNeeds;
+        /// <summary>
+        /// To string override
+        /// </summary>
+        /// <returns>string to print</returns>
         public override string ToString()
         {
             string print = "Name: " + firstName + "\nID: " + id + "\nMother's ID: " + motherId + "\nBirth Date: " + birthDate.ToShortDateString();
@@ -21,6 +25,9 @@ namespace BE
                 print += "\nSpecial Needs: " + specialNeeds;
             return print;
         }
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Child()
         {
             id = null;
@@ -30,6 +37,10 @@ namespace BE
             isSpecialNeeds = false;
             specialNeeds = null;
         }
+        /// <summary>
+        /// copy constructor
+        /// </summary>
+        /// <param name="child"></param>
         public Child(Child child)
         {
             if (IDCheck(child.id))
@@ -42,6 +53,15 @@ namespace BE
             isSpecialNeeds = child.isSpecialNeeds;
             specialNeeds = child.specialNeeds;
         }
+        /// <summary>
+        /// constructor by everything
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="mother_id"></param>
+        /// <param name="first_name"></param>
+        /// <param name="birth_date"></param>
+        /// <param name="is_special_needs"></param>
+        /// <param name="special_needs"></param>
         public Child(string ID, string mother_id, string first_name, DateTime birth_date, bool is_special_needs, string special_needs)
         {
             if (IDCheck(ID))

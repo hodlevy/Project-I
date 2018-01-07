@@ -17,6 +17,7 @@
                 <MenuItem Header="Add" Click="Add_Nanny"/>
                 <MenuItem Header="Delete" Click="Delete_Nanny"/>
                 <MenuItem Header="Update" Click="Update_Nanny"/>
+                <MenuItem Header="Vacation" Click="Vacation_Nanny"/>
             </MenuItem>
             <MenuItem Header="Mother">
                 <MenuItem Header="Add" Click="Add_Mother"/>

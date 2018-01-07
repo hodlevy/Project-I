@@ -7,6 +7,9 @@ using BE;
 
 namespace DAL
 {
+    /// <summary>
+    /// interface for DAL layer
+    /// </summary>
     public interface Idal
     {
         #region Nanny
@@ -29,9 +32,11 @@ namespace DAL
         void DeleteContract(int number);
         void UpdateContract(Contract contract);
         #endregion
+        #region Lists
         List<Nanny> AllNannys();
         List<Mother> AllMothers();
         List<Child> AllChildren();
         List<Contract> AllContracts();
+        #endregion
     }
 }

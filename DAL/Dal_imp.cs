@@ -9,6 +9,9 @@ namespace DAL
 {
     internal class Dal_imp : Idal
     {
+        /// <summary>
+        /// initialization for DAL
+        /// </summary>
         public Dal_imp()
         {
             DataSource.listNanny = new List<Nanny>();
@@ -17,6 +20,10 @@ namespace DAL
             DataSource.listContract = new List<Contract>();
         }
         #region Nanny
+        /// <summary>
+        /// add nanny
+        /// </summary>
+        /// <param name="nanny"></param>
         void Idal.AddNanny(Nanny nanny)
         {
             Nanny nanny2 = GetNanny(nanny.Id);
@@ -24,12 +31,17 @@ namespace DAL
                 throw new Exception("Nanny already exist");
             DataSource.listNanny.Add(nanny);
         }
+        /// <summary>
+        /// delete nanny
+        /// </summary>
+        /// <param name="ID"></param>
         void Idal.DeleteNanny(string ID)
         {
             Nanny nanny2 = GetNanny(ID);
             if (nanny2.Id == null)
                 throw new Exception("Nanny doesn't exist");
             DataSource.listNanny.Remove(nanny2);
+            // delete the contracts she related to
             List<Contract> contracts = GetContractByID(nanny2.Id);
             if(contracts != null)
             {
@@ -37,6 +49,10 @@ namespace DAL
                     DataSource.listContract.Remove(contract);
             }
         }
+        /// <summary>
+        /// update nanny
+        /// </summary>
+        /// <param name="nanny"></param>
         void Idal.UpdateNanny(Nanny nanny)
         {
             Nanny nanny2 = GetNanny(nanny.Id);
@@ -54,6 +70,10 @@ namespace DAL
         }
         #endregion
         #region Mother
+        /// <summary>
+        /// add mother
+        /// </summary>
+        /// <param name="mother"></param>
         void Idal.AddMother(Mother mother)
         {
             Mother mother2 = GetMother(mother.Id);
@@ -61,12 +81,17 @@ namespace DAL
                 throw new Exception("Mother already exist");
             DataSource.listMother.Add(mother);
         }
+        /// <summary>
+        /// delete mother
+        /// </summary>
+        /// <param name="ID"></param>
         void Idal.DeleteMother(string ID)
         {
             Mother mother2 = GetMother(ID);
             if (mother2.Id == null)
                 throw new Exception("Mother doesn't exist");
             DataSource.listMother.Remove(mother2);
+            // delete the contracts she related to
             List<Contract> contracts = GetContractByID(mother2.Id);
             if (contracts != null)
             {
@@ -74,6 +99,10 @@ namespace DAL
                     DataSource.listContract.Remove(contract);
             }
         }
+        /// <summary>
+        /// update mother
+        /// </summary>
+        /// <param name="mother"></param>
         void Idal.UpdateMother(Mother mother)
         {
             Mother mother2 = GetMother(mother.Id);
@@ -91,6 +120,10 @@ namespace DAL
         }
         #endregion
         #region Child
+        /// <summary>
+        /// add child
+        /// </summary>
+        /// <param name="child"></param>
         void Idal.AddChild(Child child)
         {
             Child child2 = GetChild(child.Id);
@@ -101,12 +134,17 @@ namespace DAL
                 throw new Exception("Mother doesn't exist");
             DataSource.listChild.Add(child);
         }
+        /// <summary>
+        /// delete child
+        /// </summary>
+        /// <param name="ID"></param>
         void Idal.DeleteChild(string ID)
         {
             Child child2 = GetChild(ID);
             if (child2.Id == null)
                 throw new Exception("Child doesn't exist");
             DataSource.listChild.Remove(child2);
+            // delete the contracts he related to
             List<Contract> contracts = GetContractByID(child2.Id);
             if (contracts != null)
             {
@@ -114,6 +152,10 @@ namespace DAL
                     DataSource.listContract.Remove(contract);
             }
         }
+        /// <summary>
+        /// update child
+        /// </summary>
+        /// <param name="child"></param>
         void Idal.UpdateChild(Child child)
         {
             Child child2 = GetChild(child.Id);
@@ -131,6 +173,10 @@ namespace DAL
         }
         #endregion
         #region Contract
+        /// <summary>
+        /// add contract
+        /// </summary>
+        /// <param name="contract"></param>
         void Idal.AddContract(Contract contract)
         {
             Nanny nanny = GetNanny(contract.NannyId);
@@ -141,6 +187,10 @@ namespace DAL
                 throw new Exception("Mother doesn't exist");
             DataSource.listContract.Add(contract);
         }
+        /// <summary>
+        /// delete contract
+        /// </summary>
+        /// <param name="number"></param>
         void Idal.DeleteContract(int number)
         {
             Contract contract2 = GetContract(number);
@@ -148,6 +198,10 @@ namespace DAL
                 throw new Exception("Contract doesn't exist");
             DataSource.listContract.Remove(contract2);
         }
+        /// <summary>
+        /// update contract
+        /// </summary>
+        /// <param name="contract"></param>
         void Idal.UpdateContract(Contract contract)
         {
             Contract contract2 = GetContract(contract.Code);
@@ -165,14 +219,26 @@ namespace DAL
         }
         #endregion
         #region Lists
+        /// <summary>
+        /// get nanny's list
+        /// </summary>
+        /// <returns></returns>
         List<Nanny> Idal.AllNannys()
         {
             return DataSource.listNanny;
         }
+        /// <summary>
+        /// get mother's list
+        /// </summary>
+        /// <returns></returns>
         List<Mother> Idal.AllMothers()
         {
             return DataSource.listMother;
         }
+        /// <summary>
+        /// get children's list
+        /// </summary>
+        /// <returns></returns>
         List<Child> Idal.AllChildren()
         {
             List<Child> listChild = null;
@@ -186,12 +252,21 @@ namespace DAL
             }
             return listChild;
         }
+        /// <summary>
+        /// get contract's list
+        /// </summary>
+        /// <returns></returns>
         List<Contract> Idal.AllContracts()
         {
             return DataSource.listContract;
         }
         #endregion
         #region Get Function
+        /// <summary>
+        /// get nanny by Id number
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>nanny</returns>
         Nanny GetNanny(string nannyID)
         {
             Nanny nanny = new Nanny();
@@ -201,6 +276,11 @@ namespace DAL
                 nanny = list[0];
             return nanny;
         }
+        /// <summary>
+        /// get mother by Id number
+        /// </summary>
+        /// <param name="motherID"></param>
+        /// <returns>mother</returns>
         Mother GetMother(string motherID)
         {
             Mother mother = new Mother();
@@ -210,6 +290,11 @@ namespace DAL
                 mother = list[0];
             return mother;
         }
+        /// <summary>
+        /// get child by Id number
+        /// </summary>
+        /// <param name="childID"></param>
+        /// <returns>child</returns>
         Child GetChild(string childID)
         {
             Child child = new Child();
@@ -219,6 +304,11 @@ namespace DAL
                 child = list[0];
             return child;
         }
+        /// <summary>
+        /// get contract by number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>contract</returns>
         Contract GetContract(int number)
         {
             Contract contract = new Contract();
@@ -228,6 +318,11 @@ namespace DAL
                 contract = list[0];
             return contract;
         }
+        /// <summary>
+        /// get contract by Id number
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns>contract</returns>
         List<Contract> GetContractByID(string ID)
         {
             List<Contract> contracts = null;

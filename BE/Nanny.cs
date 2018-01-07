@@ -27,6 +27,10 @@ namespace BE
         private TimeSpan[,] workHours = new TimeSpan[6, 2];
         private bool vacationCheck;
         private string recommendation;
+        /// <summary>
+        /// To string override
+        /// </summary>
+        /// <returns>string to print</returns>
         public override string ToString()
         {
             string print = "Name: " + firstName + ' ' + lastName + "\nID: " + id + "\nBirth Date: " + birthDate.ToShortDateString() + "\nPhone number: " + phoneNumber +
@@ -40,6 +44,28 @@ namespace BE
             }
             return print;
         }
+        /// <summary>
+        /// constructor by everything
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="first_name"></param>
+        /// <param name="last_name"></param>
+        /// <param name="birth_date"></param>
+        /// <param name="address_"></param>
+        /// <param name="phone_number"></param>
+        /// <param name="is_elevator"></param>
+        /// <param name="floor_"></param>
+        /// <param name="experience_"></param>
+        /// <param name="max_children"></param>
+        /// <param name="min_age"></param>
+        /// <param name="max_age"></param>
+        /// <param name="if_hour_paid"></param>
+        /// <param name="pay_for_hour"></param>
+        /// <param name="pay_for_month"></param>
+        /// <param name="vacation_check"></param>
+        /// <param name="recommendation_"></param>
+        /// <param name="is_working"></param>
+        /// <param name="work_hours"></param>
         public Nanny(string ID, string first_name, string last_name, DateTime birth_date,  string address_, string phone_number,bool is_elevator,
             int floor_, int experience_, int max_children, int min_age, int max_age, bool if_hour_paid, double pay_for_hour, double pay_for_month,
             bool vacation_check, string recommendation_, bool[] is_working, TimeSpan[,] work_hours)
@@ -70,6 +96,10 @@ namespace BE
             isWorking = is_working;
             workHours = work_hours;
         }
+        /// <summary>
+        /// copy constructor
+        /// </summary>
+        /// <param name="nanny"></param>
         public Nanny(Nanny nanny)
         {
             if (IDCheck(nanny.id))
@@ -98,6 +128,9 @@ namespace BE
             isWorking = nanny.isWorking;
             workHours = nanny.workHours;
         }
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Nanny()
         {
             id = null;

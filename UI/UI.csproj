@@ -88,6 +88,9 @@
     <Compile Include="NannyListWin.xaml.cs">
       <DependentUpon>NannyListWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NannyVacationWin.xaml.cs">
+      <DependentUpon>NannyVacationWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PotentialNannyWin.xaml.cs">
       <DependentUpon>PotentialNannyWin.xaml</DependentUpon>
     </Compile>
@@ -173,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NannyVacationWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PotentialNannyWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +236,10 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{e99bce91-5f50-4c84-8e84-400696374c18}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS\DS.csproj">
+      <Project>{8348f143-6c78-4cac-8182-104bf21cd761}</Project>
+      <Name>DS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
