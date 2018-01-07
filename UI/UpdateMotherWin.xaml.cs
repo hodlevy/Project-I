@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,11 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// update a mother
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             bool[] NeedsNanny = { (bool)Sunday.IsChecked, (bool)Monday.IsChecked, (bool)Tuesday.IsChecked, (bool)Wednesday.IsChecked, (bool)Thursday.IsChecked, (bool)Friday.IsChecked };
@@ -32,6 +37,8 @@ namespace UI
             try
             {
                 GetBL.bl.UpdateMother(mother);
+                Thread.Sleep(500);
+                Close();
             }
             catch (Exception str)
             {

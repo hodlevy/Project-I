@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,12 +24,19 @@ namespace UI
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// uodate a child
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)Calendar.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
                 GetBL.bl.UpdateChild(child);
+                Thread.Sleep(500);
+                Close();
             }
             catch (Exception str)
             {

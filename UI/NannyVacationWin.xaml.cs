@@ -23,7 +23,11 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// print the nannies who worked due to TMT vacations
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string str = "Nannies with vacations according to TMT:\n\n";

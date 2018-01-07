@@ -19,6 +19,9 @@ namespace UI
     /// </summary>
     public partial class PotentialNannyWin : Window
     {
+        /// <summary>
+        /// print the potential nannies to a mother
+        /// </summary>
         public PotentialNannyWin()
         {
             InitializeComponent();

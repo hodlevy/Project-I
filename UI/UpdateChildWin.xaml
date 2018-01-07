@@ -31,7 +31,7 @@
         <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <Calendar x:Name="Calendar" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectionMode="SingleDate" SelectedDate=""/>
         <CheckBox x:Name="IfNeeds" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
-        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
         <Button x:Name="button" Content="Send" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click"/>
 
     </Grid>

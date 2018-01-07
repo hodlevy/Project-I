@@ -12,38 +12,37 @@
             <RowDefinition Height="67*"/>
             <RowDefinition Height="182*"/>
         </Grid.RowDefinitions>
-        <Menu Grid.RowSpan="3">
-            <MenuItem Header="Nanny">
-                <MenuItem Header="Add" Click="Add_Nanny"/>
-                <MenuItem Header="Delete" Click="Delete_Nanny"/>
-                <MenuItem Header="Update" Click="Update_Nanny"/>
-                <MenuItem Header="Vacation" Click="Vacation_Nanny"/>
+        <Menu Grid.RowSpan="3" Background="RoyalBlue">
+            <MenuItem Header="Nanny" Foreground="BlanchedAlmond">
+                <MenuItem Header="Add" Click="Add_Nanny" Foreground="Black"/>
+                <MenuItem Header="Delete" Click="Delete_Nanny" Foreground="Black"/>
+                <MenuItem Header="Update" Click="Update_Nanny" Foreground="Black"/>
+                <MenuItem Header="Vacation" Click="Vacation_Nanny" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Mother">
-                <MenuItem Header="Add" Click="Add_Mother"/>
-                <MenuItem Header="Delete" Click="Delete_Mother"/>
-                <MenuItem Header="Update" Click="Update_Mother"/>
+            <MenuItem Header="Mother" Foreground="BlanchedAlmond">
+                <MenuItem Header="Add" Click="Add_Mother" Foreground="Black"/>
+                <MenuItem Header="Delete" Click="Delete_Mother" Foreground="Black"/>
+                <MenuItem Header="Update" Click="Update_Mother" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Child">
-                <MenuItem Header="Add" Click="Add_Child"/>
-                <MenuItem Header="Delete" Click="Delete_Child"/>
-                <MenuItem Header="Update" Click="Update_Child"/>
-                <MenuItem Header="Alone" Click="Alone_List"/>
+            <MenuItem Header="Child" Foreground="BlanchedAlmond">
+                <MenuItem Header="Add" Click="Add_Child" Foreground="Black"/>
+                <MenuItem Header="Delete" Click="Delete_Child" Foreground="Black"/>
+                <MenuItem Header="Update" Click="Update_Child" Foreground="Black"/>
+                <MenuItem Header="Alone" Click="Alone_List" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Contract">
-                <MenuItem Header="Add" Click="Add_Contract"/>
-                <MenuItem Header="Delete" Click="Delete_Contract"/>
-                <MenuItem Header="Update" Click="Update_Contract"/>
+            <MenuItem Header="Contract" Foreground="BlanchedAlmond">
+                <MenuItem Header="Add" Click="Add_Contract" Foreground="Black"/>
+                <MenuItem Header="Delete" Click="Delete_Contract" Foreground="Black"/>
+                <MenuItem Header="Update" Click="Update_Contract" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Lists">
-                <MenuItem Header="Nanny" Click="Nanny_List"/>
-                <MenuItem Header="Mother" Click="Mother_List"/>
-                <MenuItem Header="Child" Click="Child_List"/>
-                <MenuItem Header="Contract" Click="Contract_List"/>
+            <MenuItem Header="Lists" Foreground="BlanchedAlmond">
+                <MenuItem Header="Nanny" Click="Nanny_List" Foreground="Black"/>
+                <MenuItem Header="Mother" Click="Mother_List" Foreground="Black"/>
+                <MenuItem Header="Child" Click="Child_List" Foreground="Black"/>
+                <MenuItem Header="Contract" Click="Contract_List" Foreground="Black"/>
             </MenuItem>
         </Menu>
-        <TextBox x:Name="textBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="The SUPER AWSOME Project of the Nannies" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="Red" TextAlignment="Center"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="The SUPER AWSOME Project of the Nannies" VerticalAlignment="Center" FontSize="34" FontWeight="Bold" Foreground="Gold" TextAlignment="Center" Background="RoyalBlue" BorderBrush="RoyalBlue"/>
         <Image x:Name="image" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Source="nanny.jpg"/>
-
     </Grid>
 </Window>

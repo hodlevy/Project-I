@@ -23,7 +23,11 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// print the children without nanny
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string str = "Children without nanny:\n\n";

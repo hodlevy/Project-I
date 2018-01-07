@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,12 +24,18 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// delete mother due to her ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 GetBL.bl.DeleteMother(textBox.Text);
+                Thread.Sleep(500);
+                Close();
             }
             catch (Exception str)
             {
