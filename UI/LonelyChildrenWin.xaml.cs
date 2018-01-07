@@ -26,7 +26,7 @@ namespace UI
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string str = "Children:\n\n";
+            string str = "Children without nanny:\n\n";
             List<BE.Child> list = GetBL.bl.LonleyChildren();
             if (list != null)
             {

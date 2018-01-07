@@ -27,7 +27,7 @@ namespace BL
         void initialization()
         {
             Nanny Ayala_Zehavi = new Nanny
-            ("123456782", "Ayala", "zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, false, "", new bool[] { true, true, true, true, true, false },
+            ("123456782", "Ayala", "zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
                 new TimeSpan[,]
                 {
                     {TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(15.75) },{TimeSpan.FromHours(9),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
@@ -283,6 +283,13 @@ namespace BL
             List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
             return list;
         }
+        /// <summary>
+        /// Returns the nannies who fitting to the mother request. 
+        /// If there is no nanny who fitting the function calculates the best 5 nannies for the mother by few arguments:
+        /// overlapping days and hours.
+        /// </summary>
+        /// <param name="mother"></param>
+        /// <returns>list</returns>
         List<Nanny> IBL.PotentiallyNannies(Mother mother)
         {
             List<Nanny> nannies = new List<Nanny>();
@@ -341,6 +348,10 @@ namespace BL
             }
             return nannies;
         }
+        /// <summary>
+        /// return all the children without nanny
+        /// </summary>
+        /// <returns>list</returns>
         List<Child> IBL.LonleyChildren()
         {
             List<Child> children = new List<Child>();
@@ -358,6 +369,11 @@ namespace BL
             }
             return children;
         }
+        /// <summary>
+        /// Get nanny by Id number
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>nanny</returns>
         Nanny GetNanny(string nannyID)
         {
             Nanny nanny = new Nanny();
@@ -367,6 +383,11 @@ namespace BL
             nanny = v.First();
             return nanny;
         }
+        /// <summary>
+        /// Get mother by Id number
+        /// </summary>
+        /// <param name="motherID"></param>
+        /// <returns>mother</returns>
         Mother GetMother(string motherID)
         {
             Mother mother = new Mother();
@@ -376,6 +397,11 @@ namespace BL
             mother = v.First();
             return mother;
         }
+        /// <summary>
+        /// Get child by Id number
+        /// </summary>
+        /// <param name="childID"></param>
+        /// <returns>child</returns>
         Child GetChild(string childID)
         {
             Child child = new Child();
@@ -385,6 +411,12 @@ namespace BL
             child = v.First();
             return child;
         }
+        /// <summary>
+        /// Group all nannies according to the age of the child (by monthes)
+        /// </summary>
+        /// <param name="ifMinMax"></param>
+        /// <param name="isSorted"></param>
+        /// <returns>group list</returns>
         IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false)
         {
             List<Nanny> list = DataSource.listNanny;
@@ -406,7 +438,12 @@ namespace BL
             }
             return result;
         }
-        public int DistanceByContract(BE.Contract contract)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <returns></returns>
+        public int DistanceByContract(Contract contract)
         {
             int distance;
             bool validId = false;
@@ -438,6 +475,11 @@ namespace BL
             distance = CalculateDistance(nannyAddres, motherAddres);
             return distance;
         }
+        /// <summary>
+        /// Group contracts by distance between nanny and mother
+        /// </summary>
+        /// <param name="sorted"></param>
+        /// <returns>group list</returns>
         public IEnumerable<IGrouping<int, Contract>> ContractByDistance(bool sorted)
         {
             IEnumerable<IGrouping<int, Contract>> results;
@@ -451,6 +493,11 @@ namespace BL
                           group c by DistanceByContract(c) / 5;
             return results;
         }
+        /// <summary>
+        /// calculate the monthly payment
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <returns>salary</returns>
         public double MonthlyPayment(Contract contract)
         {
             if (contract.PerWhat)
@@ -464,6 +511,13 @@ namespace BL
             }
             return 4 * contract.PayForHour * weeklyHours;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nanny"></param>
+        /// <param name="mother"></param>
+        /// <param name="day"></param>
+        /// <returns></returns>
         double DailyWork(Nanny nanny, Mother mother, int day)
         {
             double begin = 0, end = 0;
@@ -492,11 +546,21 @@ namespace BL
             }
             return end - begin;
         }
+        /// <summary>
+        /// returns all the contract by some function
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns>list</returns>
         List<Contract> ContractCondition(Func<Contract, bool> condition)
         {
             List<Contract> contracts = DataSource.listContract.FindAll(item => condition(item));
             return contracts;
         }
+        /// <summary>
+        /// returns all the contracts's numbers by some function
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns>list</returns>
         List<int> NumberContractCondition(Func<Contract, bool> condition)
         {
             List<Contract> list = ContractCondition(condition);
