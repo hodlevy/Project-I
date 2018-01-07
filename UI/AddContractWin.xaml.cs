@@ -35,6 +35,7 @@ namespace UI
             }
             catch(Exception str)
             {
+                contract.Number--;
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

@@ -133,16 +133,27 @@ namespace BL
             //list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.ChildId == child.Id);
             //if (list != null)
             //    throw new Exception("There is already contract which the nanny take care of this child");
-            bool flag = false;
+
+            //bool flag = false;
+            //
+            //foreach (Child child2 in FactoryBL.GetBL().LonleyChildren())
+            //{
+            //    if (child.Id == child2.Id)
+            //        flag = true;
+            //}
+            //if (!flag)
+            //    throw new Exception("Contract already exist");
+
             Child child = GetChild(contract.ChildId);
-            List<Child> children = FactoryBL.GetBL().LonleyChildren();
-            foreach (Child child2 in children)
+            bool flag = true;
+            foreach (Contract contract2 in DataSource.listContract)
             {
-                if (child.Id == child2.Id)
-                    flag = true;
+                   if (child.Id == contract2.ChildId)
+                        flag = false;
             }
-            if(!flag)
+            if (!flag)
                 throw new Exception("Contract already exist");
+
             Mother mother = GetMother(contract.MotherId);
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
@@ -231,7 +242,7 @@ namespace BL
                                 preferness[i] += 2;
                         }
                     }
-                    preferness[i]+=days;
+                    preferness[i] += days;
                 }
                 int max;
                 for (int i = 0; i < 5 && i < DataSource.listNanny.Count(); i++)
