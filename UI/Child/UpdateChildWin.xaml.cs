@@ -23,6 +23,13 @@ namespace UI
         public UpdateChildWin()
         {
             InitializeComponent();
+            ComboBoxItem newChild;
+            foreach (BE.Child child in GetBL.bl.AllChildren())
+            {
+                newChild = new ComboBoxItem();
+                newChild.Content = child.Id;
+                comboBox.Items.Add(newChild);
+            }
         }
         /// <summary>
         /// uodate a child
@@ -31,7 +38,7 @@ namespace UI
         /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)Calendar.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
+            BE.Child child = new BE.Child(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id, MotherID.Text, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
                 GetBL.bl.UpdateChild(child);
@@ -41,6 +48,28 @@ namespace UI
             catch (Exception str)
             {
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void comboBox_Selected(object sender, RoutedEventArgs e)
+        {
+            int index = comboBox.SelectedIndex;
+            if (index == 0)
+            {
+                MotherID.Text = "";
+                Name.Text = "";
+                datePicker.SelectedDate = DateTime.Now;
+                IfNeeds.IsChecked = false;
+                SpecialNeeds.Text = "";
+            }
+            else
+            {
+                BE.Child child = GetBL.bl.AllChildren()[index - 1];
+                MotherID.Text = child.MotherId;
+                Name.Text = child.FirstName;
+                datePicker.SelectedDate = child.BirthDate;
+                IfNeeds.IsChecked = child.IsSpecialNeeds;
+                SpecialNeeds.Text = child.SpecialNeeds;
             }
         }
     }

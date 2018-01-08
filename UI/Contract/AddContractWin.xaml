@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Add Contract" Height="910" Width="330">
+        Title="Add Contract" Height="700" Width="330">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -21,8 +21,8 @@
             <RowDefinition Height="48*"/>
             <RowDefinition Height="47*"/>
             <RowDefinition Height="48*"/>
-            <RowDefinition Height="166*"/>
-            <RowDefinition Height="168*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="47*"/>
 
             <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
@@ -46,8 +46,8 @@
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="Per" Content="Per Month" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
-        <Calendar x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
-        <Calendar x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
+        <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
+        <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
         <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
 
     </Grid>

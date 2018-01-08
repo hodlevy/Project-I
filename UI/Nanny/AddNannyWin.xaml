@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Add Nanny" Height="1220" Width="400">
+        Title="Add Nanny" Height="1000" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -15,16 +15,16 @@
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
@@ -57,14 +57,13 @@
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
         <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
-        <Calendar x:Name="Date" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectionMode="SingleDate" SelectedDate=""/>
-        <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False" FontSize="32"/>
+        <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False"/>
         <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="MaxChild" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="MinAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="MaxAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <CheckBox x:Name="HourPayment" Content="Hour Payment" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False" FontSize="24"/>
+        <CheckBox x:Name="HourPayment" Content="Hour Payment" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False"/>
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="TMT" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False" FontSize="32"/>
@@ -124,6 +123,7 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="239,31,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="5"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="221,31,0,0" Grid.Row="16" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="8"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="16" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="9" Margin="183,31,0,0"/>
+        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3"/>
 
     </Grid>
 </Window>

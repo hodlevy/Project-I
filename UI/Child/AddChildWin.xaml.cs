@@ -31,7 +31,7 @@ namespace UI
         /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)Calendar.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
+            BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
                 GetBL.bl.AddChild(child);

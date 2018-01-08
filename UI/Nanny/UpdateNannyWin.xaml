@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Update Nanny" Height="1220" Width="400">
+        Title="Update Nanny" Height="1000" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -15,16 +15,16 @@
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="15*"/>
@@ -57,26 +57,25 @@
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
         <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
-        <Calendar x:Name="Date" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectionMode="SingleDate" SelectedDate=""/>
-        <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False" FontSize="32"/>
+        <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False"/>
         <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="MaxChild" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="MinAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="MaxAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <CheckBox x:Name="HourPayment" Content="Hour Payment" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False" FontSize="24"/>
+        <CheckBox x:Name="HourPayment" Content="Hour Payment" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False"/>
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="TMT" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False" FontSize="32"/>
         <TextBox x:Name="Recommendation" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text=""/>
-        <CheckBox x:Name="Sunday" Content="Sunday" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Monday" Content="Monday" Grid.Column="1" HorizontalAlignment="Left" Margin="64,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Tuesday" Content="Tuesday" Grid.Column="1" HorizontalAlignment="Left" Margin="133,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Wednesday" Content="Wednesday" Grid.Column="1" HorizontalAlignment="Left" Margin="0,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Thursday" Content="Thursday" Grid.Column="1" HorizontalAlignment="Left" Margin="86,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Friday" Content="Friday" Grid.Column="1" HorizontalAlignment="Left" Margin="159,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Sunday" Content="Sunday" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Monday" Content="Monday" Grid.Column="1" HorizontalAlignment="Left" Margin="69,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Tuesday" Content="Tuesday" Grid.Column="1" HorizontalAlignment="Left" Margin="138,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Wednesday" Content="Wednesday" Grid.Column="1" HorizontalAlignment="Left" Margin="5,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Thursday" Content="Thursday" Grid.Column="1" HorizontalAlignment="Left" Margin="91,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Friday" Content="Friday" Grid.Column="1" HorizontalAlignment="Left" Margin="164,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
         <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click"/>
-        <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="14,0,0,31" Grid.Row="16" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="11" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
+        <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="14,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="11" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBox x:Name="SunMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="30,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="11" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock19" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="26,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="5"/>
         <TextBox x:Name="SunHour2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="49,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="11" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
@@ -124,7 +123,7 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="239,31,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="5"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="221,31,0,0" Grid.Row="16" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="8"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="16" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="9" Margin="183,31,0,0"/>
-
+        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3"/>
 
     </Grid>
 </Window>
