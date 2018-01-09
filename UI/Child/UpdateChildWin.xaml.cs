@@ -27,7 +27,7 @@ namespace UI
             foreach (BE.Child child in GetBL.bl.AllChildren())
             {
                 newChild = new ComboBoxItem();
-                newChild.Content = child.Id;
+                newChild.Content = child.Id + " - " + child.FirstName;
                 comboBox.Items.Add(newChild);
             }
         }

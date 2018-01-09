@@ -32,7 +32,6 @@
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="Needs Nanny:"/>
         <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="Needs Hours:"/>
         <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="Comments:"/>
-        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
@@ -94,6 +93,8 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="243,31,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="5"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="225,31,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="8"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="9" Margin="187,31,0,0"/>
-
+        <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBoxItem Content="Choose..."/>
+        </ComboBox>
     </Grid>
 </Window>

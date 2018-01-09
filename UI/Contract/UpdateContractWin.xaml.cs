@@ -23,6 +23,13 @@ namespace UI
         public UpdateContractWin()
         {
             InitializeComponent();
+            ComboBoxItem newContract;
+            foreach (BE.Contract contract in GetBL.bl.AllContracts())
+            {
+                newContract = new ComboBoxItem();
+                newContract.Content = contract.Code;
+                comboBox.Items.Add(newContract);
+            }
         }
         /// <summary>
         /// update a contract
@@ -41,6 +48,38 @@ namespace UI
             catch (Exception str)
             {
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = comboBox.SelectedIndex;
+            if (index == 0)
+            {
+                ChildID.Text = "";
+                MotherID.Text = "";
+                NannyID.Text = "";
+                Met.IsChecked = false;
+                Signed.IsChecked = false;
+                PayHour.Text = "";
+                PayMonth.Text = "";
+                Per.IsChecked = false;
+                Begin.SelectedDate = DateTime.Now;
+                End.SelectedDate = DateTime.Now;
+            }
+            else
+            {
+                BE.Contract contract = GetBL.bl.AllContracts()[index - 1];
+                ChildID.Text = contract.ChildId;
+                MotherID.Text = contract.MotherId;
+                NannyID.Text = contract.NannyId;
+                Met.IsChecked = contract.HaveMet;
+                Signed.IsChecked = contract.HaveSigned;
+                PayHour.Text = contract.PayForHour.ToString();
+                PayMonth.Text = contract.PayForMonth.ToString();
+                Per.IsChecked = contract.PerWhat;
+                Begin.SelectedDate = contract.BeginDate;
+                End.SelectedDate = contract.EndDate;
             }
         }
     }
