@@ -38,7 +38,7 @@
         <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="Begin Date:"/>
         <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="End Date:"/>
         <TextBlock x:Name="Number" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
+        <TextBlock x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="Met" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
         <CheckBox x:Name="Signed" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5"/>
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="" FontSize="32"/>

@@ -52,9 +52,39 @@
         <TextBlock x:Name="textBlock16" HorizontalAlignment="Stretch" Grid.Row="16" Grid.RowSpan="2" TextWrapping="Wrap" Text="Work Hours:" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock17" HorizontalAlignment="Stretch" Grid.Row="17" Grid.RowSpan="2" TextWrapping="Wrap" Text="TMT Vacations?" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock18" HorizontalAlignment="Stretch" Grid.Row="18" Grid.RowSpan="2" TextWrapping="Wrap" Text="Recommendation:" VerticalAlignment="Top"/>
-        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
-        <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32">
+            <TextBox.Style>
+                <Style TargetType="TextBox" >
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32">
+            <TextBox.Style>
+                <Style TargetType="TextBox" >
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32">
+            <TextBox.Style>
+                <Style TargetType="TextBox" >
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
         <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
         <CheckBox x:Name="Elevator" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False"/>
