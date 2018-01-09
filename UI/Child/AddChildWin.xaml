@@ -32,7 +32,7 @@
         <CheckBox x:Name="IfNeeds" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
         <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
         <Button x:Name="button" Content="Send" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click"/>
-        <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate=""/>
+        <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="" Grid.Column="1"/>
 
     </Grid>
 </Window>
