@@ -38,8 +38,6 @@
         <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="Begin Date:"/>
         <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="End Date:"/>
         <TextBlock x:Name="Number" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="ChildID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
-        <TextBox x:Name="NannyID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <CheckBox x:Name="Met" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
         <CheckBox x:Name="Signed" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5"/>
@@ -49,6 +47,11 @@
         <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
         <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
         <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
-
+        <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBoxItem Content="Choose..."/>
+        </ComboBox>
+        <ComboBox x:Name="comboBox2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" FontSize="20">
+            <ComboBoxItem Content="Choose..."/>
+        </ComboBox>
     </Grid>
 </Window>

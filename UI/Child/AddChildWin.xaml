@@ -27,12 +27,14 @@
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="Special Needs?"/>
         <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="Special Needs:"/>
         <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
-        <TextBox x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32"/>
         <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="IfNeeds" Content="YES" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
         <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
         <Button x:Name="button" Content="Send" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click"/>
         <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="" Grid.Column="1"/>
+        <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20">
+            <ComboBoxItem Content="Choose..."/>
+        </ComboBox>
 
     </Grid>
 </Window>

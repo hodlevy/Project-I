@@ -23,6 +23,13 @@ namespace UI
         public AddChildWin()
         {
             InitializeComponent();
+            ComboBoxItem newMother;
+            foreach (BE.Mother mother in GetBL.bl.AllMothers())
+            {
+                newMother = new ComboBoxItem();
+                newMother.Content = mother.Id + " - " + mother.FirstName + " " + mother.LastName;
+                comboBox.Items.Add(newMother);
+            }
         }
         /// <summary>
         /// add the data that was handed over by the user
@@ -31,14 +38,14 @@ namespace UI
         /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            BE.Child child = new BE.Child(ID.Text, MotherID.Text, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
+                BE.Child child = new BE.Child(ID.Text, GetBL.bl.AllMothers()[comboBox.SelectedIndex - 1].Id, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
                 GetBL.bl.AddChild(child);
                 Thread.Sleep(500);
                 Close();
             }
-            catch(Exception str)
+            catch (Exception str)
             {
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
