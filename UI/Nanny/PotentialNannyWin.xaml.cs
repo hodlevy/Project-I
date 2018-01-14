@@ -26,7 +26,7 @@ namespace UI
         {
             InitializeComponent();
             string str = "Potential Nannies:\n\n";
-            List<BE.Nanny> list = GetBL.bl.PotentiallyNannies(GetBL.bl.AllMothers().Last());
+            List<BE.Nanny> list = GetBL.bl.PotentiallyNannies(GetBL.bl.AllMothers().Last().Id);
             for (int i = 0; i < list.Count(); i++)
             {
                 str += list[i].ToString() + "\n\n--------\n\n";

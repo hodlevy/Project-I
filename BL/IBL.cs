@@ -29,7 +29,7 @@ namespace BL
         List<Child> AllChildren();
         List<Contract> AllContracts();
         List<Child> LonleyChildren();
-        List<Nanny> PotentiallyNannies(Mother mother);
+        List<Nanny> PotentiallyNannies(string motherID);
         List<Nanny> VacationCheck_AllNanny();
     }
 }

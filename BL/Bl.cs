@@ -290,8 +290,9 @@ namespace BL
         /// </summary>
         /// <param name="mother"></param>
         /// <returns>list</returns>
-        List<Nanny> IBL.PotentiallyNannies(Mother mother)
+        List<Nanny> IBL.PotentiallyNannies(string motherID)
         {
+            Mother mother = GetMother(motherID);
             List<Nanny> nannies = new List<Nanny>();
             bool flag;
             foreach (Nanny nanny in DataSource.listNanny)
@@ -342,7 +343,7 @@ namespace BL
                             nannies.Add(DataSource.listNanny[j]);
                             preferness[j] = 0;
                         }
-                        j = DataSource.listNanny.Count();
+                        //j = DataSource.listNanny.Count();
                     }
                 }
             }
