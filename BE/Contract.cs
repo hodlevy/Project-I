@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Contract /*: IComparable*/
+    public class Contract
     {
         private static int number = 0;
         private int code;
@@ -32,16 +32,10 @@ namespace BE
                 "\nBegin-End Dates: " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString() + "\nSalary: " + salary;
             return print;
         }
-
         public int CompareTo(Contract contract)
         {
-            if (contract.code < this.code)
-                return 1;
-            else if (contract.code > this.code)
-                return -1;
-            return 0;
+           return this.code.CompareTo(contract.code);
         }
-
         /// <summary>
         /// default constructor
         /// </summary>
