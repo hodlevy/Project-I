@@ -36,7 +36,6 @@
         <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
-        <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="SearchArea" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="Comments" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
         <CheckBox x:Name="Sunday" Content="Sunday" Grid.Column="1" HorizontalAlignment="Left" Margin="4,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
@@ -94,6 +93,7 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="414,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="380,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="12" Margin="314,29,0,0"/>
+        <local:PlaceAutoCompleteUC x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
 
     </Grid>
 </Window>

@@ -42,6 +42,7 @@ namespace UI
             {
                 BE.Contract contract = null;
                 contract = new BE.Contract(ChildID.Text, NannyID.Text, MotherID.Text, (bool)Met.IsChecked, (bool)Signed.IsChecked, Convert.ToDouble(PayHour.Text), Convert.ToDouble(PayMonth.Text), (bool)Per.IsChecked, (DateTime)Begin.SelectedDate, (DateTime)End.SelectedDate);
+                contract.Code = comboBox.SelectedIndex;
                 GetBL.bl.UpdateContract(contract);
                 Thread.Sleep(500);
                 Close();
@@ -51,7 +52,6 @@ namespace UI
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = comboBox.SelectedIndex;

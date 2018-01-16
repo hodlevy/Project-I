@@ -127,6 +127,11 @@ namespace UI
             NannyVacationWin nannyVacationWin = new NannyVacationWin();
             nannyVacationWin.ShowDialog();
         }
+        private void Settings(object sender, RoutedEventArgs e)
+        {
+            SettingsWin settingsWin = new SettingsWin();
+            settingsWin.ShowDialog();
+        }
     }
     public class GetBL
     {

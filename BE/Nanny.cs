@@ -80,6 +80,14 @@ namespace BE
                 throw new Exception("Wrong Birth Date");
             else
                 birthDate = birth_date;
+            bool flag = true;
+            foreach (char c in phone_number)
+            {
+                if (c < '0' || c > '9')
+                    flag = false;
+            }
+            if (!flag)
+                throw new Exception("Phone number must to be with only digits!!");
             phoneNumber = phone_number;
             address = address_;
             isElevator = is_elevator;
@@ -112,6 +120,14 @@ namespace BE
                 throw new Exception("Wrong Birth Date");
             else
                 birthDate = nanny.birthDate;
+            bool flag = true;
+            foreach (char c in nanny.phoneNumber)
+            {
+                if (c < '0' || c > '9')
+                    flag = false;
+            }
+            if (!flag)
+                throw new Exception("Phone number must to be with only digits!!");
             phoneNumber = nanny.phoneNumber;
             address = nanny.address;
             isElevator = nanny.isElevator;

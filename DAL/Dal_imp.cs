@@ -42,7 +42,7 @@ namespace DAL
                 throw new Exception("Nanny doesn't exist");
             DataSource.listNanny.Remove(nanny2);
             // delete the contracts she related to
-            List<Contract> contracts = GetContractByID(nanny2.Id);
+            List<Contract> contracts = GetContractsByID(nanny2.Id);
             if(contracts != null)
             {
                 foreach(Contract contract in contracts)
@@ -92,7 +92,7 @@ namespace DAL
                 throw new Exception("Mother doesn't exist");
             DataSource.listMother.Remove(mother2);
             // delete the contracts she related to
-            List<Contract> contracts = GetContractByID(mother2.Id);
+            List<Contract> contracts = GetContractsByID(mother2.Id);
             if (contracts != null)
             {
                 foreach (Contract contract in contracts)
@@ -145,7 +145,7 @@ namespace DAL
                 throw new Exception("Child doesn't exist");
             DataSource.listChild.Remove(child2);
             // delete the contracts he related to
-            List<Contract> contracts = GetContractByID(child2.Id);
+            List<Contract> contracts = GetContractsByID(child2.Id);
             if (contracts != null)
             {
                 foreach (Contract contract in contracts)
@@ -185,6 +185,10 @@ namespace DAL
             Mother mother = GetMother(contract.MotherId);
             if (mother.Id == null)
                 throw new Exception("Mother doesn't exist");
+            Child child = GetChild(contract.ChildId);
+            int age = DateTime.Now.Month - child.BirthDate.Month + (DateTime.Now.Year - child.BirthDate.Year) * 12;
+            if (nanny.MaxAge < age || nanny.MinAge > age)
+                throw new Exception("The child's age doesn't meet the conditions of the nanny");
             DataSource.listContract.Add(contract);
         }
         /// <summary>
@@ -204,12 +208,12 @@ namespace DAL
         /// <param name="contract"></param>
         void Idal.UpdateContract(Contract contract)
         {
-            Contract contract2 = GetContract(contract.Code);
-            if (contract2 == null)
+            Contract contract2 = GetContractByID(contract.ChildId);
+            if (contract2.ChildId == null) //
                 throw new Exception("Contract doesn't exist");
             foreach (Contract contra in DataSource.listContract)
             {
-                if (contract.Code == contra.Code)
+                if (contract.ChildId == contra.ChildId)
                 {
                     DataSource.listContract.Remove(contra);
                     DataSource.listContract.Add(contract);
@@ -258,6 +262,8 @@ namespace DAL
         /// <returns></returns>
         List<Contract> Idal.AllContracts()
         {
+            List<Contract> listContract = null;
+            DataSource.listContract.Sort();
             return DataSource.listContract;
         }
         #endregion
@@ -323,7 +329,13 @@ namespace DAL
         /// </summary>
         /// <param name="ID"></param>
         /// <returns>contract</returns>
-        List<Contract> GetContractByID(string ID)
+        Contract GetContractByID(string ID)
+        {
+            List<Contract> contracts = null;
+            contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
+            return contracts[0];
+        }
+        List<Contract> GetContractsByID(string ID)
         {
             List<Contract> contracts = null;
             contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);

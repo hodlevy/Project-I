@@ -106,6 +106,12 @@
     <Compile Include="Nanny\UpdateNannyWin.xaml.cs">
       <DependentUpon>UpdateNannyWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GoogleMaps\PlaceAutoCompleteUC.xaml.cs">
+      <DependentUpon>PlaceAutoCompleteUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsWin.xaml.cs">
+      <DependentUpon>SettingsWin.xaml</DependentUpon>
+    </Compile>
     <Page Include="Child\AddChildWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +206,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GoogleMaps\PlaceAutoCompleteUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -248,6 +262,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="nanny.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="wallpaper.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

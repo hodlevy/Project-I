@@ -27,14 +27,14 @@ namespace BL
         void initialization()
         {
             Nanny Ayala_Zehavi = new Nanny
-            ("123456782", "Ayala", "Zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0508455477", true, 3, 4, 15, 4, 9, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
+            ("123456782", "Ayala", "Zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0508455477", true, 3, 4, 15, 4, 36, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
                 new TimeSpan[,]
                 {
                     {TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(15.75) },{TimeSpan.FromHours(9),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
                 }
                 );
             Nanny Moria_Schneider = new Nanny
-            ("258746916", "Moria", "Schneider", new DateTime(1992, 4, 9), "Shakhal St 15, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, false, "", new bool[] { true, true, true, true, true, false },
+            ("258746916", "Moria", "Schneider", new DateTime(1992, 4, 9), "Shakhal St 15, Jerusalem", "0523433333", true, 2, 3, 14, 3, 36, true, 30, 5000, false, "", new bool[] { true, true, true, true, true, false },
                 new TimeSpan[,]
                 {
                     {TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(7),TimeSpan.FromHours(15) },{TimeSpan.FromHours(7),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
@@ -95,6 +95,8 @@ namespace BL
                 if (nanny.WorkHours[i, 0] > nanny.WorkHours[i, 1])
                     throw new Exception("Time isn't make sense!!!");
             }
+            if (nanny.MaxAge < nanny.MinAge)
+                throw new Exception("Min/Max age doesn't make sense!");
             MyDal.AddNanny(nanny);
         }
         /// <summary>
@@ -116,6 +118,9 @@ namespace BL
                 if (nanny.WorkHours[i, 0] > nanny.WorkHours[i, 1])
                     throw new Exception("Time isn't make sense!!!");
             }
+            if (nanny.MaxAge < nanny.MinAge)
+                throw new Exception("Min/Max age doesn't make sense!");
+            MyDal.AddNanny(nanny);
             MyDal.UpdateNanny(nanny);
         }
         #endregion
@@ -238,6 +243,15 @@ namespace BL
         /// <param name="contract"></param>
         void IBL.UpdateContract(Contract contract)
         {
+            // discount calculate
+            Nanny nanny = GetNanny(contract.NannyId);
+            List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
+            Mother mother = GetMother(contract.MotherId);
+            list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
+            double discount = 0;
+            if (list.Count() != 0)
+                discount = (list.Count()) * 0.02;
+            contract.Salary = MonthlyPayment(contract) * (1 - discount);
             MyDal.UpdateContract(contract);
         }
         #endregion
