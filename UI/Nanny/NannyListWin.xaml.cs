@@ -31,7 +31,7 @@ namespace UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string str = "Nannies:\n\n";
-            List<BE.Nanny> list = GetBL.bl.VacationCheck_AllNanny();
+            List<BE.Nanny> list = GetBL.bl.AllNannys();
             for (int i = 0; i < list.Count(); i++)
             {
                 str += list[i].ToString() + "\n\n--------\n\n";

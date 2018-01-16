@@ -40,9 +40,10 @@ namespace UI
         /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            BE.Contract contract = new BE.Contract(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id, GetBL.bl.PotentiallyNannies(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].MotherId)[comboBox2.SelectedIndex - 1].Id, MotherID.Text, (bool)Met.IsChecked, (bool)Signed.IsChecked, Convert.ToDouble(PayHour.Text), Convert.ToDouble(PayMonth.Text), (bool)Per.IsChecked, (DateTime)Begin.SelectedDate, (DateTime)End.SelectedDate);
+            BE.Contract contract = null;
             try
             {
+                contract = new BE.Contract(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id, GetBL.bl.PotentiallyNannies(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].MotherId)[comboBox2.SelectedIndex - 1].Id, MotherID.Text, (bool)Met.IsChecked, (bool)Signed.IsChecked, Convert.ToDouble(PayHour.Text), Convert.ToDouble(PayMonth.Text), (bool)Per.IsChecked, (DateTime)Begin.SelectedDate, (DateTime)End.SelectedDate);
                 GetBL.bl.AddContract(contract);
                 Thread.Sleep(500);
                 Close();

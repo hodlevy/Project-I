@@ -59,7 +59,15 @@ namespace BE
                 throw new Exception("Wrong ID Number");
             lastName = mother.lastName;
             firstName = mother.firstName;
-            phoneNumber = mother.firstName;
+            bool flag = true;
+            foreach (char c in mother.phoneNumber)
+            {
+                if (c < '0' || c > '9')
+                    flag = false;
+            }
+            if (!flag)
+                throw new Exception("Phone number must to be with only digits!!");
+            phoneNumber = mother.phoneNumber;
             address = mother.address;
             searchingArea = mother.searchingArea;
             needsNanny = mother.needsNanny;
@@ -87,6 +95,14 @@ namespace BE
                 throw new Exception("Wrong ID Number");
             lastName = last_name;
             firstName = first_name;
+            bool flag = true;
+            foreach (char c in phone_number)
+            {
+                if (c < '0' || c > '9')
+                    flag = false;
+            }
+            if (!flag)
+                throw new Exception("Phone number must to be with only digits!!");
             phoneNumber = phone_number;
             address = address_;
             searchingArea = searching_area;
@@ -138,14 +154,6 @@ namespace BE
 
             set
             {
-                bool flag = true;
-                foreach (char c in value)
-                {
-                    if (c < '0' || c > '9')
-                        flag = false;
-                }
-                if (!flag)
-                    throw new Exception("Phone number must to be with only digits!!");
                 phoneNumber = value;
             }
         }

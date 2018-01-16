@@ -27,7 +27,7 @@ namespace BL
         void initialization()
         {
             Nanny Ayala_Zehavi = new Nanny
-            ("123456782", "Ayala", "zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0523433333", true, 2, 3, 14, 3, 8, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
+            ("123456782", "Ayala", "Zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0508455477", true, 3, 4, 15, 4, 9, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
                 new TimeSpan[,]
                 {
                     {TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(15.75) },{TimeSpan.FromHours(9),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
@@ -90,6 +90,11 @@ namespace BL
             }
             if (nannyAge < 18)
                 throw new Exception("Nanny is too young!");
+            for (int i = 0; i < 6; i++)
+            {
+                if (nanny.WorkHours[i, 0] > nanny.WorkHours[i, 1])
+                    throw new Exception("Time isn't make sense!!!");
+            }
             MyDal.AddNanny(nanny);
         }
         /// <summary>
@@ -106,6 +111,11 @@ namespace BL
         /// <param name="nanny"></param>
         void IBL.UpdateNanny(Nanny nanny)
         {
+            for (int i = 0; i < 6; i++)
+            {
+                if (nanny.WorkHours[i, 0] > nanny.WorkHours[i, 1])
+                    throw new Exception("Time isn't make sense!!!");
+            }
             MyDal.UpdateNanny(nanny);
         }
         #endregion
@@ -116,6 +126,11 @@ namespace BL
         /// <param name="mother"></param>
         void IBL.AddMother(Mother mother)
         {
+            for (int i = 0; i < 6; i++)
+            {
+                if (mother.NeedsNannyHours[i, 0] > mother.NeedsNannyHours[i, 1])
+                    throw new Exception("Time isn't make sense!!!");
+            }
             MyDal.AddMother(mother);
         }
         /// <summary>
@@ -132,6 +147,11 @@ namespace BL
         /// <param name="mother"></param>
         void IBL.UpdateMother(Mother mother)
         {
+            for (int i = 0; i < 6; i++)
+            {
+                if (mother.NeedsNannyHours[i, 0] > mother.NeedsNannyHours[i, 1])
+                    throw new Exception("Time isn't make sense!!!");
+            }
             MyDal.UpdateMother(mother);
         }
         #endregion

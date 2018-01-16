@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:UI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBox" x:Key="myTrigger">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="BorderBrush" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

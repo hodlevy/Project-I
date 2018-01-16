@@ -38,9 +38,9 @@ namespace UI
         /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            BE.Child child = new BE.Child(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id, MotherID.Text, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
             try
             {
+                BE.Child child = new BE.Child(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id, MotherID.Text, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
                 GetBL.bl.UpdateChild(child);
                 Thread.Sleep(500);
                 Close();
