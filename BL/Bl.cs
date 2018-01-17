@@ -244,6 +244,8 @@ namespace BL
         void IBL.UpdateContract(Contract contract)
         {
             // discount calculate
+            if (contract.EndDate < contract.BeginDate)
+                throw new Exception("the contract ends before it begins");
             Nanny nanny = GetNanny(contract.NannyId);
             List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
             Mother mother = GetMother(contract.MotherId);

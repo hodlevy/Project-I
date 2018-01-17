@@ -217,6 +217,7 @@ namespace DAL
                 {
                     DataSource.listContract.Remove(contra);
                     DataSource.listContract.Add(contract);
+                    DataSource.listContract.Sort();
                     break;
                 }
             }
