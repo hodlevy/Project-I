@@ -252,7 +252,7 @@ namespace BL
             list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
             if (list.Count() != 0)
-                discount = (list.Count()) * 0.02;
+                discount = (list.Count() - 1) * 0.02;
             contract.Salary = MonthlyPayment(contract) * (1 - discount);
             MyDal.UpdateContract(contract);
         }

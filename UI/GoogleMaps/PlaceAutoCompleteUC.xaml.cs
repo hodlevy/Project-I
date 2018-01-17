@@ -37,7 +37,7 @@ namespace UI
         }
         void run(object text)
         {
-            if (text != null)
+            if (text != "")
             {
                 try
                 {
