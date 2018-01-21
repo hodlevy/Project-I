@@ -13,7 +13,7 @@
         </Style>
         <ResourceDictionary x:Key="EN">
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/res/languages/AppStrings_EN.xaml" />
+                <ResourceDictionary Source="/res/languages/AppStrings_EN.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

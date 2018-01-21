@@ -13,43 +13,39 @@
             <RowDefinition Height="250*"/>
         </Grid.RowDefinitions>
         <Menu Background="LightGray">
-            <MenuItem Header="Nanny" Foreground="Black">
+            <Button x:Name="button" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="Settings" Background="LightGray">
+                <Image x:Name="image1" Height="14" Width="14" Source="settings.png"/>
+            </Button>
+            <MenuItem Header="Nanny" Foreground="Black" ToolTip="Nanny's Functions">
                 <MenuItem Header="Add" Click="Add_Nanny" Foreground="Black"/>
                 <MenuItem Header="Delete" Click="Delete_Nanny" Foreground="Black"/>
                 <MenuItem Header="Update" Click="Update_Nanny" Foreground="Black"/>
                 <MenuItem Header="Vacation" Click="Vacation_Nanny" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Mother" Foreground="Black">
+            <MenuItem Header="Mother" Foreground="Black" ToolTip="Mother's Functions">
                 <MenuItem Header="Add" Click="Add_Mother" Foreground="Black"/>
                 <MenuItem Header="Delete" Click="Delete_Mother" Foreground="Black"/>
                 <MenuItem Header="Update" Click="Update_Mother" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Child" Foreground="Black">
+            <MenuItem Header="Child" Foreground="Black" ToolTip="Child's Functions">
                 <MenuItem Header="Add" Click="Add_Child" Foreground="Black"/>
                 <MenuItem Header="Delete" Click="Delete_Child" Foreground="Black"/>
                 <MenuItem Header="Update" Click="Update_Child" Foreground="Black"/>
                 <MenuItem Header="Alone" Click="Alone_List" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Contract" Foreground="Black">
+            <MenuItem Header="Contract" Foreground="Black" ToolTip="Contract's Functions">
                 <MenuItem Header="Add" Click="Add_Contract" Foreground="Black"/>
                 <MenuItem Header="Delete" Click="Delete_Contract" Foreground="Black"/>
                 <MenuItem Header="Update" Click="Update_Contract" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Lists" Foreground="Black">
+            <MenuItem Header="Lists" Foreground="Black" ToolTip="List's Functions">
                 <MenuItem Header="Nanny" Click="Nanny_List" Foreground="Black"/>
                 <MenuItem Header="Mother" Click="Mother_List" Foreground="Black"/>
                 <MenuItem Header="Child" Click="Child_List" Foreground="Black"/>
                 <MenuItem Header="Contract" Click="Contract_List" Foreground="Black"/>
             </MenuItem>
         </Menu>
-        <TextBlock x:Name="textBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="50" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="Placing Nannies
-                 for
-                 Work"/>
-        <Button x:Name="button" HorizontalAlignment="Left" Height="17" Margin="369,1,0,0" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="Settings" Grid.RowSpan="1" Background="LightGray">
-            <Button.Content>
-                <Image x:Name="image1" Height="14" Width="14" Source="settings.png"/>
-            </Button.Content>
-        </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="Placing Nannies for Work"/>
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="wallpaper.jpg"
                 AlignmentY="Top" AlignmentX="Center"/>
