@@ -4,17 +4,17 @@
              xmlns:local="clr-namespace:UI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="TextBox" x:Key="myTrigger">
-            <Style.Triggers>
-                <Trigger Property="Text" Value="">
-                    <Setter Property="BorderBrush" Value="Red"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <ResourceDictionary x:Key="EN">
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/res/languages/AppStrings_EN.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBox" x:Key="myTrigger">
+                <Style.Triggers>
+                    <Trigger Property="Text" Value="">
+                        <Setter Property="BorderBrush" Value="Red"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

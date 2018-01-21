@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Nannies's List" Height="300" Width="300">
+        Title="{DynamicResource nannylist}" Height="300" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>
             <RowDefinition Height="255*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="button" Content="Print" HorizontalAlignment="Stretch" FontSize="8" Click="button_Click"/>
+        <Button x:Name="button" Content="{DynamicResource print}" HorizontalAlignment="Stretch" FontSize="8" Click="button_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text=""/>
 
     </Grid>

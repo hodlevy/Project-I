@@ -28,6 +28,10 @@ namespace UI
         {
             InitializeComponent();
             GetBL.initBL();
+            Uri dictUri = new Uri(@"/res/languages/AppStrings_HE.xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(dictUri) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
         private void Add_Nanny(object sender, RoutedEventArgs e)

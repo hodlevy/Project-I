@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Nanny to Work" Height="400" Width="400">
+        Title="{DynamicResource titleVery}" Height="400" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="19*"/>
@@ -16,36 +16,36 @@
             <Button x:Name="button" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="Settings" Background="LightGray">
                 <Image x:Name="image1" Height="14" Width="14" Source="settings.png"/>
             </Button>
-            <MenuItem Header="Nanny" Foreground="Black" ToolTip="Nanny's Functions">
-                <MenuItem Header="Add" Click="Add_Nanny" Foreground="Black"/>
-                <MenuItem Header="Delete" Click="Delete_Nanny" Foreground="Black"/>
-                <MenuItem Header="Update" Click="Update_Nanny" Foreground="Black"/>
-                <MenuItem Header="Vacation" Click="Vacation_Nanny" Foreground="Black"/>
+            <MenuItem Header="{DynamicResource Nanny}" Foreground="Black" ToolTip="{DynamicResource NannyToolTip}">
+                <MenuItem Header="{DynamicResource add}" Click="Add_Nanny" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource delete}" Click="Delete_Nanny" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource update}" Click="Update_Nanny" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource vacation}" Click="Vacation_Nanny" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Mother" Foreground="Black" ToolTip="Mother's Functions">
-                <MenuItem Header="Add" Click="Add_Mother" Foreground="Black"/>
-                <MenuItem Header="Delete" Click="Delete_Mother" Foreground="Black"/>
-                <MenuItem Header="Update" Click="Update_Mother" Foreground="Black"/>
+            <MenuItem Header="{DynamicResource Mother}" Foreground="Black" ToolTip="{DynamicResource MotherToolTip}">
+                <MenuItem Header="{DynamicResource add}" Click="Add_Mother" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource delete}" Click="Delete_Mother" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource update}" Click="Update_Mother" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Child" Foreground="Black" ToolTip="Child's Functions">
-                <MenuItem Header="Add" Click="Add_Child" Foreground="Black"/>
-                <MenuItem Header="Delete" Click="Delete_Child" Foreground="Black"/>
-                <MenuItem Header="Update" Click="Update_Child" Foreground="Black"/>
-                <MenuItem Header="Alone" Click="Alone_List" Foreground="Black"/>
+            <MenuItem Header="{DynamicResource Child}" Foreground="Black" ToolTip="{DynamicResource ChildToolTip}">
+                <MenuItem Header="{DynamicResource add}" Click="Add_Child" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource delete}" Click="Delete_Child" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource update}" Click="Update_Child" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource alone}" Click="Alone_List" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Contract" Foreground="Black" ToolTip="Contract's Functions">
-                <MenuItem Header="Add" Click="Add_Contract" Foreground="Black"/>
-                <MenuItem Header="Delete" Click="Delete_Contract" Foreground="Black"/>
-                <MenuItem Header="Update" Click="Update_Contract" Foreground="Black"/>
+            <MenuItem Header="{DynamicResource Contract}" Foreground="Black" ToolTip="{DynamicResource ContractToolTip}">
+                <MenuItem Header="{DynamicResource add}" Click="Add_Contract" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource delete}" Click="Delete_Contract" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource update}" Click="Update_Contract" Foreground="Black"/>
             </MenuItem>
-            <MenuItem Header="Lists" Foreground="Black" ToolTip="List's Functions">
-                <MenuItem Header="Nanny" Click="Nanny_List" Foreground="Black"/>
-                <MenuItem Header="Mother" Click="Mother_List" Foreground="Black"/>
-                <MenuItem Header="Child" Click="Child_List" Foreground="Black"/>
-                <MenuItem Header="Contract" Click="Contract_List" Foreground="Black"/>
+            <MenuItem Header="{DynamicResource List}" Foreground="Black" ToolTip="{DynamicResource ListToolTip}">
+                <MenuItem Header="{DynamicResource nannyList}" Click="Nanny_List" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource motherList}" Click="Mother_List" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource childList}" Click="Child_List" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource contractList}" Click="Contract_List" Foreground="Black"/>
             </MenuItem>
         </Menu>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="Placing Nannies for Work"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="{DynamicResource Title}"/>
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="wallpaper.jpg"
                 AlignmentY="Top" AlignmentX="Center"/>

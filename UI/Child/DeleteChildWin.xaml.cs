@@ -23,6 +23,13 @@ namespace UI
         public DeleteChildWin()
         {
             InitializeComponent();
+            ComboBoxItem newChild;
+            foreach (BE.Child child in GetBL.bl.AllChildren())
+            {
+                newChild = new ComboBoxItem();
+                newChild.Content = child.Id + " - " + child.FirstName;
+                comboBox.Items.Add(newChild);
+            }
         }
         /// <summary>
         /// delete child due to his ID
@@ -33,7 +40,7 @@ namespace UI
         {
             try
             {
-                GetBL.bl.DeleteChild(textBox.Text);
+                GetBL.bl.DeleteChild(GetBL.bl.AllChildren()[comboBox.SelectedIndex - 1].Id);
                 Thread.Sleep(500);
                 Close();
             }

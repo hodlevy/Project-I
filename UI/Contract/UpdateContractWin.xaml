@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Update Contract" Height="700" Width="330">
+        Title="{DynamicResource updatecontract}" Height="700" Width="330">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -23,20 +23,19 @@
             <RowDefinition Height="48*"/>
             <RowDefinition Height="47*"/>
             <RowDefinition Height="47*"/>
-
             <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Number:"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="Child's ID:"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="Nanny's ID:"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="Mother's ID:"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="Have Met?"/>
-        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="Have Signed?"/>
-        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="Pay For Hour:"/>
-        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="Pay For Month:"/>
-        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="Per What?"/>
-        <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="Begin Date:"/>
-        <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="End Date:"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{DynamicResource number}"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="{DynamicResource childID}"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="{DynamicResource nannyID}"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="{DynamicResource motherID}"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="{DynamicResource met}"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{DynamicResource sighned}"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="{DynamicResource forhour}"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource formonth}"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="{DynamicResource per}"/>
+        <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="{DynamicResource begin}"/>
+        <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="{DynamicResource end}"/>
         <TextBlock x:Name="ChildID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBlock x:Name="NannyID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBlock x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" FontSize="32"/>
@@ -47,9 +46,9 @@
         <CheckBox x:Name="Per" Content="Per Month" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
         <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
         <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
-            <ComboBoxItem Content="Choose..."/>
+            <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Update Mother" Height="500" Width="600">
+        Title="{DynamicResource updatemother}" Height="500" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -23,28 +23,27 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="ID:"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="First Name:"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="Last Name:"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="Phone Number:"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="Address:"/>
-        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="Searching Area:"/>
-        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="Needs Nanny:"/>
-        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="Needs Hours:"/>
-        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="Comments:"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{DynamicResource id}"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="{DynamicResource fname}"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="{DynamicResource lname}"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="{DynamicResource phone}"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="{DynamicResource address}"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{DynamicResource searcharea}"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="{DynamicResource needsdays}"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource needshours}"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="{DynamicResource com}"/>
         <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
-        <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="SearchArea" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="Comments" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
-        <CheckBox x:Name="Sunday" Content="Sunday" Grid.Column="1" HorizontalAlignment="Left" Margin="4,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Monday" Content="Monday" Grid.Column="1" HorizontalAlignment="Left" Margin="165,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Tuesday" Content="Tuesday" Grid.Column="1" HorizontalAlignment="Left" Margin="308,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Wednesday" Content="Wednesday" Grid.Column="1" HorizontalAlignment="Left" Margin="4,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Thursday" Content="Thursday" Grid.Column="1" HorizontalAlignment="Left" Margin="165,25,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Friday" Content="Friday" Grid.Column="1" HorizontalAlignment="Left" Margin="308,25,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="Send" HorizontalAlignment="Stretch" Grid.Row="9" Click="button_Click"/>
+        <CheckBox x:Name="Sunday" Content="{DynamicResource sun}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Monday" Content="{DynamicResource mon}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Tuesday" Content="{DynamicResource tues}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,4,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Wednesday" Content="{DynamicResource wed}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Thursday" Content="{DynamicResource thurs}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Friday" Content="{DynamicResource fri}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click"/>
         <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="23,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBox x:Name="SunMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="55,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="23" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock19" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="47,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
@@ -52,7 +51,7 @@
         <TextBox x:Name="SunMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="126,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock20" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="118,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
         <TextBlock x:Name="textBlock21" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="82,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="16"/>
-        <TextBlock x:Name="textBlock22" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="S" VerticalAlignment="Top" Width="13" Margin="10,5,0,0"/>
+        <TextBlock x:Name="textBlock22" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource s}" VerticalAlignment="Top" Width="13" Margin="10,5,0,0"/>
         <TextBox x:Name="MonHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="180,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Monday}"/>
         <TextBox x:Name="MonMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="209,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Monday}"/>
         <TextBlock x:Name="textBlock19_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="202,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
@@ -60,7 +59,7 @@
         <TextBox x:Name="MonMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="271,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Monday}"/>
         <TextBlock x:Name="textBlock20_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="264,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="232,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="14"/>
-        <TextBlock x:Name="textBlock22_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="15" Margin="165,5,0,0"/>
+        <TextBlock x:Name="textBlock22_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource m}" VerticalAlignment="Top" Width="15" Margin="165,5,0,0"/>
         <TextBox x:Name="TuesHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="326,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="19" IsEnabled="{Binding IsChecked, ElementName=Tuesday}"/>
         <TextBox x:Name="TuesMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="355,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="19" IsEnabled="{Binding IsChecked, ElementName=Tuesday}"/>
         <TextBlock x:Name="textBlock19_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="348,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="8"/>
@@ -68,23 +67,23 @@
         <TextBox x:Name="TuesMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="420,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="19" IsEnabled="{Binding IsChecked, ElementName=Tuesday}"/>
         <TextBlock x:Name="textBlock20_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="412,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="378,6,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
-        <TextBlock x:Name="textBlock22_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="Tu" VerticalAlignment="Top" Width="18" Margin="308,5,0,0"/>
+        <TextBlock x:Name="textBlock22_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource tu}" VerticalAlignment="Top" Width="18" Margin="308,5,0,0"/>
         <TextBox x:Name="WedHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="24,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="23" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
-        <TextBox x:Name="WedMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="57,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
+        <TextBox x:Name="WedMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="56,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
         <TextBlock x:Name="textBlock19_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="49,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
-        <TextBox x:Name="WedHour2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="96,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
-        <TextBox x:Name="WedMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="128,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
+        <TextBox x:Name="WedHour2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="95,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
+        <TextBox x:Name="WedMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="127,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding IsChecked, ElementName=Wednesday}"/>
         <TextBlock x:Name="textBlock20_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="120,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
         <TextBlock x:Name="textBlock21_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="83,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="17"/>
-        <TextBlock x:Name="textBlock22_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Width="14" Margin="10,30,0,0"/>
-        <TextBox x:Name="ThuHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="182,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="19" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
-        <TextBox x:Name="ThuMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="210,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
+        <TextBlock x:Name="textBlock22_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource w}" VerticalAlignment="Top" Width="14" Margin="10,30,0,0"/>
+        <TextBox x:Name="ThuHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="181,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="19" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
+        <TextBox x:Name="ThuMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="209,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
         <TextBlock x:Name="textBlock19_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="204,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="8"/>
         <TextBox x:Name="ThuHour2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="243,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
         <TextBox x:Name="ThuMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="272,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Thursday}"/>
         <TextBlock x:Name="textBlock20_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="265,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="233,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
-        <TextBlock x:Name="textBlock22_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="Th" VerticalAlignment="Top" Width="17" Margin="165,29,0,0"/>
+        <TextBlock x:Name="textBlock22_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource th}" VerticalAlignment="Top" Width="17" Margin="165,29,0,0"/>
         <TextBox x:Name="FriHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="326,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Friday}"/>
         <TextBox x:Name="FriMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="356,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" IsEnabled="{Binding IsChecked, ElementName=Friday}"/>
         <TextBlock x:Name="textBlock19_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="348,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
@@ -92,8 +91,8 @@
         <TextBox x:Name="FriMin2" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="421,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="21" IsEnabled="{Binding IsChecked, ElementName=Friday}"/>
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="414,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="380,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
-        <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="12" Margin="314,29,0,0"/>
-
+        <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource f}" VerticalAlignment="Top" Width="12" Margin="314,29,0,0"/>
+        <local:PlaceAutoCompleteUC x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Content="Choose..."/>
         </ComboBox>

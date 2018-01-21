@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="PotentialNannyWin" Height="300" Width="300">
+        Title="{DynamicResource potentialnanny}" Height="300" Width="300">
     <Grid>
         
         <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text=""/>
