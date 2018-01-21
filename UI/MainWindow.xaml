@@ -47,8 +47,7 @@
         </Menu>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="{DynamicResource Title}"/>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Images/wallpaper.jpg"
-                AlignmentY="Top" AlignmentX="Center"/>
+            <ImageBrush Stretch="Fill" ImageSource="Images/wallpaper.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
     </Grid>
 </Window>
