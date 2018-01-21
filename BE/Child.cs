@@ -8,10 +8,10 @@ namespace BE
 {
     public class Child
     {
-        readonly string id;
-        readonly string motherId;
+        private string id;
+        private string motherId;
         private string firstName;
-        readonly DateTime birthDate;
+        private DateTime birthDate;
         private bool isSpecialNeeds;
         private string specialNeeds;
         /// <summary>
@@ -81,6 +81,10 @@ namespace BE
             {
                 return id;
             }
+            set
+            {
+                id = value;
+            }
         }
 
         public string MotherId
@@ -88,6 +92,10 @@ namespace BE
             get
             {
                 return motherId;
+            }
+            set
+            {
+                motherId = value;
             }
         }
 
@@ -109,6 +117,10 @@ namespace BE
             get
             {
                 return birthDate;
+            }
+            set
+            {
+                birthDate = value;
             }
         }
 

@@ -38,7 +38,7 @@ namespace DAL
             nannies.Remove(nanny);
             SaveToXML(nannies, nannyPath);
             // delete the contracts she related to
-            List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);  
+            List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
             List<Contract> contracts = GetContractsByID(nanny.Id);
             if (contracts != null)
             {
@@ -147,7 +147,7 @@ namespace DAL
                 throw new Exception("File upload problem");
             }
         }
-        public void LoadChildListLinq(string childFile)
+        public List<Child> LoadChildListLinq(string childFile)
         {
             LoadData();
             List<Child> children;
@@ -157,7 +157,7 @@ namespace DAL
                             select new Child()
                             {
                                 Id = c.Element("id").Value,
-                                MotherID = c.Element("motherId").Value,
+                                MotherId = c.Element("motherId").Value,
                                 FirstName = c.Element("firstName").Value,
                                 BirthDate = DateTime.Parse(c.Element("birthDate").Value),
                                 IsSpecialNeeds = bool.Parse(c.Element("isSpecialNeeds").Value),
@@ -170,10 +170,30 @@ namespace DAL
             }
             return children;
         }
-
         public void AddChild(Child child)
         {
-
+            Child child2 = GetChild(child.Id);
+            if (child2.Id != null)
+                throw new Exception("Child already exist");
+            root.Add(new XElement("child",
+                new XElement("id", child.Id),
+                new XElement("motherId", child.MotherId),
+                new XElement("firstName", child.FirstName),
+                new XElement("birthDate", child.BirthDate),
+                new XElement("isSpecialNeeds", child.IsSpecialNeeds),
+                new XElement("specialNeeds", child.SpecialNeeds)
+                ));
+            root.Save(childPath);
+        }
+        Child GetChild(string childID)
+        {
+            List<Child> list = LoadChildListLinq(childPath);
+            Child child = new Child();
+            List<Child> list2 = null;
+            list2 = list.FindAll(item => item.Id == childID);
+            if (list2.Count() != 0)
+                child = list2[0];
+            return child;
         }
         public void DeleteChild(string ID)
         {
@@ -277,16 +297,16 @@ namespace DAL
                 mother = list2[0];
             return mother;
         }
-        Child GetChild(string childID)
-        {
-            List<Child> list = LoadFromXML<List<Child>>(childPath);
-            Child child = new Child();
-            List<Child> list2 = null;
-            list2 = list.FindAll(item => item.Id == childID);
-            if (list2.Count() != 0)
-                child = list2[0];
-            return child;
-        }
+        //Child GetChild(string childID)
+        //{
+        //    List<Child> list = LoadFromXML<List<Child>>(childPath);
+        //    Child child = new Child();
+        //    List<Child> list2 = null;
+        //    list2 = list.FindAll(item => item.Id == childID);
+        //    if (list2.Count() != 0)
+        //        child = list2[0];
+        //    return child;
+        //}
         Contract GetContract(int number)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
