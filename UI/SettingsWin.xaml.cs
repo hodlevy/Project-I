@@ -27,6 +27,7 @@ namespace UI
         private void checkBoxHE_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxEN.IsChecked = false;
+            checkBoxCH.IsChecked = false;
             Uri dictUri = new Uri(@"/res/languages/AppStrings_HE.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(dictUri) as ResourceDictionary;
             Application.Current.Resources.MergedDictionaries.Clear();
@@ -36,7 +37,18 @@ namespace UI
         private void checkBoxEN_Checked(object sender, RoutedEventArgs e)
         {
             checkBoxHE.IsChecked = false;
+            checkBoxCH.IsChecked = false;
             Uri dictUri = new Uri(@"/res/languages/AppStrings_EN.xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(dictUri) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+        }
+
+        private void checkBoxCH_Checked(object sender, RoutedEventArgs e)
+        {
+            checkBoxHE.IsChecked = false;
+            checkBoxEN.IsChecked = false;
+            Uri dictUri = new Uri(@"/res/languages/AppStrings_CH.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(dictUri) as ResourceDictionary;
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);

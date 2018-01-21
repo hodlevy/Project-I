@@ -16,7 +16,7 @@
     <System:String x:Key="settings">Settings</System:String>
     <System:String x:Key="chooseLang">Choose Language:</System:String>
     <System:String x:Key="titleVery">Nanny to Work</System:String>
-    <System:String x:Key="HE">HE</System:String>
+    <System:String x:Key="HE">'עב</System:String>
     <System:String x:Key="EN">EN</System:String>
     <System:String x:Key="add">Add</System:String>
     <System:String x:Key="delete">Delete</System:String>
@@ -97,4 +97,5 @@
     <System:String x:Key="permonth">Per Month</System:String>
     <System:String x:Key="updatecontract">Update Contract</System:String>
     <System:String x:Key="addcontract">Add Contract</System:String>
+    <System:String x:Key="CH">中国</System:String>
 </ResourceDictionary>  

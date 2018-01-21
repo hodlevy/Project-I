@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Menu Background="LightGray">
             <Button x:Name="button" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="Settings" Background="LightGray">
-                <Image x:Name="image1" Height="14" Width="14" Source="settings.png"/>
+                <Image x:Name="image1" Height="14" Width="14" Source="Images/settings.png"/>
             </Button>
             <MenuItem Header="{DynamicResource Nanny}" Foreground="Black" ToolTip="{DynamicResource NannyToolTip}">
                 <MenuItem Header="{DynamicResource add}" Click="Add_Nanny" Foreground="Black"/>
@@ -47,7 +47,7 @@
         </Menu>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="Snap ITC" Background="Transparent" Grid.RowSpan="2" Text="{DynamicResource Title}"/>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="wallpaper.jpg"
+            <ImageBrush Stretch="Fill" ImageSource="Images/wallpaper.jpg"
                 AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
     </Grid>

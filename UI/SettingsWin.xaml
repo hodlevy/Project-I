@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource settings}" Height="300" Width="300">
+        Title="{DynamicResource settings}" Height="300" Width="200">
     <Grid>
-        <Image x:Name="usa" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="33" Source="usa.png" Margin="1,47,0,0"/>
-        <Image x:Name="israel" HorizontalAlignment="Left" VerticalAlignment="Top" Source="israel.jpg" Width="33" Margin="1,17,0,226"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="1,1,0,0" TextWrapping="Wrap" Text="{DynamicResource chooseLang}" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBoxHE" Content="CheckBox" HorizontalAlignment="Left" Height="20" Margin="61,23,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxHE_Checked"/>
-        <CheckBox x:Name="checkBoxEN" Content="CheckBox" HorizontalAlignment="Left" Height="19" Margin="61,48,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxEN_Checked"/>
-        <TextBlock x:Name="HE" HorizontalAlignment="Left" Height="14" Margin="39,23,0,0" TextWrapping="Wrap" Text="{DynamicResource HE}" VerticalAlignment="Top" Width="17"/>
-        <TextBlock x:Name="EN" HorizontalAlignment="Left" Height="14" Margin="39,47,0,0" TextWrapping="Wrap" Text="{DynamicResource EN}" VerticalAlignment="Top" Width="17"/>
+        <Image x:Name="usa" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="34" Source="Images/usa.png" Margin="4,50,0,0"/>
+        <Image x:Name="israel" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/israel.jpg" Width="34" Margin="4,20,0,0"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="4,4,0,0" TextWrapping="Wrap" Text="{DynamicResource chooseLang}" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBoxHE" Content="CheckBox" HorizontalAlignment="Left" Height="20" Margin="64,26,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxHE_Checked"/>
+        <CheckBox x:Name="checkBoxEN" Content="CheckBox" HorizontalAlignment="Left" Height="19" Margin="64,51,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxEN_Checked"/>
+        <TextBlock x:Name="HE" HorizontalAlignment="Left" Height="14" Margin="42,26,0,0" TextWrapping="Wrap" Text="{DynamicResource HE}" VerticalAlignment="Top" Width="18"/>
+        <TextBlock x:Name="EN" HorizontalAlignment="Left" Height="14" Margin="42,50,0,0" TextWrapping="Wrap" Text="{DynamicResource EN}" VerticalAlignment="Top" Width="18"/>
+        <Image x:Name="usa_Copy" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="34" Source="Images/china.png" Margin="4,73,0,0"/>
+        <CheckBox x:Name="checkBoxCH" Content="CheckBox" HorizontalAlignment="Left" Height="19" Margin="64,74,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxCH_Checked"/>
+        <TextBlock x:Name="CH" HorizontalAlignment="Left" Height="14" Margin="42,73,0,0" TextWrapping="Wrap" Text="{DynamicResource CH}" VerticalAlignment="Top" Width="18"/>
     </Grid>
 </Window>

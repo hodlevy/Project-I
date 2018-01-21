@@ -17,7 +17,7 @@
     <System:String x:Key="chooseLang">:בחר שפה</System:String>
     <System:String x:Key="titleVery">מטפלות לעבודה</System:String>
     <System:String x:Key="HE">'עב</System:String>
-    <System:String x:Key="EN">'אנ</System:String>
+    <System:String x:Key="EN">EN</System:String>
     <System:String x:Key="add">הוסף</System:String>
     <System:String x:Key="delete">מחק</System:String>
     <System:String x:Key="update">עדכן</System:String>
@@ -97,4 +97,5 @@
     <System:String x:Key="permonth">לפי חודש</System:String>
     <System:String x:Key="updatecontract">עדכן חוזה</System:String>
     <System:String x:Key="addcontract">הוסף חוזה</System:String>
+    <System:String x:Key="CH">中国</System:String>
 </ResourceDictionary>

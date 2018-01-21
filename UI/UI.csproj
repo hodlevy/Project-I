@@ -210,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="res\languages\AppStrings_CH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="res\languages\AppStrings_HE.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -269,17 +273,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="nanny.jpg" />
+    <Resource Include="Images\settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="settings.png" />
+    <Resource Include="Images\wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="wallpaper.jpg" />
+    <Resource Include="Images\israel.jpg" />
+    <Resource Include="Images\usa.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="israel.jpg" />
-    <Resource Include="usa.png" />
+    <Resource Include="Images\china.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
