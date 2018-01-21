@@ -147,29 +147,29 @@ namespace DAL
                 throw new Exception("File upload problem");
             }
         }
-        public void LoadChildListLinq(string childFile)
-        {
-            LoadData();
-            List<Child> children;
-            try
-            {
-                children = (from c in root.Elements()
-                            select new Child()
-                            {
-                                Id = c.Element("id").Value,
-                                MotherID = c.Element("motherId").Value,
-                                FirstName = c.Element("firstName").Value,
-                                BirthDate = DateTime.Parse(c.Element("birthDate").Value),
-                                IsSpecialNeeds = bool.Parse(c.Element("isSpecialNeeds").Value),
-                                SpecialNeeds = c.Element("specialNeeds").Value
-                            }).ToList();
-            }
-            catch
-            {
-                children = null;
-            }
-            return children;
-        }
+        //public //////void LoadChildListLinq(string childFile)
+        //{
+        //    LoadData();
+        //    List<Child> children;
+        //    try
+        //    {
+        //        children = (from c in root.Elements()
+        //                    select new Child()
+        //                    {
+        //                        Id = c.Element("id").Value,
+        //                        MotherID = c.Element("motherId").Value,
+        //                        FirstName = c.Element("firstName").Value,
+        //                        BirthDate = DateTime.Parse(c.Element("birthDate").Value),
+        //                        IsSpecialNeeds = bool.Parse(c.Element("isSpecialNeeds").Value),
+        //                        SpecialNeeds = c.Element("specialNeeds").Value
+        //                    }).ToList();
+        //    }
+        //    catch
+        //    {
+        //        children = null;
+        //    }
+        //    return children;
+        //}
 
         public void AddChild(Child child)
         {

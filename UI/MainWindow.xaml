@@ -39,7 +39,10 @@
                 <MenuItem Header="{DynamicResource update}" Click="Update_Contract" Foreground="Black"/>
             </MenuItem>
             <MenuItem Header="{DynamicResource List}" Foreground="Black" ToolTip="{DynamicResource ListToolTip}">
-                <MenuItem Header="{DynamicResource nannyList}" Click="Nanny_List" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource nannyList}">
+                    <MenuItem Header="{DynamicResource normal}" Click="Nanny_List" Foreground="Black"/>
+                    <MenuItem Header="{DynamicResource byage}" Click="Nanny_List_Age" Foreground="Black"/>
+                </MenuItem>
                 <MenuItem Header="{DynamicResource motherList}" Click="Mother_List" Foreground="Black"/>
                 <MenuItem Header="{DynamicResource childList}" Click="Child_List" Foreground="Black"/>
                 <MenuItem Header="{DynamicResource contractList}" Click="Contract_List" Foreground="Black"/>

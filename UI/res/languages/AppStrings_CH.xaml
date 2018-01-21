@@ -99,4 +99,9 @@
     <System:String x:Key="addcontract">添加合同</System:String>
     <System:String x:Key="CH">中国</System:String>
     <System:String x:Key="settingsToolTip">设置</System:String>
+    <System:String x:Key="normal">正常</System:String>
+    <System:String x:Key="byage">按年龄最大/最小</System:String>
+    <System:String x:Key="listage">照顾者的年龄列表</System:String>
+    <System:String x:Key="bymax">最大值</System:String>
+    <System:String x:Key="bymin">最低限度</System:String>
 </ResourceDictionary>

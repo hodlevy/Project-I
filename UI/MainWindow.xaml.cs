@@ -136,6 +136,12 @@ namespace UI
             SettingsWin settingsWin = new SettingsWin();
             settingsWin.ShowDialog();
         }
+
+        private void Nanny_List_Age(object sender, RoutedEventArgs e)
+        {
+            NannyListAgeWin nannyListAgeWin = new NannyListAgeWin();
+            nannyListAgeWin.ShowDialog();
+        }
     }
     public class GetBL
     {
