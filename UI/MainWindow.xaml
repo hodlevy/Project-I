@@ -13,7 +13,7 @@
             <RowDefinition Height="250*"/>
         </Grid.RowDefinitions>
         <Menu Background="LightGray">
-            <Button x:Name="button" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="Settings" Background="LightGray">
+            <Button x:Name="button" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="16" BorderThickness="0" Click="Settings" ToolTip="{DynamicResource settingsToolTip}" Background="LightGray">
                 <Image x:Name="image1" Height="14" Width="14" Source="Images/settings.png"/>
             </Button>
             <MenuItem Header="{DynamicResource Nanny}" Foreground="Black" ToolTip="{DynamicResource NannyToolTip}">

@@ -98,4 +98,5 @@
     <System:String x:Key="updatecontract">Update Contract</System:String>
     <System:String x:Key="addcontract">Add Contract</System:String>
     <System:String x:Key="CH">中国</System:String>
+    <System:String x:Key="settingsToolTip">Settings</System:String>
 </ResourceDictionary>  

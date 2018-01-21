@@ -98,4 +98,5 @@
     <System:String x:Key="updatecontract">עדכן חוזה</System:String>
     <System:String x:Key="addcontract">הוסף חוזה</System:String>
     <System:String x:Key="CH">中国</System:String>
+    <System:String x:Key="settingsToolTip">הגדרות</System:String>
 </ResourceDictionary>
