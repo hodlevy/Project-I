@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using BE;
 using System.IO;
 using System.Xml.Serialization;
+using System.Xml.Linq;
 
 namespace DAL
 {
     public class Dal_XML_imp : Idal
     {
+        private XElement root;
         #region Path Strings
         private readonly string nannyPath = @"nannyXMLFile.xml";
         private readonly string motherPath = @"motherXMLFile.xml";
@@ -120,6 +122,55 @@ namespace DAL
         }
         #endregion
         #region Child
+        public void SaveChildListLinq(List<Child> childList)
+        {
+            root = new XElement("children",
+                                    from p in childList
+                                    select new XElement("child",
+                                        new XElement("id", p.Id),
+                                        new XElement("motherId", p.MotherId),
+                                        new XElement("firstName", p.FirstName),
+                                        new XElement("birthDate", p.BirthDate),
+                                        new XElement("isSpecialNeeds", p.IsSpecialNeeds),
+                                        new XElement("specialNeeds", p.SpecialNeeds)
+                                            ));
+            root.Save(childPath);
+        }
+        private void LoadData()
+        {
+            try
+            {
+                root = XElement.Load(childPath);
+            }
+            catch
+            {
+                throw new Exception("File upload problem");
+            }
+        }
+        public void LoadChildListLinq(string childFile)
+        {
+            LoadData();
+            List<Child> children;
+            try
+            {
+                children = (from c in root.Elements()
+                            select new Child()
+                            {
+                                Id = c.Element("id").Value,
+                                MotherID = c.Element("motherId").Value,
+                                FirstName = c.Element("firstName").Value,
+                                BirthDate = DateTime.Parse(c.Element("birthDate").Value),
+                                IsSpecialNeeds = bool.Parse(c.Element("isSpecialNeeds").Value),
+                                SpecialNeeds = c.Element("specialNeeds").Value
+                            }).ToList();
+            }
+            catch
+            {
+                children = null;
+            }
+            return children;
+        }
+
         public void AddChild(Child child)
         {
 
