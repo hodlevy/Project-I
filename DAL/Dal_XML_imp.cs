@@ -170,7 +170,6 @@ namespace DAL
             }
             return children;
         }
-
         public void AddChild(Child child)
         {
             
@@ -197,9 +196,25 @@ namespace DAL
                  child = list2[0];
              return child;
           }
-    public void DeleteChild(string ID)
+        public void DeleteChild(string ID)
         {
-
+            Child child = GetChild(ID);
+            if (child.Id == null)
+                throw new Exception("Child doesn't exist");
+            List<Child> children = LoadChildListLinq(childPath);
+            children.Remove(child);
+            root.Save(childPath);
+            // צריך למחוק את החוזים, התלבטתי אם אפשר להשתמש בדברים האסורים בילד
+            // עכשיו כשאני מסתכל על זה נראה לי זה לא עושה כלום..
+            //// delete the contracts she related to
+            //List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
+            //List<Contract> contracts = GetContractsByID(mother.Id);
+            //if (contracts != null)
+            //{
+            //    foreach (Contract contract in contracts)
+            //        contractList.Remove(contract);
+            //    SaveToXML(contractList, nannyPath);
+            //}
         }
         public void UpdateChild(Child child)
         {
