@@ -99,4 +99,9 @@
     <System:String x:Key="addcontract">הוסף חוזה</System:String>
     <System:String x:Key="CH">中国</System:String>
     <System:String x:Key="settingsToolTip">הגדרות</System:String>
+    <System:String x:Key="normal">רגיל</System:String>
+    <System:String x:Key="byage">'לפי גיל מינ'/מקס</System:String>
+    <System:String x:Key="listage">רשימת מטפלות על פי גיל</System:String>
+    <System:String x:Key="bymax">לפי מקסימום</System:String>
+    <System:String x:Key="bymin">לפי מינימום</System:String>
 </ResourceDictionary>

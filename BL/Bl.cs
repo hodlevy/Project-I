@@ -27,7 +27,7 @@ namespace BL
         void initialization()
         {
             Nanny Ayala_Zehavi = new Nanny
-            ("123456782", "Ayala", "Zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0508455477", true, 3, 4, 15, 4, 36, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
+            ("123456782", "Ayala", "Zehavi", new DateTime(1980, 5, 19), "Beit Ha-Defus St 21, Jerusalem", "0508455477", true, 3, 4, 15, 4, 28, true, 30, 5000, true, "", new bool[] { true, true, true, true, true, false },
                 new TimeSpan[,]
                 {
                     {TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(15.75) },{TimeSpan.FromHours(9),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7.5),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
@@ -120,7 +120,6 @@ namespace BL
             }
             if (nanny.MaxAge < nanny.MinAge)
                 throw new Exception("Min/Max age doesn't make sense!");
-            MyDal.AddNanny(nanny);
             MyDal.UpdateNanny(nanny);
         }
         #endregion
@@ -454,7 +453,7 @@ namespace BL
         /// <param name="ifMinMax"></param>
         /// <param name="isSorted"></param>
         /// <returns>group list</returns>
-        IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false)
+        IEnumerable<IGrouping<int, Nanny>> IBL.GroupNanny(bool ifMinMax, bool isSorted = false)
         {
             List<Nanny> list = DataSource.listNanny;
             if (isSorted)

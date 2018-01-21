@@ -85,6 +85,9 @@
     <Compile Include="Mother\MotherListWin.xaml.cs">
       <DependentUpon>MotherListWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Nanny\NannyListAgeWin.xaml.cs">
+      <DependentUpon>NannyListAgeWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Nanny\NannyListWin.xaml.cs">
       <DependentUpon>NannyListWin.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Mother\AddMotherWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Nanny\NannyListAgeWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

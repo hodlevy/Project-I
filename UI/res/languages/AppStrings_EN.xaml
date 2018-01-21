@@ -99,4 +99,9 @@
     <System:String x:Key="addcontract">Add Contract</System:String>
     <System:String x:Key="CH">中国</System:String>
     <System:String x:Key="settingsToolTip">Settings</System:String>
+    <System:String x:Key="normal">Normal</System:String>
+    <System:String x:Key="byage">By Min/Max Age</System:String>
+    <System:String x:Key="listage">Nanny List By Age</System:String>
+    <System:String x:Key="bymax">By Max</System:String>
+    <System:String x:Key="bymin">By Min</System:String>
 </ResourceDictionary>  

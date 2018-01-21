@@ -31,5 +31,7 @@ namespace BL
         List<Child> LonleyChildren();
         List<Nanny> PotentiallyNannies(string motherID);
         List<Nanny> VacationCheck_AllNanny();
+        IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false);
+
     }
 }
