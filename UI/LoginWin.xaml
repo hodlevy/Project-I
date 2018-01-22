@@ -1,0 +1,19 @@
+﻿<Window x:Class="UI.LoginWin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI"
+             mc:Ignorable="d" Height="350" Width="263" ResizeMode="NoResize">
+    <Grid >
+        <Rectangle Fill="AliceBlue" HorizontalAlignment="Left" Height="322" Stroke="Black" VerticalAlignment="Top" Width="255" Margin="0,0,0,-1"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="56" Margin="43,33,0,0" TextWrapping="Wrap" Text="Sign In:" VerticalAlignment="Top" Width="164" FontFamily="Snap ITC" FontSize="35" Foreground="DarkCyan"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="27" Margin="59,95,0,0" TextWrapping="Wrap" Text="User Name:" VerticalAlignment="Top" Width="113" FontWeight="Bold" Foreground="Thistle" FontSize="17"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="27" Margin="58,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Height="27" Margin="59,156,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Width="113" FontWeight="Bold" Foreground="Thistle" FontSize="17"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="27" Margin="58,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" TextChanged="textBox_Copy_TextChanged"/>
+        <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Height="38" Margin="49,232,0,0" VerticalAlignment="Top" Width="153" FontFamily="Segoe Print" Background="LightGoldenrodYellow" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="button_Click" FontSize="20"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="12" Margin="72,278,0,0" TextWrapping="Wrap" Text="Or Create A New Account..." VerticalAlignment="Top" Width="112" FontSize="9" Foreground="Black" MouseEnter="textBlock2_MouseEnter" MouseLeave="textBlock2_MouseLeave"/>
+
+    </Grid>
+</Window>

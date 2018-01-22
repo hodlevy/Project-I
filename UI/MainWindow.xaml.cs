@@ -28,6 +28,8 @@ namespace UI
         {
             InitializeComponent();
             GetBL.initBL();
+            LoginWin loginWin = new LoginWin();
+            loginWin.ShowDialog();
         }
 
         private void Add_Nanny(object sender, RoutedEventArgs e)

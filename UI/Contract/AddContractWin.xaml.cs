@@ -50,7 +50,14 @@ namespace UI
             }
             catch(Exception str)
             {
-                contract.Number--;
+                try
+                {
+                    contract.Number--;
+                }
+                catch
+                {
+
+                }
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
