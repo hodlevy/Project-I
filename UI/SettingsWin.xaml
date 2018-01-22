@@ -14,7 +14,7 @@
         <CheckBox x:Name="checkBoxEN" Content="CheckBox" HorizontalAlignment="Left" Height="19" Margin="64,51,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxEN_Checked"/>
         <TextBlock x:Name="HE" HorizontalAlignment="Left" Height="14" Margin="42,26,0,0" TextWrapping="Wrap" Text="{DynamicResource HE}" VerticalAlignment="Top" Width="18"/>
         <TextBlock x:Name="EN" HorizontalAlignment="Left" Height="14" Margin="42,50,0,0" TextWrapping="Wrap" Text="{DynamicResource EN}" VerticalAlignment="Top" Width="18"/>
-        <Image x:Name="usa_Copy" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="34" Source="Images/china.png" Margin="4,73,0,0"/>
+        <Image x:Name="china" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="34" Source="Images/china.png" Margin="4,73,0,0"/>
         <CheckBox x:Name="checkBoxCH" Content="CheckBox" HorizontalAlignment="Left" Height="19" Margin="64,74,0,0" VerticalAlignment="Top" Width="16" IsChecked="False" Checked="checkBoxCH_Checked"/>
         <TextBlock x:Name="CH" HorizontalAlignment="Left" Height="14" Margin="42,73,0,0" TextWrapping="Wrap" Text="{DynamicResource CH}" VerticalAlignment="Top" Width="18"/>
     </Grid>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="{DynamicResource titleVery}" Height="400" Width="400"
         ResizeMode="NoResize">
-    <Grid>
+    <Grid x:Name="PIC">
         <Grid.RowDefinitions>
             <RowDefinition Height="19*"/>
             <RowDefinition Height="100*"/>
