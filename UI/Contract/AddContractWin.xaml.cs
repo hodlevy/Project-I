@@ -58,7 +58,7 @@ namespace UI
                 {
 
                 }
-                MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(str.Message, str.Message, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

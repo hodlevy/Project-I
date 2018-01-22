@@ -47,7 +47,7 @@ namespace UI
             }
             catch (Exception str)
             {
-                MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(str.Message, str.Message, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
