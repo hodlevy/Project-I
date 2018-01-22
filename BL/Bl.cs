@@ -40,8 +40,8 @@ namespace BL
                     {TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) }, {TimeSpan.FromHours(7),TimeSpan.FromHours(15) },{TimeSpan.FromHours(7),TimeSpan.FromHours(12) },{TimeSpan.FromHours(7),TimeSpan.FromHours(15.5) },{TimeSpan.FromHours(7),TimeSpan.FromHours(16.25) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
                 }
                 );
-            DataSource.listNanny.Add(Ayala_Zehavi);
-            DataSource.listNanny.Add(Moria_Schneider);
+            MyDal.AddNanny(Ayala_Zehavi);
+            MyDal.AddNanny(Moria_Schneider);
             Mother Ayelt_Shaked = new Mother
             ("113542872", "Ayelt", "Shaked", "0521234566", "Shakhal St 23,Jerusalem", "Shakhal St 23,Jerusalem", new bool[] { true, true, true, true, true, false },
                new TimeSpan[,]
@@ -54,18 +54,18 @@ namespace BL
                {
                     {TimeSpan.FromHours(0),TimeSpan.FromHours(0) }, {TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(8),TimeSpan.FromHours(12) },{TimeSpan.FromHours(0),TimeSpan.FromHours(0) },
                }, "");
-            DataSource.listMother.Add(Ayelt_Shaked);
-            DataSource.listMother.Add(Gilat_Bennet);
+            MyDal.AddMother(Ayelt_Shaked);
+            MyDal.AddMother(Gilat_Bennet);
             Child Elad = new Child("322690124", "113542872", "Elad", new DateTime(2016, 6, 20), true, "Is STUPID");
             Child Dror = new Child("302302039", "111112223", "Dror", new DateTime(2015, 1, 1), false, "");
-            DataSource.listChild.Add(Elad);
-            DataSource.listChild.Add(Dror);
+            MyDal.AddChild(Elad);
+            MyDal.AddChild(Dror);
             Contract contract1 = new Contract("322690124", "123456782", "113542872", true, true, 30, 5000, true, new DateTime(2017, 6, 20), new DateTime(2017, 12, 20));
             Contract contract2 = new Contract("302302039", "258746916", "111112223", true, true, 27, 4800, false, new DateTime(2015, 6, 1), new DateTime(2017, 12, 20));
             contract1.Salary = MonthlyPayment(contract1);
-            DataSource.listContract.Add(contract1);
+            MyDal.AddContract(contract1);
             contract2.Salary = MonthlyPayment(contract2);
-            DataSource.listContract.Add(contract2);
+            MyDal.AddContract(contract2);
         }
         #region Nanny
         /// <summary>

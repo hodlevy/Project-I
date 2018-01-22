@@ -104,4 +104,5 @@
     <System:String x:Key="listage">Nanny List By Age</System:String>
     <System:String x:Key="bymax">By Max</System:String>
     <System:String x:Key="bymin">By Min</System:String>
+    <FontFamily x:Key="Font">Snap ITC</FontFamily>
 </ResourceDictionary>  

@@ -23,6 +23,13 @@ namespace UI
         public DeleteNannyWin()
         {
             InitializeComponent();
+            ComboBoxItem newNanny;
+            foreach (BE.Nanny nanny in GetBL.bl.AllNannys())
+            {
+                newNanny = new ComboBoxItem();
+                newNanny.Content = nanny.Id + " - " + nanny.FirstName + " " + nanny.LastName;
+                comboBox.Items.Add(newNanny);
+            }
         }
         /// <summary>
         /// delete nanny due to her ID
@@ -33,7 +40,7 @@ namespace UI
         {
             try
             {
-                GetBL.bl.DeleteNanny(textBox.Text);
+                GetBL.bl.DeleteNanny(GetBL.bl.AllNannys()[comboBox.SelectedIndex - 1].Id);
                 Thread.Sleep(500);
                 Close();
             }

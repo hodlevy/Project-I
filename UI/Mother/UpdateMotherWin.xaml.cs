@@ -138,5 +138,14 @@ namespace UI
                 #endregion
             }
         }
+        private void button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            button.FontSize = 40;
+        }
+
+        private void button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            button.FontSize = 16;
+        }
     }
 }

@@ -30,7 +30,7 @@
         <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="IfNeeds" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
         <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
-        <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click"/>
+        <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_Selected">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>

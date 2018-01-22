@@ -20,6 +20,7 @@ namespace UI
     /// </summary>
     public partial class AddChildWin : Window
     {
+        BE.Child child;
         public AddChildWin()
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace UI
                 newMother.Content = mother.Id + " - " + mother.FirstName + " " + mother.LastName;
                 comboBox.Items.Add(newMother);
             }
+            child = new BE.Child();
+            addChildGrid.DataContext = child;
         }
         /// <summary>
         /// add the data that was handed over by the user
@@ -40,7 +43,7 @@ namespace UI
         {
             try
             {
-                BE.Child child = new BE.Child(ID.Text, GetBL.bl.AllMothers()[comboBox.SelectedIndex - 1].Id, Name.Text, (DateTime)datePicker.SelectedDate, (bool)IfNeeds.IsChecked, SpecialNeeds.Text);
+                child.MotherId = GetBL.bl.AllMothers()[comboBox.SelectedIndex - 1].Id;
                 GetBL.bl.AddChild(child);
                 Thread.Sleep(500);
                 Close();
@@ -49,6 +52,15 @@ namespace UI
             {
                 MessageBox.Show(str.ToString(), str.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            button.FontSize = 40;
+        }
+
+        private void button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            button.FontSize = 16;
         }
     }
 }

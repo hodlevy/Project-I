@@ -23,6 +23,13 @@ namespace UI
         public DeleteContractWin()
         {
             InitializeComponent();
+            ComboBoxItem newContract;
+            foreach (BE.Contract contract in GetBL.bl.AllContracts())
+            {
+                newContract = new ComboBoxItem();
+                newContract.Content = contract.Code;
+                comboBox.Items.Add(newContract);
+            }
         }
         /// <summary>
         /// delete contract due to his number
@@ -33,7 +40,7 @@ namespace UI
         {
             try
             {
-                GetBL.bl.DeleteContract(Convert.ToInt32(textBox.Text));
+                GetBL.bl.DeleteContract(Convert.ToInt32(GetBL.bl.AllContracts()[comboBox.SelectedIndex - 1].Code));
                 Thread.Sleep(500);
                 Close();
             }

@@ -18,6 +18,25 @@ namespace DAL
         private readonly string motherPath = @"motherXMLFile.xml";
         private readonly string childPath = @"childXMLFile.xml";
         private readonly string contractPath = @"contractXMLFile.xml";
+        public void Start(string path, string type)
+        {
+            if (!File.Exists(path))
+                CreateFiles(path, type);
+            else
+                LoadData();
+        }
+        private void CreateFiles(string path, string type)
+        {
+            root = new XElement(type);
+            root.Save(path);
+        }
+        public Dal_XML_imp()
+        {
+            Start(nannyPath, "Nannies");
+            Start(motherPath, "Mothers");
+            Start(childPath, "Children");
+            Start(contractPath, "Contracts");
+        }
         #endregion
         #region Nanny
         public void AddNanny(Nanny nanny)

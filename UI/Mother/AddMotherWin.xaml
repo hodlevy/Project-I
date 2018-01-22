@@ -44,7 +44,7 @@
         <CheckBox x:Name="Wednesday" Content="{DynamicResource wed}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
         <CheckBox x:Name="Thursday" Content="{DynamicResource thurs}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
         <CheckBox x:Name="Friday" Content="{DynamicResource fri}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,27,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
         <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="23,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBox x:Name="SunMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="55,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="23" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock19" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="47,5,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>

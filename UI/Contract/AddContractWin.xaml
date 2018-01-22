@@ -46,7 +46,7 @@
         <CheckBox x:Name="Per" Content="{DynamicResource permonth}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
         <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
         <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>

@@ -58,7 +58,7 @@
     <System:String x:Key="w">רב</System:String>
     <System:String x:Key="th">חמ</System:String>
     <System:String x:Key="f">שי</System:String>
-    <System:String x:Key="tmtvac">?חופשה על פי התמ"ת</System:String>
+    <System:String x:Key="tmtvac">?חופשות התמ"ת</System:String>
     <System:String x:Key="recom">:המלצות</System:String>
     <System:String x:Key="addnanny">הוסף מטפלת</System:String>
     <System:String x:Key="send">שלח</System:String>
@@ -104,4 +104,5 @@
     <System:String x:Key="listage">רשימת מטפלות על פי גיל</System:String>
     <System:String x:Key="bymax">לפי מקסימום</System:String>
     <System:String x:Key="bymin">לפי מינימום</System:String>
+    <FontFamily x:Key="Font">Guttman Calligraphic</FontFamily>
 </ResourceDictionary>

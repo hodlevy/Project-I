@@ -5,53 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource addnanny}" Height="1000" Width="600">
+        Title="{DynamicResource addnanny}" Height="950" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="76*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource id}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource fname}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="{DynamicResource lname}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource birth}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="{DynamicResource phone}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource address}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="{DynamicResource elevator}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource floor}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="{DynamicResource exp}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource maxc}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource mina}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock11" HorizontalAlignment="Stretch" Grid.Row="11" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource maxa}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock12" HorizontalAlignment="Stretch" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource ifhour}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock13" HorizontalAlignment="Stretch" Grid.Row="13" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource forhour}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock14" HorizontalAlignment="Stretch" Grid.Row="14" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource formonth}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock15" HorizontalAlignment="Stretch" Grid.Row="15" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource workdays}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock16" HorizontalAlignment="Stretch" Grid.Row="16" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource workhours}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock17" HorizontalAlignment="Stretch" Grid.Row="17" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource tmtvac}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock18" HorizontalAlignment="Stretch" Grid.Row="18" Grid.RowSpan="2" TextWrapping="Wrap" Text="{DynamicResource recom}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{DynamicResource id}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="{DynamicResource fname}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="{DynamicResource lname}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="{DynamicResource birth}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="{DynamicResource phone}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{DynamicResource address}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="{DynamicResource elevator}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource floor}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="{DynamicResource exp}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock9" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="{DynamicResource maxc}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock10" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="{DynamicResource mina}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock11" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="{DynamicResource maxa}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock12" HorizontalAlignment="Stretch" Grid.Row="12" TextWrapping="Wrap" Text="{DynamicResource ifhour}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock13" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="{DynamicResource forhour}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock14" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="{DynamicResource formonth}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock15" HorizontalAlignment="Stretch" Grid.Row="15" TextWrapping="Wrap" Text="{DynamicResource workdays}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock16" HorizontalAlignment="Stretch" Grid.Row="16" TextWrapping="Wrap" Text="{DynamicResource workhours}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock17" HorizontalAlignment="Stretch" Grid.Row="17" TextWrapping="Wrap" Text="{DynamicResource tmtvac}" VerticalAlignment="Top" Height="16"/>
+        <TextBlock x:Name="textBlock18" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text="{DynamicResource recom}" VerticalAlignment="Top" Height="16"/>
         <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32" Style="{StaticResource myTrigger}"/>
         <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
@@ -66,15 +66,15 @@
         <CheckBox x:Name="HourPayment" Content="{DynamicResource hourpayment}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False"/>
         <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <CheckBox x:Name="TMT" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False" FontSize="32"/>
+        <CheckBox x:Name="TMT" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False"/>
         <TextBox x:Name="Recommendation" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text=""/>
-        <CheckBox x:Name="Sunday" Content="{DynamicResource sun}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Monday" Content="{DynamicResource mon}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,5,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Tuesday" Content="{DynamicResource tues}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,4,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Wednesday" Content="{DynamicResource wed}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Thursday" Content="{DynamicResource thurs}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Friday" Content="{DynamicResource fri}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,27,0,0" Grid.Row="15" VerticalAlignment="Top"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click"/>
+        <CheckBox x:Name="Sunday" Content="{DynamicResource sun}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="59"/>
+        <CheckBox x:Name="Monday" Content="{DynamicResource mon}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,5,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="64"/>
+        <CheckBox x:Name="Tuesday" Content="{DynamicResource tues}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,4,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="63"/>
+        <CheckBox x:Name="Wednesday" Content="{DynamicResource wed}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="81"/>
+        <CheckBox x:Name="Thursday" Content="{DynamicResource thurs}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="68"/>
+        <CheckBox x:Name="Friday" Content="{DynamicResource fri}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="52"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
         <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="23,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBox x:Name="SunMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="55,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="23" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock19" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="47,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
