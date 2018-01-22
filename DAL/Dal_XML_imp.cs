@@ -38,7 +38,7 @@ namespace DAL
             nannies.Remove(nanny);
             SaveToXML(nannies, nannyPath);
             // delete the contracts she related to
-            List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);  
+            List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
             List<Contract> contracts = GetContractsByID(nanny.Id);
             if (contracts != null)
             {
@@ -78,7 +78,7 @@ namespace DAL
                 throw new Exception("Mother already exist");
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
             mothers.Add(mother);
-            SaveToXML(mothers, nannyPath);
+            SaveToXML(mothers, motherPath);
         }
         public void DeleteMother(string ID)
         {
@@ -87,7 +87,7 @@ namespace DAL
                 throw new Exception("Mother doesn't exist");
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
             mothers.Remove(mother);
-            SaveToXML(mothers, nannyPath);
+            SaveToXML(mothers, motherPath);
             // delete the contracts she related to
             List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
             List<Contract> contracts = GetContractsByID(mother.Id);
@@ -95,7 +95,7 @@ namespace DAL
             {
                 foreach (Contract contract in contracts)
                     contractList.Remove(contract);
-                SaveToXML(contractList, nannyPath);
+                SaveToXML(contractList, motherPath);
             }
         }
         public void UpdateMother(Mother mother)
@@ -113,7 +113,7 @@ namespace DAL
                     break;
                 }
             }
-            SaveToXML(mothers, nannyPath);
+            SaveToXML(mothers, motherPath);
         }
         public List<Mother> AllMothers()
         {
@@ -172,10 +172,10 @@ namespace DAL
         }
         public void AddChild(Child child)
         {
-            
+
             Child child2 = GetChild(child.Id);
-                        if (child2.Id != null)
-                                throw new Exception("Child already exist");
+            if (child2.Id != null)
+                throw new Exception("Child already exist");
             root.Add(new XElement("child",
             new XElement("id", child.Id),
             new XElement("motherId", child.MotherId),
@@ -185,40 +185,39 @@ namespace DAL
             new XElement("specialNeeds", child.SpecialNeeds)
                             ));
             root.Save(childPath);
-                    }
-         Child GetChild(string childID)
-         {
-             List<Child> list = LoadChildListLinq(childPath);
-             Child child = new Child();
-             List<Child> list2 = null;
-             list2 = list.FindAll(item => item.Id == childID);
-             if (list2.Count() != 0)
-                 child = list2[0];
-             return child;
-          }
+        }
         public void DeleteChild(string ID)
         {
             Child child = GetChild(ID);
             if (child.Id == null)
                 throw new Exception("Child doesn't exist");
-            List<Child> children = LoadChildListLinq(childPath);
-            children.Remove(child);
+            XElement childElement;
+            childElement = (from c in root.Elements()
+                            where (c.Element("id").Value) == ID
+                            select c).First();
+            childElement.Remove();
             root.Save(childPath);
-            // צריך למחוק את החוזים, התלבטתי אם אפשר להשתמש בדברים האסורים בילד
-            // עכשיו כשאני מסתכל על זה נראה לי זה לא עושה כלום..
-            //// delete the contracts she related to
-            //List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
-            //List<Contract> contracts = GetContractsByID(mother.Id);
-            //if (contracts != null)
-            //{
-            //    foreach (Contract contract in contracts)
-            //        contractList.Remove(contract);
-            //    SaveToXML(contractList, nannyPath);
-            //}
+            List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
+            List<Contract> contracts = GetContractsByID(child.Id);
+            if (contracts != null)
+            {
+                foreach (Contract contract in contracts)
+                    contractList.Remove(contract);
+                SaveToXML(contractList, contractPath);
+            }
         }
         public void UpdateChild(Child child)
         {
+            XElement childElement = (from c in root.Elements()
+                                       where (c.Element("id").Value) == child.Id
+                                       select c).FirstOrDefault();
 
+            childElement.Element("firstName").Value = child.FirstName;
+            childElement.Element("birthDate").Value = (child.BirthDate).ToShortDateString();
+            childElement.Element("isSpecialNeeds").Value = child.IsSpecialNeeds.ToString();
+            childElement.Element("specialNeeds").Value = child.SpecialNeeds;
+
+            root.Save(childPath);
         }
         public List<Child> AllChildren()
         {
@@ -314,16 +313,16 @@ namespace DAL
                 mother = list2[0];
             return mother;
         }
-        //Child GetChild(string childID)
-        //{
-        //    List<Child> list = LoadFromXML<List<Child>>(childPath);
-        //    Child child = new Child();
-        //    List<Child> list2 = null;
-        //    list2 = list.FindAll(item => item.Id == childID);
-        //    if (list2.Count() != 0)
-        //        child = list2[0];
-        //    return child;
-        //}
+        Child GetChild(string childID)
+        {
+            List<Child> list = LoadChildListLinq(childPath);
+            Child child = new Child();
+            List<Child> list2 = null;
+            list2 = list.FindAll(item => item.Id == childID);
+            if (list2.Count() != 0)
+                child = list2[0];
+            return child;
+        }
         Contract GetContract(int number)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);

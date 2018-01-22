@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -23,8 +24,12 @@ namespace BE
         private bool ifHourPaid;
         private double payForHour;
         private double payForMonth;
+        [XmlIgnore]
         private bool[] isWorking = new bool[6];
+        private string isWorkingString;
+        [XmlIgnore]
         private TimeSpan[,] workHours = new TimeSpan[6, 2];
+        private string workHoursString;
         private bool vacationCheck;
         private string recommendation;
         /// <summary>
@@ -412,6 +417,61 @@ namespace BE
             set
             {
                 recommendation = value;
+            }
+        }
+
+        public string IsWorkingString
+        {
+            get
+            {
+                if (IsWorking == null)
+                    return null;
+                string result = "";
+                if (IsWorking != null)
+                {
+                    for (int i = 0; i < 6; i++)
+                        result += "," + IsWorking[i];
+                }
+                return result;
+            }
+
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    IsWorking = new bool[6];
+                    for (int i = 0; i < 6; i++)
+                        IsWorking[i] = bool.Parse(values[i]);
+                }
+            }
+        }
+
+        public string WorkHoursString
+        {
+            get
+            {
+                if (workHours == null)
+                    return null;
+                string result = "";
+                if (workHours != null)
+                {
+                    for (int i = 0; i < 6; i++)
+                        for (int j = 0; j < 2; j++)
+                            result += "," + workHours[i, j];
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    workHours = new TimeSpan[6, 2];
+                    for (int i = 0; i < 6; i++)
+                        for (int j = 0; j < 2; j++)
+                            workHours[i, j] = TimeSpan.Parse(values[i]);
+                }
             }
         }
 

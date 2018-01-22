@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -14,8 +15,12 @@ namespace BE
         private string phoneNumber;
         private string address;
         private string searchingArea;
+        [XmlIgnore]
         private bool[] needsNanny = new bool[6];
+        private string needsNannyString;
+        [XmlIgnore]
         private TimeSpan[,] needsNannyHours = new TimeSpan[6, 2];
+        private string needsNannyHoursString;
         private string comments;
         /// <summary>
         /// To string override
@@ -220,6 +225,61 @@ namespace BE
             set
             {
                 needsNanny = value;
+            }
+        }
+
+        public string NeedsNannyString
+        {
+            get
+            {
+                if (needsNanny == null)
+                    return null;
+                string result = "";
+                if (needsNanny != null)
+                {
+                    for (int i = 0; i < 6; i++)
+                            result += "," + needsNanny[i];
+                }
+                return result;
+            }
+
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    needsNanny = new bool[6];
+                    for (int i = 0; i < 6; i++)
+                            needsNanny[i] = bool.Parse(values[i]);
+                }
+            }
+        }
+
+        public string NeedsNannyHoursString
+        {
+            get
+            {
+                if (needsNannyHours == null)
+                    return null;
+                string result = "";
+                if (needsNannyHours != null)
+                {
+                    for (int i = 0; i < 6; i++)
+                        for (int j = 0; j < 2; j++)
+                            result += "," + needsNannyHours[i, j];
+                }
+                return result;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split(',');
+                    needsNannyHours = new TimeSpan[6, 2];
+                    for (int i = 0; i < 6; i++)
+                        for (int j = 0; j < 2; j++)
+                            needsNannyHours[i, j] = TimeSpan.Parse(values[i]);
+                }
             }
         }
 
