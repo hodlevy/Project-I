@@ -38,5 +38,13 @@ namespace DAL
         List<Child> AllChildren();
         List<Contract> AllContracts();
         #endregion
+        #region Get
+        Nanny GetNanny(string nannyID);
+        Mother GetMother(string motherID);
+        Child GetChild(string childID);
+        Contract GetContract(int number);
+        Contract GetContractByID(string ID);
+        List<Contract> GetContractsByID(string ID);
+        #endregion
     }
 }

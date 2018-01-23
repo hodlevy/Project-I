@@ -265,7 +265,7 @@ namespace DAL
         {
             List<Contract> listContract = null;
             DataSource.listContract.Sort();
-            return DataSource.listContract;
+            return listContract;
         }
         #endregion
         #region Get Function
@@ -341,6 +341,36 @@ namespace DAL
             List<Contract> contracts = null;
             contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
             return contracts;
+        }
+
+        Nanny Idal.GetNanny(string nannyID)
+        {
+            throw new NotImplementedException();
+        }
+
+        Mother Idal.GetMother(string motherID)
+        {
+            throw new NotImplementedException();
+        }
+
+        Child Idal.GetChild(string childID)
+        {
+            throw new NotImplementedException();
+        }
+
+        Contract Idal.GetContract(int number)
+        {
+            throw new NotImplementedException();
+        }
+
+        Contract Idal.GetContractByID(string ID)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Contract> Idal.GetContractsByID(string ID)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

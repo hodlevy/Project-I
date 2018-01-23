@@ -200,7 +200,7 @@ namespace BE
                 comments = value;
             }
         }
-
+        [XmlIgnore]
         public TimeSpan[,] NeedsNannyHours
         {
             get
@@ -213,7 +213,7 @@ namespace BE
                 needsNannyHours = value;
             }
         }
-
+        [XmlIgnore]
         public bool[] NeedsNanny
         {
             get
@@ -249,7 +249,7 @@ namespace BE
                     string[] values = value.Split(',');
                     needsNanny = new bool[6];
                     for (int i = 0; i < 6; i++)
-                            needsNanny[i] = bool.Parse(values[i]);
+                            needsNanny[i] = bool.Parse(values[i+1]);
                 }
             }
         }
@@ -277,7 +277,7 @@ namespace BE
                     needsNannyHours = new TimeSpan[6, 2];
                     for (int i = 0; i < 6; i++)
                         for (int j = 0; j < 2; j++)
-                            needsNannyHours[i, j] = TimeSpan.Parse(values[i]);
+                            needsNannyHours[i, j] = TimeSpan.Parse(values[i+1]);
                 }
             }
         }

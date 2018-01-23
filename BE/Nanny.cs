@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace BE
@@ -366,7 +362,7 @@ namespace BE
                 payForMonth = value;
             }
         }
-
+        [XmlIgnore]
         public bool[] IsWorking
         {
             get
@@ -379,7 +375,7 @@ namespace BE
                 isWorking = value;
             }
         }
-
+        [XmlIgnore]
         public TimeSpan[,] WorkHours
         {
             get
@@ -441,7 +437,7 @@ namespace BE
                     string[] values = value.Split(',');
                     IsWorking = new bool[6];
                     for (int i = 0; i < 6; i++)
-                        IsWorking[i] = bool.Parse(values[i]);
+                        IsWorking[i] = bool.Parse(values[i+1]);
                 }
             }
         }
@@ -469,7 +465,7 @@ namespace BE
                     workHours = new TimeSpan[6, 2];
                     for (int i = 0; i < 6; i++)
                         for (int j = 0; j < 2; j++)
-                            workHours[i, j] = TimeSpan.Parse(values[i]);
+                            workHours[i, j] = TimeSpan.Parse(values[i+1]);
                 }
             }
         }

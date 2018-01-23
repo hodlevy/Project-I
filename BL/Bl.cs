@@ -413,11 +413,7 @@ namespace BL
         /// <returns>nanny</returns>
         Nanny GetNanny(string nannyID)
         {
-            Nanny nanny = new Nanny();
-            var v = from item in DataSource.listNanny
-                    where item.Id == nannyID
-                    select item;
-            nanny = v.First();
+            Nanny nanny = MyDal.GetNanny(nannyID);
             return nanny;
         }
         /// <summary>
@@ -427,11 +423,7 @@ namespace BL
         /// <returns>mother</returns>
         Mother GetMother(string motherID)
         {
-            Mother mother = new Mother();
-            var v = from item in DataSource.listMother
-                    where item.Id == motherID
-                    select item;
-            mother = v.First();
+            Mother mother = MyDal.GetMother(motherID);
             return mother;
         }
         /// <summary>
@@ -441,11 +433,7 @@ namespace BL
         /// <returns>child</returns>
         Child GetChild(string childID)
         {
-            Child child = new Child();
-            var v = from item in DataSource.listChild
-                    where item.Id == childID
-                    select item;
-            child = v.First();
+            Child child = MyDal.GetChild(childID);
             return child;
         }
         /// <summary>
