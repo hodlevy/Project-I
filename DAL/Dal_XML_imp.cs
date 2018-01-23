@@ -32,9 +32,6 @@ namespace DAL
         }
         public Dal_XML_imp()
         {
-            //Start(nannyPath, "Nannies");
-            //Start(motherPath, "Mothers");
-            //Start(contractPath, "Contracts");
             if(!File.Exists(nannyPath))
             {
                 SaveToXML(new List<Nanny>(), nannyPath);
