@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource updatechild}" Height="500" Width="330">
+        Title="{DynamicResource updatechild}" Height="500" Width="330" Icon="/Images/iconchild.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -27,13 +27,13 @@
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="{DynamicResource special?}"/>
         <TextBlock x:Name="textBlock5" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{DynamicResource special}"/>
         <TextBlock x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
         <CheckBox x:Name="IfNeeds" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
         <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
-        <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
+        <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_Selected">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
-        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate=""/>
+        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="" SelectedDateChanged="Enable2"/>
     </Grid>
 </Window>

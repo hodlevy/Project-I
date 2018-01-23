@@ -46,7 +46,7 @@ namespace UI
 
         private void textBlock2_MouseEnter(object sender, MouseEventArgs e)
         {
-            textBlock2.Foreground = Brushes.Yellow;
+            textBlock2.Foreground = Brushes.Gold;
         }
 
         private void textBlock2_MouseLeave(object sender, MouseEventArgs e)

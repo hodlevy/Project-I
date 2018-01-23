@@ -43,6 +43,8 @@ namespace UI
         {
             try
             {
+                if (!IDCheck(ID.Text.ToString()))
+                    throw new Exception("Wrong ID!");
                 child.MotherId = GetBL.bl.AllMothers()[comboBox.SelectedIndex - 1].Id;
                 GetBL.bl.AddChild(child);
                 Thread.Sleep(500);
@@ -61,6 +63,45 @@ namespace UI
         private void button_MouseLeave(object sender, MouseEventArgs e)
         {
             button.FontSize = 16;
+        }
+        private void SetButton()
+        {
+            button.IsEnabled = ID.Text != "" && Name.Text != "" && datePicker.SelectedDate != null && (comboBox.SelectedIndex != 0 && comboBox.SelectedIndex != -1);
+        }
+        private void Enable(object sender, TextChangedEventArgs e)
+        {
+            SetButton();
+        }
+        private void Enable3(object sender, SelectionChangedEventArgs e)
+        {
+            SetButton();
+        }
+
+        private void Enable2(object sender, SelectionChangedEventArgs e)
+        {
+            SetButton();
+        }
+        static bool IDCheck(String strID)
+        {
+            int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+            int count = 0;
+
+            if (strID == null)
+                return false;
+
+            strID = strID.PadLeft(9, '0');
+
+            for (int i = 0; i < 9; i++)
+            {
+                int num = Int32.Parse(strID.Substring(i, 1)) * id_12_digits[i];
+
+                if (num > 9)
+                    num = (num / 10) + (num % 10);
+
+                count += num;
+            }
+
+            return (count % 10 == 0);
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource contractlist}" Height="300" Width="300">
+        Title="{DynamicResource contractlist}" Height="300" Width="300" Icon="/Images/iconcontract.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>

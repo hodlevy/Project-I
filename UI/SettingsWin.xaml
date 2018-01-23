@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource settings}" Height="300" Width="300">
+        Title="{DynamicResource settings}" Height="300" Width="300" Icon="Images/iconsettings.png">
     <Grid>
         <Image x:Name="usa" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="34" Source="Images/usa.png" Margin="4,50,0,0"/>
         <Image x:Name="israel" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/israel.jpg" Width="34" Margin="4,20,0,0"/>

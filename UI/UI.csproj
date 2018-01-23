@@ -319,6 +319,27 @@
   <ItemGroup>
     <Resource Include="Images\wallpaper5.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconanny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconlogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconsettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconchild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconcontract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconmother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconanny2.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

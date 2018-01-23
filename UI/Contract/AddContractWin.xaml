@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="UI.AddContractWin"
         mc:Ignorable="d"
-        Title="{DynamicResource addcontract}" Height="700" Width="330">
+        Title="{DynamicResource addcontract}" Height="700" Width="330" Icon="/Images/iconcontract.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

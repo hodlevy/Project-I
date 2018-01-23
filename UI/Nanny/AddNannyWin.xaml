@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource addnanny}" Height="950" Width="600">
+        Title="{DynamicResource addnanny}" Height="950" Width="600" Icon="/Images/iconanny2.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

@@ -71,6 +71,7 @@ namespace UI
                 IfNeeds.IsChecked = child.IsSpecialNeeds;
                 SpecialNeeds.Text = child.SpecialNeeds;
             }
+            SetButton();
         }
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -80,6 +81,18 @@ namespace UI
         private void button_MouseLeave(object sender, MouseEventArgs e)
         {
             button.FontSize = 16;
+        }
+        private void SetButton()
+        {
+            button.IsEnabled = Name.Text != "" && datePicker.SelectedDate != null && (comboBox.SelectedIndex != 0 && comboBox.SelectedIndex != -1);
+        }
+        private void Enable(object sender, TextChangedEventArgs e)
+        {
+            SetButton();
+        }
+        private void Enable2(object sender, SelectionChangedEventArgs e)
+        {
+            SetButton();
         }
     }
 }

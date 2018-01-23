@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="{DynamicResource titleVery}" Height="400" Width="400"
+        Title="{DynamicResource titleVery}" Height="400" Width="400" Icon="Images/iconanny.png"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
@@ -50,7 +50,7 @@
             </MenuItem>
         </Menu>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="{DynamicResource Font}" Background="Transparent" Grid.RowSpan="2" Text="{DynamicResource Title}"/>
-        <local:Clock x:Name="clock" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Width="51" Height="19" BorderThickness="1" BorderBrush="Black" Background="White"/>
+        <local:Clock x:Name="clock" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="19" BorderThickness="1" BorderBrush="Black" Background="White" Margin="333,0,0,0"/>
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Images/wallpaper.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
