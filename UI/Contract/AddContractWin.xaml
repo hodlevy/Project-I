@@ -41,16 +41,16 @@
         <TextBlock x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" FontSize="32"/>
         <CheckBox x:Name="Met" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
         <CheckBox x:Name="Signed" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5"/>
-        <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
         <CheckBox x:Name="Per" Content="{DynamicResource permonth}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8"/>
-        <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9"/>
-        <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
+        <DatePicker x:Name="Begin" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" SelectedDateChanged="Enable"/>
+        <DatePicker x:Name="End" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" SelectedDateChanged="Enable"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="12" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
-        <ComboBox x:Name="comboBox2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" FontSize="20">
+        <ComboBox x:Name="comboBox2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="Enable">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
     </Grid>

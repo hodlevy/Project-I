@@ -55,5 +55,13 @@ namespace UI
         {
             button.FontSize = 16;
         }
+        private void SetButton()
+        {
+            button.IsEnabled = ID.Text != "" && First.Text != "" && Last.Text != "" && Phone.Text != "" && Address.Text != "" && Floor.Text != "" && Exp.Text != "" && MaxChild.Text != "" && MinAge.Text != "" && MaxAge.Text != "" && PayHour.Text != "" && PayMonth.Text != "" && datePicker.SelectedDate != null;
+        }
+        private void Enable(object sender, object e)
+        {
+            SetButton();
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace BE
 {
     public class Mother
     {
-        readonly string id;
+        private string id;
         private string lastName;
         private string firstName;
         private string phoneNumber;
@@ -17,10 +17,8 @@ namespace BE
         private string searchingArea;
         [XmlIgnore]
         private bool[] needsNanny = new bool[6];
-        private string needsNannyString;
         [XmlIgnore]
         private TimeSpan[,] needsNannyHours = new TimeSpan[6, 2];
-        private string needsNannyHoursString;
         private string comments;
         /// <summary>
         /// To string override
@@ -122,6 +120,7 @@ namespace BE
             {
                 return id;
             }
+            set { id = value; }
         }
 
         public string LastName

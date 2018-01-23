@@ -361,6 +361,7 @@ namespace BL
                         }
                     }
                     preferness[i] += days;
+                    preferness[i] -= CalculateDistance(mother.SearchingArea, DataSource.listNanny[i].Address) / 10;
                 }
                 int max;
                 for (int i = 0; i < 5 && i < DataSource.listNanny.Count(); i++)

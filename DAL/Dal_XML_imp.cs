@@ -32,10 +32,22 @@ namespace DAL
         }
         public Dal_XML_imp()
         {
-            Start(nannyPath, "Nannies");
-            Start(motherPath, "Mothers");
+            //Start(nannyPath, "Nannies");
+            //Start(motherPath, "Mothers");
+            //Start(contractPath, "Contracts");
+            if(!File.Exists(nannyPath))
+            {
+                SaveToXML(new List<Nanny>(), nannyPath);
+            }
+            if (!File.Exists(motherPath))
+            {
+                SaveToXML(new List<Mother>(), motherPath);
+            }
             Start(childPath, "Children");
-            Start(contractPath, "Contracts");
+            if (!File.Exists(contractPath))
+            {
+                SaveToXML(new List<Contract>(), contractPath);
+            }
         }
         #endregion
         #region Nanny

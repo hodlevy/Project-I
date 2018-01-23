@@ -60,7 +60,7 @@ namespace UI
 
             if (list.Count > 0 && list[0].CompareTo(Text) != 0)
             {
-                this.textComboBox.ItemsSource = list;
+                textComboBox.ItemsSource = list;
                 textComboBox.IsDropDownOpen = true;
             }
             else
@@ -81,28 +81,28 @@ namespace UI
             object item = textComboBox.SelectedItem;
             if (item != null)
             {
-                this.Text = item.ToString();
+                Text = item.ToString();
                 textComboBox.IsDropDownOpen = false;
             }
         }
 
 
 
-        private void textInput_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void textInput_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.Down)
+            if (e.Key == Key.Down)
             {
-                this.textComboBox.Focus();
+                textComboBox.Focus();
 
             }
         }
 
-        private void textComboBox_PreviewKeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        private void textComboBox_PreviewKeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.Up)
+            if (e.Key == Key.Up)
 
-                if (this.textComboBox.SelectedIndex == 0)
-                    this.textInput.Focus();
+                if (textComboBox.SelectedIndex == 0)
+                    textInput.Focus();
         }
     }
 }

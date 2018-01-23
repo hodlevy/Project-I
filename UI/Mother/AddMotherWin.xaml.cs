@@ -62,7 +62,7 @@ namespace UI
         }
         private void SetButton()
         {
-            //button.IsEnabled = ID.Text != "" && Name.Text != "" && datePicker.SelectedDate != null && (comboBox.SelectedIndex != 0 && comboBox.SelectedIndex != -1);
+            button.IsEnabled = ID.Text != "" && First.Text != "" && Last.Text != "" && Phone.Text != "";
         }
         private void Enable(object sender, object e)
         {

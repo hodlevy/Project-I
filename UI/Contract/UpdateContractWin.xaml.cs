@@ -82,6 +82,7 @@ namespace UI
                 Begin.SelectedDate = contract.BeginDate;
                 End.SelectedDate = contract.EndDate;
             }
+            SetButton();
         }
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -91,6 +92,14 @@ namespace UI
         private void button_MouseLeave(object sender, MouseEventArgs e)
         {
             button.FontSize = 16;
+        }
+        private void SetButton()
+        {
+            button.IsEnabled = comboBox.SelectedIndex != -1 && comboBox.SelectedIndex != 0 && PayHour.Text != "" && PayMonth.Text != "" && Begin.SelectedDate != null && End.SelectedDate != null;
+        }
+        private void Enable(object sender, object e)
+        {
+            SetButton();
         }
     }
 }

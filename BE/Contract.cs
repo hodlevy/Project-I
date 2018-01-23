@@ -10,9 +10,9 @@ namespace BE
     {
         private static int number = 0;
         private int code;
-        readonly string childId;
-        readonly string nannyId;
-        readonly string motherId;
+        private string childId;
+        private string nannyId;
+        private string motherId;
         private bool haveMet;
         private bool haveSigned;
         private double payForHour;
@@ -106,6 +106,7 @@ namespace BE
             {
                 return childId;
             }
+            set { childId = value; }
         }
 
         public string NannyId
@@ -114,6 +115,7 @@ namespace BE
             {
                 return nannyId;
             }
+            set { nannyId = value; }
         }
 
         public bool HaveMet
@@ -225,6 +227,7 @@ namespace BE
             {
                 return motherId;
             }
+            set { motherId = value; }
         }
 
         public double Salary

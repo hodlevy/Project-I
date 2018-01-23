@@ -52,20 +52,20 @@
         <TextBlock x:Name="textBlock16" HorizontalAlignment="Stretch" Grid.Row="16" TextWrapping="Wrap" Text="{DynamicResource workhours}" VerticalAlignment="Top" Height="16"/>
         <TextBlock x:Name="textBlock17" HorizontalAlignment="Stretch" Grid.Row="17" TextWrapping="Wrap" Text="{DynamicResource tmtvac}" VerticalAlignment="Top" Height="16"/>
         <TextBlock x:Name="textBlock18" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text="{DynamicResource recom}" VerticalAlignment="Top" Height="16"/>
-        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32" Style="{StaticResource myTrigger}"/>
-        <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
-        <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}"/>
-        <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
-        <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
+        <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
+        <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
+        <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="Enable"/>
         <CheckBox x:Name="Elevator" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False"/>
-        <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="MaxChild" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="MinAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="MaxAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="MaxChild" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="9" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="MinAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="10" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="MaxAge" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="11" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
         <CheckBox x:Name="HourPayment" Content="{DynamicResource hourpayment}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="12" IsChecked="False"/>
-        <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32"/>
-        <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32"/>
+        <TextBox x:Name="PayHour" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="13" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
+        <TextBox x:Name="PayMonth" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="14" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
         <CheckBox x:Name="TMT" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="17" IsChecked="False"/>
         <TextBox x:Name="Recommendation" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="18" TextWrapping="Wrap" Text=""/>
         <CheckBox x:Name="Sunday" Content="{DynamicResource sun}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="59"/>
@@ -74,7 +74,7 @@
         <CheckBox x:Name="Wednesday" Content="{DynamicResource wed}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="81"/>
         <CheckBox x:Name="Thursday" Content="{DynamicResource thurs}" Grid.Column="1" HorizontalAlignment="Left" Margin="165,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="68"/>
         <CheckBox x:Name="Friday" Content="{DynamicResource fri}" Grid.Column="1" HorizontalAlignment="Left" Margin="308,27,0,0" Grid.Row="15" VerticalAlignment="Top" Height="15" Width="52"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="19" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
         <TextBox x:Name="SunHour" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="23,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="22" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBox x:Name="SunMin" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="55,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="23" IsEnabled="{Binding ElementName=Sunday, Path=IsChecked}"/>
         <TextBlock x:Name="textBlock19" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="47,5,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="10"/>
@@ -123,7 +123,7 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="414,29,0,0" Grid.Row="16" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="380,29,0,0" Grid.Row="16" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="16" TextWrapping="Wrap" Text="{DynamicResource f}" VerticalAlignment="Top" Width="12" Margin="314,29,0,0"/>
-        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3"/>
+        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDateChanged="Enable"/>
 
     </Grid>
 </Window>

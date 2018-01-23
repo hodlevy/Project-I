@@ -35,7 +35,7 @@
         <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" MaxLength="9" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
         <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
         <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
-        <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32"/>
+        <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32" TextChanged="Enable"/>
         <TextBox x:Name="SearchArea" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text=""/>
         <TextBox x:Name="Comments" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text=""/>
         <CheckBox x:Name="Sunday" Content="{DynamicResource sun}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>

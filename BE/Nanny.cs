@@ -9,10 +9,10 @@ namespace BE
 {
     public class Nanny
     {
-        readonly string id;
+        private string id;
         private string firstName;
         private string lastName;
-        readonly DateTime birthDate;
+        private DateTime birthDate;
         private string phoneNumber;
         private string address;
         private bool isElevator;
@@ -26,10 +26,8 @@ namespace BE
         private double payForMonth;
         [XmlIgnore]
         private bool[] isWorking = new bool[6];
-        private string isWorkingString;
         [XmlIgnore]
         private TimeSpan[,] workHours = new TimeSpan[6, 2];
-        private string workHoursString;
         private bool vacationCheck;
         private string recommendation;
         /// <summary>
@@ -181,8 +179,8 @@ namespace BE
             {
                 return id;
             }
+            set { id = value; }
         }
-
         public string LastName
         {
             get
@@ -215,6 +213,7 @@ namespace BE
             {
                 return birthDate;
             }
+            set { birthDate = value; }
         }
 
         public string PhoneNumber

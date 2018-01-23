@@ -159,6 +159,7 @@ namespace UI
                 FriMin2.Text = (nanny.WorkHours[5, 1]).Minutes.ToString();
                 #endregion
             }
+            SetButton();
         }
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -168,6 +169,14 @@ namespace UI
         private void button_MouseLeave(object sender, MouseEventArgs e)
         {
             button.FontSize = 16;
+        }
+        private void SetButton()
+        {
+            button.IsEnabled = comboBox.SelectedIndex != -1 && comboBox.SelectedIndex != 0 && First.Text != "" && Last.Text != "" && Phone.Text != "" && Address.Text != "" && Floor.Text != "" && Exp.Text != "" && MaxChild.Text != "" && MinAge.Text != "" && MaxAge.Text != "" && PayHour.Text != "" && PayMonth.Text != "" && datePicker.SelectedDate != null;
+        }
+        private void Enable(object sender, object e)
+        {
+            SetButton();
         }
     }
 }
