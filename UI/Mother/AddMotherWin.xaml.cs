@@ -60,5 +60,13 @@ namespace UI
         {
             button.FontSize = 16;
         }
+        private void SetButton()
+        {
+            //button.IsEnabled = ID.Text != "" && Name.Text != "" && datePicker.SelectedDate != null && (comboBox.SelectedIndex != 0 && comboBox.SelectedIndex != -1);
+        }
+        private void Enable(object sender, object e)
+        {
+            SetButton();
+        }
     }
 }

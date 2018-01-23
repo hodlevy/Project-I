@@ -31,8 +31,8 @@
         <CheckBox x:Name="IfNeeds" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="{Binding Path=IsSpecialNeeds, Mode=TwoWay}" FontSize="32"/>
         <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{Binding Path=SpecialNeeds, Mode=TwoWay}" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
         <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
-        <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="{Binding Path=BirthDate, Mode=TwoWay}" Grid.Column="1" SelectedDateChanged="Enable2"/>
-        <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="Enable3">
+        <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="{Binding Path=BirthDate, Mode=TwoWay}" Grid.Column="1" SelectedDateChanged="Enable"/>
+        <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="Enable">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
     </Grid>

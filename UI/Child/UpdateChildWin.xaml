@@ -34,6 +34,6 @@
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_Selected">
             <ComboBoxItem Content="{DynamicResource choose}"/>
         </ComboBox>
-        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="" SelectedDateChanged="Enable2"/>
+        <DatePicker x:Name="datePicker" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="" SelectedDateChanged="Enable"/>
     </Grid>
 </Window>

@@ -106,7 +106,7 @@ namespace BE
             payForMonth = pay_for_month;
             vacationCheck = vacation_check;
             recommendation = recommendation_;
-            isWorking = is_working;
+            isWorking = is_working;     
             workHours = work_hours;
         }
         /// <summary>

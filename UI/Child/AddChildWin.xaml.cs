@@ -68,16 +68,7 @@ namespace UI
         {
             button.IsEnabled = ID.Text != "" && Name.Text != "" && datePicker.SelectedDate != null && (comboBox.SelectedIndex != 0 && comboBox.SelectedIndex != -1);
         }
-        private void Enable(object sender, TextChangedEventArgs e)
-        {
-            SetButton();
-        }
-        private void Enable3(object sender, SelectionChangedEventArgs e)
-        {
-            SetButton();
-        }
-
-        private void Enable2(object sender, SelectionChangedEventArgs e)
+        private void Enable(object sender, object e)
         {
             SetButton();
         }
