@@ -19,7 +19,7 @@ namespace BL
         public Bl()
         {
             MyDal = Dal.GetDal();
-            initialization();
+            //initialization();
         }
         /// <summary>
         /// initialization with 8 elements for the start
@@ -203,13 +203,13 @@ namespace BL
         {
             // if it is the max amount of children for nanny
             Nanny nanny = GetNanny(contract.NannyId);
-            List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
+            List<Contract> list = MyDal.AllContracts().FindAll(item => item.NannyId == nanny.Id);
             if (list.Count() == nanny.MaxChildren)
                 throw new Exception("This is the maximum number of children!");
             // if the contract already exist (the cild  already has a contract)
             Child child = GetChild(contract.ChildId);
             bool flag = true;
-            foreach (Contract contract2 in DataSource.listContract)
+            foreach (Contract contract2 in MyDal.AllContracts())
             {
                 if (child.Id == contract2.ChildId)
                     flag = false;
@@ -221,7 +221,7 @@ namespace BL
                 throw new Exception("the contract ends before it begins");
             // discount calculate
             Mother mother = GetMother(contract.MotherId);
-            list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
+            list = MyDal.AllContracts().FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
             if (list.Count() != 0)
                 discount = (list.Count()) * 0.02;
@@ -246,9 +246,9 @@ namespace BL
             if (contract.EndDate < contract.BeginDate)
                 throw new Exception("the contract ends before it begins");
             Nanny nanny = GetNanny(contract.NannyId);
-            List<Contract> list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id);
+            List<Contract> list = MyDal.AllContracts().FindAll(item => item.NannyId == nanny.Id);
             Mother mother = GetMother(contract.MotherId);
-            list = DataSource.listContract.FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
+            list = MyDal.AllContracts().FindAll(item => item.NannyId == nanny.Id && item.MotherId == mother.Id);
             double discount = 0;
             if (list.Count() != 0)
                 discount = (list.Count() - 1) * 0.02;
@@ -263,7 +263,7 @@ namespace BL
         /// <returns>nanny's list</returns>
         List<Nanny> IBL.AllNannys()
         {
-            return DataSource.listNanny;
+            return MyDal.AllNannys();
         }
         /// <summary>
         /// return the mother's list
@@ -271,7 +271,7 @@ namespace BL
         /// <returns>mother's list</returns>
         List<Mother> IBL.AllMothers()
         {
-            return DataSource.listMother;
+            return MyDal.AllMothers();
         }
         /// <summary>
         /// return the child's list
@@ -279,7 +279,7 @@ namespace BL
         /// <returns>child's list</returns>
         List<Child> IBL.AllChildren()
         {
-            return DataSource.listChild;
+            return MyDal.AllChildren();
         }
         /// <summary>
         /// return the contract's list
@@ -287,7 +287,7 @@ namespace BL
         /// <returns>contract's list</returns>
         List<Contract> IBL.AllContracts()
         {
-            return DataSource.listContract;
+            return MyDal.AllContracts();
         }
         #endregion
         /// <summary>
@@ -315,7 +315,7 @@ namespace BL
         /// <returns>list</returns>
         List<Nanny> IBL.VacationCheck_AllNanny()
         {
-            List<Nanny> list = DataSource.listNanny.FindAll(x => x.VacationCheck == true);
+            List<Nanny> list = MyDal.AllNannys().FindAll(x => x.VacationCheck == true);
             return list;
         }
         /// <summary>
@@ -330,7 +330,7 @@ namespace BL
             Mother mother = GetMother(motherID);
             List<Nanny> nannies = new List<Nanny>();
             bool flag;
-            foreach (Nanny nanny in DataSource.listNanny)
+            foreach (Nanny nanny in MyDal.AllNannys())
             {
                 flag = true;
                 for (int i = 0; i < 6; i++)
@@ -345,41 +345,41 @@ namespace BL
             }
             if (nannies.Count() == 0)
             {
-                int[] preferness = new int[DataSource.listNanny.Count()];
+                int[] preferness = new int[MyDal.AllNannys().Count()];
                 int days;
-                for (int i = 0; i < DataSource.listNanny.Count(); i++)
+                for (int i = 0; i < MyDal.AllNannys().Count(); i++)
                 {
                     preferness[i] = 0;
                     days = 0;
                     for (int j = 0; j < 6; j++)
                     {
-                        if (mother.NeedsNanny[j] && DataSource.listNanny[i].IsWorking[j])
+                        if (mother.NeedsNanny[j] && MyDal.AllNannys()[i].IsWorking[j])
                         {
                             days++;
-                            if ((DataSource.listNanny[i].WorkHours[j, 0] <= mother.NeedsNannyHours[j, 0] && DataSource.listNanny[i].WorkHours[j, 1] >= mother.NeedsNannyHours[j, 1]))
+                            if ((MyDal.AllNannys()[i].WorkHours[j, 0] <= mother.NeedsNannyHours[j, 0] && MyDal.AllNannys()[i].WorkHours[j, 1] >= mother.NeedsNannyHours[j, 1]))
                                 preferness[i] += 2;
                         }
                     }
                     preferness[i] += days;
-                    preferness[i] -= CalculateDistance(mother.SearchingArea, DataSource.listNanny[i].Address) / 10;
+                    //preferness[i] -= CalculateDistance(mother.SearchingArea, MyDal.AllNannys()[i].Address) / 10;
                 }
                 int max;
-                for (int i = 0; i < 5 && i < DataSource.listNanny.Count(); i++)
+                for (int i = 0; i < 5 && i < MyDal.AllNannys().Count(); i++)
                 {
                     max = 0;
-                    for (int j = 0; j < DataSource.listNanny.Count(); j++)
+                    for (int j = 0; j < MyDal.AllNannys().Count(); j++)
                     {
                         if (max < preferness[j])
                             max = preferness[j];
                     }
-                    for (int j = 0; j < DataSource.listNanny.Count(); j++)
+                    for (int j = 0; j < MyDal.AllNannys().Count(); j++)
                     {
                         if (preferness[j] == max)
                         {
-                            nannies.Add(DataSource.listNanny[j]);
+                            nannies.Add(MyDal.AllNannys()[j]);
                             preferness[j] = 0;
                         }
-                        //j = DataSource.listNanny.Count();
+                        //j = MyDal.AllNannys().Count();
                     }
                 }
             }
@@ -393,10 +393,10 @@ namespace BL
         {
             List<Child> children = new List<Child>();
             bool flag;
-            foreach (Child child in DataSource.listChild)
+            foreach (Child child in MyDal.AllChildren())
             {
                 flag = false;
-                foreach (Contract contract in DataSource.listContract)
+                foreach (Contract contract in MyDal.AllContracts())
                 {
                     if (child.Id == contract.ChildId)
                         flag = true;
@@ -444,7 +444,7 @@ namespace BL
         /// <returns>group list</returns>
         IEnumerable<IGrouping<int, Nanny>> IBL.GroupNanny(bool ifMinMax, bool isSorted = false)
         {
-            List<Nanny> list = DataSource.listNanny;
+            List<Nanny> list = MyDal.AllNannys();
             if (isSorted)
             {
                 list.Sort();
@@ -474,7 +474,7 @@ namespace BL
             bool validId = false;
             string motherAddres = "";
             string nannyAddres = "";
-            foreach (Mother mo in DataSource.listMother)
+            foreach (Mother mo in MyDal.AllMothers())
             {
                 if (mo.Id == contract.MotherId)
                 {
@@ -486,7 +486,7 @@ namespace BL
             if (!validId)
                 throw new Exception("invalid ID");
             validId = false;
-            foreach (Nanny na in DataSource.listNanny)
+            foreach (Nanny na in MyDal.AllNannys())
             {
                 if (na.Id == contract.NannyId)
                 {
@@ -510,11 +510,11 @@ namespace BL
             IEnumerable<IGrouping<int, Contract>> results;
 
             if (sorted)
-                results = from Contract c in DataSource.listContract
+                results = from Contract c in MyDal.AllContracts()
                           orderby c
                           group c by DistanceByContract(c) / 5;
             else
-                results = from Contract c in DataSource.listContract
+                results = from Contract c in MyDal.AllContracts()
                           group c by DistanceByContract(c) / 5;
             return results;
         }
@@ -578,7 +578,7 @@ namespace BL
         /// <returns>list</returns>
         List<Contract> ContractCondition(Func<Contract, bool> condition)
         {
-            List<Contract> contracts = DataSource.listContract.FindAll(item => condition(item));
+            List<Contract> contracts = MyDal.AllContracts().FindAll(item => condition(item));
             return contracts;
         }
         /// <summary>

@@ -271,13 +271,14 @@ namespace BE
             }
             set
             {
+                int index = 1;
                 if (value != null && value.Length > 0)
                 {
                     string[] values = value.Split(',');
                     needsNannyHours = new TimeSpan[6, 2];
                     for (int i = 0; i < 6; i++)
                         for (int j = 0; j < 2; j++)
-                            needsNannyHours[i, j] = TimeSpan.Parse(values[i+1]);
+                            needsNannyHours[i, j] = TimeSpan.Parse(values[index++]);
                 }
             }
         }

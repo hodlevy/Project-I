@@ -46,7 +46,7 @@ namespace DAL
             var nanny2 = (from item in nannies
                          where item.Id == nanny.Id
                          select item).FirstOrDefault();
-            if (nanny2.Id != null)
+            if (nanny2 != null)
                 throw new Exception("Nanny already exist");
             nannies.Add(nanny);
             SaveToXML(nannies, nannyPath);
@@ -105,7 +105,7 @@ namespace DAL
             var mother2 = (from item in mothers
                           where item.Id == mother.Id
                           select item).FirstOrDefault();
-            if (mother2.Id != null)
+            if (mother2 != null)
                 throw new Exception("Mother already exist");
             mothers.Add(mother);
             SaveToXML(mothers, motherPath);
@@ -208,11 +208,11 @@ namespace DAL
         }
         public void AddChild(Child child)
         {
-            List<Child> children = LoadFromXML<List<Child>>(childPath);
+            List<Child> children = LoadChildListLinq(childPath);
             var child2 = (from item in children
                          where item.Id == child.Id
                          select item).FirstOrDefault();
-            if (child2.Id != null)
+            if (child2 != null)
                 throw new Exception("Child already exist");
             root.Add(new XElement("child",
             new XElement("id", child.Id),
@@ -226,7 +226,7 @@ namespace DAL
         }
         public void DeleteChild(string ID)
         {
-            List<Child> children = LoadFromXML<List<Child>>(childPath);
+            List<Child> children = LoadChildListLinq(childPath);
             var child = (from item in children
                           where item.Id == ID
                           select item).FirstOrDefault();
@@ -283,7 +283,7 @@ namespace DAL
                           select item).FirstOrDefault();
             if (mother.Id == null)
                 throw new Exception("Mother doesn't exist");
-            List<Child> children = LoadFromXML<List<Child>>(childPath);
+            List<Child> children = LoadChildListLinq(childPath);
             var child = (from item in children
                           where item.Id == contract.ChildId
                           select item).FirstOrDefault();
@@ -298,7 +298,7 @@ namespace DAL
         {
             List<Contract> contracts = LoadFromXML<List<Contract>>(contractPath);
             var contract = (from item in contracts
-                          where item.Number == number
+                          where item.Code == number
                           select item).FirstOrDefault();
             if (contract.Code != number)
                 throw new Exception("Contract doesn't exist");
