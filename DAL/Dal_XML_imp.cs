@@ -68,9 +68,9 @@ namespace DAL
                          select item;
             if (contracts != null)
             {
-                foreach (Contract contract in contracts)
+                foreach (Contract contract in contracts.ToList())
                     contractList.Remove(contract);
-                SaveToXML(contractList, nannyPath);
+                SaveToXML(contractList, contractPath);
             }
         }
         public void UpdateNanny(Nanny nanny)
@@ -122,14 +122,14 @@ namespace DAL
             SaveToXML(mothers, motherPath);
             // delete the contracts she related to
             List<Contract> contractList = LoadFromXML<List<Contract>>(contractPath);
-            var contracts = from item in contractList
+            var contracts = (from item in contractList
                             where item.MotherId == ID
-                            select item;
+                            select item);
             if (contracts != null)
             {
-                foreach (Contract contract in contracts)
+                foreach (Contract contract in contracts.ToList())
                     contractList.Remove(contract);
-                SaveToXML(contractList, motherPath);
+                SaveToXML(contractList, contractPath);
             }
         }
         public void UpdateMother(Mother mother)
@@ -244,7 +244,7 @@ namespace DAL
                             select item;
             if (contracts != null)
             {
-                foreach (Contract contract in contracts)
+                foreach (Contract contract in contracts.ToList())
                     contractList.Remove(contract);
                 SaveToXML(contractList, contractPath);
             }
