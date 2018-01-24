@@ -113,6 +113,21 @@ namespace BL
         /// <param name="nanny"></param>
         void IBL.UpdateNanny(Nanny nanny)
         {
+            int nannyAge = DateTime.Now.Year - nanny.BirthDate.Year;
+            if (nannyAge == 18)
+            {
+                int monthes = DateTime.Now.Month - nanny.BirthDate.Month;
+                if (monthes < 0)
+                    throw new Exception("Nanny is too young!");
+                if (monthes == 0)
+                {
+                    int days = DateTime.Now.Day - nanny.BirthDate.Day;
+                    if (days < 0)
+                        throw new Exception("Nanny is too young!");
+                }
+            }
+            if (nannyAge < 18)
+                throw new Exception("Nanny is too young!");
             for (int i = 0; i < 6; i++)
             {
                 if (nanny.WorkHours[i, 0] > nanny.WorkHours[i, 1])
@@ -191,7 +206,16 @@ namespace BL
         /// <param name="child"></param>
         void IBL.UpdateChild(Child child)
         {
-            MyDal.UpdateChild(child);
+            // if the child hasn't born yet
+            if (DateTime.Now < child.BirthDate)
+                throw new Exception("The child hasn't born yet!");
+            // if the child is younger than 3 monthes
+            int month = DateTime.Now.Month - child.BirthDate.Month;
+            int year = DateTime.Now.Year - child.BirthDate.Year;
+            if (month >= 3 || year > 0)
+                MyDal.UpdateChild(child);
+            else
+                throw new Exception("The child is too young!");
         }
         #endregion
         #region Contract
