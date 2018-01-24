@@ -487,10 +487,10 @@ namespace BL
             return result;
         }
         /// <summary>
-        /// 
+        /// Calculates the distance between the nanny and the mother's searching area
         /// </summary>
         /// <param name="contract"></param>
-        /// <returns></returns>
+        /// <returns>the distance between the nanny and the mother's searching area</returns>
         public int DistanceByContract(Contract contract)
         {
             int distance;
@@ -560,12 +560,12 @@ namespace BL
             return 4 * contract.PayForHour * weeklyHours;
         }
         /// <summary>
-        /// 
+        /// calculates the sum of the hours that fit to the mother and to the nanny on specific day
         /// </summary>
         /// <param name="nanny"></param>
         /// <param name="mother"></param>
         /// <param name="day"></param>
-        /// <returns></returns>
+        /// <returns>nanny's work hours at specific day for specific mother</returns>
         double DailyWork(Nanny nanny, Mother mother, int day)
         {
             double begin = 0, end = 0;

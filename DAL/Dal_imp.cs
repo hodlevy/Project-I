@@ -227,7 +227,7 @@ namespace DAL
         /// <summary>
         /// get nanny's list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>nanny's list</returns>
         List<Nanny> Idal.AllNannys()
         {
             return DataSource.listNanny;
@@ -235,7 +235,7 @@ namespace DAL
         /// <summary>
         /// get mother's list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>mother's list</returns>
         List<Mother> Idal.AllMothers()
         {
             return DataSource.listMother;
@@ -243,7 +243,7 @@ namespace DAL
         /// <summary>
         /// get children's list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>children's list</returns>
         List<Child> Idal.AllChildren()
         {
             List<Child> listChild = null;
@@ -260,7 +260,7 @@ namespace DAL
         /// <summary>
         /// get contract's list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>contract's list</returns>
         List<Contract> Idal.AllContracts()
         {
             List<Contract> listContract = null;
@@ -336,6 +336,11 @@ namespace DAL
             contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
             return contracts[0];
         }
+        /// <summary>
+        /// get all the contracts' list that fits to the id number
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns>list of contracts</returns>
         List<Contract> GetContractsByID(string ID)
         {
             List<Contract> contracts = null;

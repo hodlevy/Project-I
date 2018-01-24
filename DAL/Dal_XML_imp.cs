@@ -16,6 +16,11 @@ namespace DAL
         private readonly string childPath = @"childXMLFile.xml";
         private readonly string contractPath = @"contractXMLFile.xml";
         private XElement root;
+        /// <summary>
+        /// Creates file if there is no file, and if there is, it loads it
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="type"></param>
         public void Start(string path, string type)
         {
             if (!File.Exists(path))
@@ -23,11 +28,19 @@ namespace DAL
             else
                 LoadData();
         }
+        /// <summary>
+        /// Creates a new file
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="type"></param>
         private void CreateFiles(string path, string type)
         {
             root = new XElement(type);
             root.Save(path);
         }
+        /// <summary>
+        /// constructor
+        /// </summary>
         public Dal_XML_imp()
         {
             if (!File.Exists(nannyPath))
@@ -40,6 +53,10 @@ namespace DAL
         }
         #endregion
         #region Nanny
+        /// <summary>
+        /// adds nanny to the file
+        /// </summary>
+        /// <param name="nanny"></param>
         public void AddNanny(Nanny nanny)
         {
             List<Nanny> nannies = LoadFromXML<List<Nanny>>(nannyPath);
@@ -51,6 +68,10 @@ namespace DAL
             nannies.Add(nanny);
             SaveToXML(nannies, nannyPath);
         }
+        /// <summary>
+        /// deletes nanny from the file
+        /// </summary>
+        /// <param name="ID"></param>
         public void DeleteNanny(string ID)
         {
             List<Nanny> nannies = LoadFromXML<List<Nanny>>(nannyPath);
@@ -73,6 +94,10 @@ namespace DAL
                 SaveToXML(contractList, contractPath);
             }
         }
+        /// <summary>
+        /// update nanny on the file
+        /// </summary>
+        /// <param name="nanny"></param>
         public void UpdateNanny(Nanny nanny)
         {
             List<Nanny> nannies = LoadFromXML<List<Nanny>>(nannyPath);
@@ -92,6 +117,10 @@ namespace DAL
             }
             SaveToXML(nannies, nannyPath);
         }
+        /// <summary>
+        /// get a list of all of the nannies from the file
+        /// </summary>
+        /// <returns>list of all of the nannies</returns>
         public List<Nanny> AllNannys()
         {
             List<Nanny> nannies = LoadFromXML<List<Nanny>>(nannyPath);
@@ -99,6 +128,10 @@ namespace DAL
         }
         #endregion
         #region Mother
+        /// <summary>
+        /// adds mother to the file
+        /// </summary>
+        /// <param name="mother"></param>
         public void AddMother(Mother mother)
         {
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
@@ -110,6 +143,10 @@ namespace DAL
             mothers.Add(mother);
             SaveToXML(mothers, motherPath);
         }
+        /// <summary>
+        /// deletes mother from the file
+        /// </summary>
+        /// <param name="ID"></param>
         public void DeleteMother(string ID)
         {
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
@@ -132,6 +169,10 @@ namespace DAL
                 SaveToXML(contractList, contractPath);
             }
         }
+        /// <summary>
+        /// update mother on the file
+        /// </summary>
+        /// <param name="mother"></param>
         public void UpdateMother(Mother mother)
         {
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
@@ -151,6 +192,10 @@ namespace DAL
             }
             SaveToXML(mothers, motherPath);
         }
+        /// <summary>
+        /// gets a list of all of the mothers from the file
+        /// </summary>
+        /// <returns>list of all of the mothers</returns>
         public List<Mother> AllMothers()
         {
             List<Mother> mothers = LoadFromXML<List<Mother>>(motherPath);
@@ -158,6 +203,10 @@ namespace DAL
         }
         #endregion
         #region Child
+        /// <summary>
+        /// save a list of children to the file
+        /// </summary>
+        /// <param name="childList"></param>
         public void SaveChildListLinq(List<Child> childList)
         {
             root = new XElement("children",
@@ -172,6 +221,9 @@ namespace DAL
                                             ));
             root.Save(childPath);
         }
+        /// <summary>
+        /// load the file
+        /// </summary>
         private void LoadData()
         {
             try
@@ -183,6 +235,11 @@ namespace DAL
                 throw new Exception("File upload problem");
             }
         }
+        /// <summary>
+        /// load the list of the child from the file
+        /// </summary>
+        /// <param name="childFile"></param>
+        /// <returns>list of all of the children</returns>
         public List<Child> LoadChildListLinq(string childFile)
         {
             LoadData();
@@ -206,6 +263,10 @@ namespace DAL
             }
             return children;
         }
+        /// <summary>
+        /// adds child to the file
+        /// </summary>
+        /// <param name="child"></param>
         public void AddChild(Child child)
         {
             List<Child> children = LoadChildListLinq(childPath);
@@ -224,6 +285,10 @@ namespace DAL
                             ));
             root.Save(childPath);
         }
+        /// <summary>
+        /// deletes child from the file
+        /// </summary>
+        /// <param name="ID"></param>
         public void DeleteChild(string ID)
         {
             List<Child> children = LoadChildListLinq(childPath);
@@ -249,6 +314,10 @@ namespace DAL
                 SaveToXML(contractList, contractPath);
             }
         }
+        /// <summary>
+        /// updates a child on the file
+        /// </summary>
+        /// <param name="child"></param>
         public void UpdateChild(Child child)
         {
             XElement childElement = (from c in root.Elements()
@@ -262,6 +331,10 @@ namespace DAL
 
             root.Save(childPath);
         }
+        /// <summary>
+        /// gets a list of all of the children
+        /// </summary>
+        /// <returns>list of all of the children</returns>
         public List<Child> AllChildren()
         {
             List<Child> children = LoadChildListLinq(childPath);
@@ -269,6 +342,10 @@ namespace DAL
         }
         #endregion
         #region Contract
+        /// <summary>
+        /// adds contract to the file
+        /// </summary>
+        /// <param name="contract"></param>
         public void AddContract(Contract contract)
         {
             List<Nanny> nannies = LoadFromXML<List<Nanny>>(nannyPath);
@@ -294,6 +371,10 @@ namespace DAL
             contracts.Add(contract);
             SaveToXML(contracts, contractPath);
         }
+        /// <summary>
+        /// deletes contract from the file
+        /// </summary>
+        /// <param name="number"></param>
         public void DeleteContract(int number)
         {
             List<Contract> contracts = LoadFromXML<List<Contract>>(contractPath);
@@ -305,6 +386,10 @@ namespace DAL
             contracts.Remove(contract);
             SaveToXML(contracts, contractPath);
         }
+        /// <summary>
+        /// updates contract on the file
+        /// </summary>
+        /// <param name="contract"></param>
         public void UpdateContract(Contract contract)
         {
             List<Contract> contracts = LoadFromXML<List<Contract>>(contractPath);
@@ -325,6 +410,10 @@ namespace DAL
             }
             SaveToXML(contracts, contractPath);
         }
+        /// <summary>
+        /// get all of the contracts from the file
+        /// </summary>
+        /// <returns>list of all of the contracts</returns>
         public List<Contract> AllContracts()
         {
             List<Contract> contracts = LoadFromXML<List<Contract>>(contractPath);
@@ -332,6 +421,12 @@ namespace DAL
         }
         #endregion
         #region XML Serializer
+        /// <summary>
+        /// save data to the wanted file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="path"></param>
         private static void SaveToXML<T>(T source, string path)
         {
             FileStream file = new FileStream(path, FileMode.Create);
@@ -339,6 +434,12 @@ namespace DAL
             xmlSerializer.Serialize(file, source);
             file.Close();
         }
+        /// <summary>
+        /// loads data from a file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private static T LoadFromXML<T>(string path)
         {
             FileStream file = new FileStream(path, FileMode.Open);
@@ -349,6 +450,11 @@ namespace DAL
         }
         #endregion
         #region Get Functions
+        /// <summary>
+        /// get a nanny by id
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>nanny</returns>
         Nanny Idal.GetNanny(string nannyID)
         {
             List<Nanny> list = LoadFromXML<List<Nanny>>(nannyPath);
@@ -359,6 +465,11 @@ namespace DAL
                 nanny = list2[0];
             return nanny;
         }
+        /// <summary>
+        /// get a mother by id
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>mother</returns>
         Mother Idal.GetMother(string motherID)
         {
             List<Mother> list = LoadFromXML<List<Mother>>(motherPath);
@@ -369,6 +480,11 @@ namespace DAL
                 mother = list2[0];
             return mother;
         }
+        /// <summary>
+        /// get a child by id
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>child</returns>
         Child Idal.GetChild(string childID)
         {
             List<Child> list = LoadChildListLinq(childPath);
@@ -379,6 +495,11 @@ namespace DAL
                 child = list2[0];
             return child;
         }
+        /// <summary>
+        /// get a contract by a number
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>contract</returns>
         Contract Idal.GetContract(int number)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
@@ -389,6 +510,11 @@ namespace DAL
                 contract = list2[0];
             return contract;
         }
+        /// <summary>
+        /// get a contract by id of the nanny/mother/child
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>contract</returns>
         Contract Idal.GetContractByID(string ID)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
@@ -396,6 +522,11 @@ namespace DAL
             contracts = list.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
             return contracts[0];
         }
+        /// <summary>
+        /// get a list of contracts by id of the nanny/mother/child
+        /// </summary>
+        /// <param name="nannyID"></param>
+        /// <returns>list of contracts</returns>
         List<Contract> Idal.GetContractsByID(string ID)
         {
             List<Contract> list = LoadFromXML<List<Contract>>(contractPath);
@@ -404,6 +535,9 @@ namespace DAL
             return contracts;
         }
         #endregion
+        /// <summary>
+        /// deletes all the data from the files
+        /// </summary>
         void Idal.Reset()
         {
             List<Nanny> nannies = null;
@@ -411,7 +545,6 @@ namespace DAL
             List<Mother> mothers = null;
             SaveToXML(mothers, motherPath);
             List<Child> children = null;
-            //SaveChildListLinq(children);
             SaveToXML(children, childPath);
             List<Contract> contracts = null;
             SaveToXML(contracts, contractPath);

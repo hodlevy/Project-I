@@ -226,7 +226,7 @@ namespace BE
                 needsNanny = value;
             }
         }
-
+        // convert the needsNanny array to and from string for enable the xmlSerilizer work with him
         public string NeedsNannyString
         {
             get
@@ -253,7 +253,7 @@ namespace BE
                 }
             }
         }
-
+        // convert the needsNannyHours matrix to and from string for enable the xmlSerilizer work with him
         public string NeedsNannyHoursString
         {
             get
@@ -282,7 +282,11 @@ namespace BE
                 }
             }
         }
-
+        /// <summary>
+        /// Checks if the received ID is proper
+        /// </summary>
+        /// <param name="strID"></param>
+        /// <returns>True if the ID is proper, otherwise false</returns>
         static bool IDCheck(String strID)
         {
             int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };

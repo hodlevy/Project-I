@@ -414,7 +414,7 @@ namespace BE
                 recommendation = value;
             }
         }
-
+        // convert the IsWorking array to and from string for enable the xmlSerilizer work with him
         public string IsWorkingString
         {
             get
@@ -441,7 +441,7 @@ namespace BE
                 }
             }
         }
-
+        // convert the workHours matrix to and from string for enable the xmlSerilizer work with him
         public string WorkHoursString
         {
             get
@@ -470,7 +470,11 @@ namespace BE
                 }
             }
         }
-
+        /// <summary>
+        /// Checks if the received ID is proper
+        /// </summary>
+        /// <param name="strID"></param>
+        /// <returns>True if the ID is proper, otherwise false</returns>
         static bool IDCheck(String strID)
         {
             int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };

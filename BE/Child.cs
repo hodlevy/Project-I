@@ -149,7 +149,11 @@ namespace BE
                 specialNeeds = value;
             }
         }
-
+        /// <summary>
+        /// Checks if the received ID is proper
+        /// </summary>
+        /// <param name="strID"></param>
+        /// <returns>True if the ID is proper, otherwise false</returns>
         static bool IDCheck(String strID)
         {
             int[] id_12_digits = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
