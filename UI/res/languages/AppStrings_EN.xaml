@@ -105,4 +105,9 @@
     <System:String x:Key="bymax">By Max</System:String>
     <System:String x:Key="bymin">By Min</System:String>
     <FontFamily x:Key="Font">Snap ITC</FontFamily>
+    <System:String x:Key="bydistance">By Distance</System:String>
+    <System:String x:Key="listdistance">Contract List By Distance</System:String>
+    <System:String x:Key="bymother">By Mother</System:String>
+    <System:String x:Key="listbymother">Child List By Mother</System:String>
+    <System:String x:Key="reset">RESET?</System:String>
 </ResourceDictionary>  

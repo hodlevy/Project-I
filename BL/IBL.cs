@@ -32,6 +32,7 @@ namespace BL
         List<Nanny> PotentiallyNannies(string motherID);
         List<Nanny> VacationCheck_AllNanny();
         IEnumerable<IGrouping<int, Nanny>> GroupNanny(bool ifMinMax, bool isSorted = false);
-
+        IEnumerable<IGrouping<int, Contract>> ContractByDistance(bool sorted);
+        void Reset();
     }
 }

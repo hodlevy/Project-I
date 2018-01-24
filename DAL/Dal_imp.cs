@@ -372,6 +372,14 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        void Idal.Reset()
+        {
+            DataSource.listChild = null;
+            DataSource.listContract = null;
+            DataSource.listMother = null;
+            DataSource.listNanny = null;
+        }
         #endregion
     }
 }

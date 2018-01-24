@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BL;
+using GoogleMapsApi.Entities.PlaceAutocomplete.Request;
 
 namespace BL
 {
@@ -17,22 +18,32 @@ namespace BL
     }
     public class GoogleApiFunc
     {
-        static string API_KEY = "AIzaSyAELI--sxpTYDbvHQHUBCV76MovfOVM75g";
+        //static string API_KEY = "AIzaSyAELI--sxpTYDbvHQHUBCV76MovfOVM75g";
 
         public static List<string> GetPlaceAutoComplete(string str)
         {
+            //List<string> result = new List<string>();
+            //GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest request = new GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest();
+            //request.ApiKey = API_KEY;
+            //request.Input = str;
+
+            //var response = GoogleMaps.PlaceAutocomplete.Query(request);
+
+            //foreach (var item in response.Results)
+            //{
+            //    result.Add(item.Description);
+            //}
+
+            //return result;
             List<string> result = new List<string>();
-            GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest request = new GoogleMapsApi.Entities.PlaceAutocomplete.Request.PlaceAutocompleteRequest();
-            request.ApiKey = API_KEY;
+            PlaceAutocompleteRequest request = new PlaceAutocompleteRequest();
+            request.ApiKey = "AIzaSyAELI--sxpTYDbvHQHUBCV76MovfOVM75g";
             request.Input = str;
-
             var response = GoogleMaps.PlaceAutocomplete.Query(request);
-
             foreach (var item in response.Results)
             {
                 result.Add(item.Description);
             }
-
             return result;
         }
         public static int CalcDistance(string source, string dest, TravelType travelType)

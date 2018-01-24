@@ -57,7 +57,7 @@
             <TextBox x:Name="First" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
             <TextBox x:Name="Last" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
             <TextBox x:Name="Phone" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" TextWrapping="Wrap" Text="" MaxLength="10" FontSize="32" TextChanged="Enable"/>
-            <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="Enable"/>
+            <local:PlaceAutoCompleteUC x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" Text="{Binding Address,Mode=TwoWay}"/>
             <CheckBox x:Name="Elevator" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="6" IsChecked="False"/>
             <TextBox x:Name="Floor" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
             <TextBox x:Name="Exp" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>

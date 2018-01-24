@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="{DynamicResource updatechild}" Height="500" Width="330" Icon="/Images/iconchild.png">
+    <Window.Resources>
+        <local:NotBooleanToVisibilityConverter x:Key="notBooleanToVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -29,7 +32,7 @@
         <TextBlock x:Name="MotherID" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="" FontSize="32"/>
         <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="" FontSize="32" TextChanged="Enable"/>
         <CheckBox x:Name="IfNeeds" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="False" FontSize="32"/>
-        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
+        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="" Visibility="{Binding ElementName=IfNeeds, Path = IsChecked, Converter={StaticResource notBooleanToVisibilityConverter}}"/>
         <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="comboBox_Selected">
             <ComboBoxItem Content="{DynamicResource choose}"/>

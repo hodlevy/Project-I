@@ -45,12 +45,18 @@
                     <MenuItem Header="{DynamicResource byage}" Click="Nanny_List_Age" Foreground="Black"/>
                 </MenuItem>
                 <MenuItem Header="{DynamicResource motherList}" Click="Mother_List" Foreground="Black"/>
-                <MenuItem Header="{DynamicResource childList}" Click="Child_List" Foreground="Black"/>
-                <MenuItem Header="{DynamicResource contractList}" Click="Contract_List" Foreground="Black"/>
+                <MenuItem Header="{DynamicResource childList}">
+                    <MenuItem Header="{DynamicResource normal}" Click="Child_List" Foreground="Black"/>
+                    <MenuItem Header="{DynamicResource bymother}" Click="Child_List_Mother" Foreground="Black"/>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource contractList}">
+                    <MenuItem Header="{DynamicResource normal}" Click="Contract_List" Foreground="Black"/>
+                    <MenuItem Header="{DynamicResource bydistance}" Click="Contract_List_Distance" Foreground="Black"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Foreground="DarkMagenta" TextAlignment="Center" FontFamily="{DynamicResource Font}" Background="Transparent" Grid.RowSpan="2" Text="{DynamicResource Title}"/>
-        <local:Clock x:Name="clock" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="19" BorderThickness="1" BorderBrush="Black" Background="White" Margin="333,0,0,0"/>
+        <!--<local:Clock x:Name="clock" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="19" BorderThickness="1" BorderBrush="Black" Background="White" Margin="333,0,0,0"/>-->
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Images/wallpaper.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>

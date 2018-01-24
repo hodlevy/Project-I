@@ -55,15 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Child\ChildListMotherWin.xaml.cs">
+      <DependentUpon>ChildListMotherWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Child\AddChildWin.xaml.cs">
       <DependentUpon>AddChildWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Child\Converter.cs" />
     <Compile Include="Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contract\AddContractWin.xaml.cs">
       <DependentUpon>AddContractWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractListDistanceWin.xaml.cs">
+      <DependentUpon>ContractListDistanceWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWin.xaml.cs">
       <DependentUpon>LoginWin.xaml</DependentUpon>
@@ -119,9 +124,14 @@
     <Compile Include="GoogleMaps\PlaceAutoCompleteUC.xaml.cs">
       <DependentUpon>PlaceAutoCompleteUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NotBooleanToVisibilityConverter.cs" />
     <Compile Include="SettingsWin.xaml.cs">
       <DependentUpon>SettingsWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Child\ChildListMotherWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Child\AddChildWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Contract\AddContractWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Contract\ContractListDistanceWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +353,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\iconanny2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reset.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

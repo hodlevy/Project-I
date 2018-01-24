@@ -104,4 +104,9 @@
     <System:String x:Key="listage">照顾者的年龄列表</System:String>
     <System:String x:Key="bymax">最大值</System:String>
     <System:String x:Key="bymin">最低限度</System:String>
+    <System:String x:Key="bydistance">距离</System:String>
+    <System:String x:Key="listdistance">按距离合同清单</System:String>
+    <System:String x:Key="bymother">由母亲</System:String>
+    <System:String x:Key="listbymother">由母亲的儿童名单</System:String>
+    <System:String x:Key="reset">重启？</System:String>
 </ResourceDictionary>

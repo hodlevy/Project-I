@@ -46,5 +46,6 @@ namespace DAL
         Contract GetContractByID(string ID);
         List<Contract> GetContractsByID(string ID);
         #endregion
+        void Reset();
     }
 }

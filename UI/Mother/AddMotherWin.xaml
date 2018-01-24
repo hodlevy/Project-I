@@ -93,7 +93,7 @@
         <TextBlock x:Name="textBlock20_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="414,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="9"/>
         <TextBlock x:Name="textBlock21_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="380,29,0,0" Grid.Row="7" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="15"/>
         <TextBlock x:Name="textBlock22_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="16" Grid.Row="7" TextWrapping="Wrap" Text="{DynamicResource f}" VerticalAlignment="Top" Width="12" Margin="314,29,0,0"/>
-        <local:PlaceAutoCompleteUC x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4"/>
+        <local:PlaceAutoCompleteUC x:Name="Address" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" Text="{Binding Address,Mode=TwoWay}"/>
 
     </Grid>
 </Window>

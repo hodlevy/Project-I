@@ -140,6 +140,17 @@ namespace UI
             NannyListAgeWin nannyListAgeWin = new NannyListAgeWin();
             nannyListAgeWin.ShowDialog();
         }
+
+        private void Contract_List_Distance(object sender, RoutedEventArgs e)
+        {
+            ContractListDistanceWin contractListDistance = new ContractListDistanceWin();
+            contractListDistance.ShowDialog();
+        }
+        private void Child_List_Mother(object sender, RoutedEventArgs e)
+        {
+            ChildListMotherWin childListMotherWin = new ChildListMotherWin();
+            childListMotherWin.ShowDialog();
+        }
     }
     public class GetBL
     {

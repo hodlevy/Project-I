@@ -46,7 +46,7 @@ namespace UI
                     Action<List<string>> action = setListInvok;
                     Dispatcher.BeginInvoke(action, new object[] { result });
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
 

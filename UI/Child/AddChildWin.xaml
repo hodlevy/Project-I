@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="{DynamicResource addchild}" Height="500" Width="330" Icon="/Images/iconchild.png">
+    <Window.Resources>
+        <local:NotBooleanToVisibilityConverter x:Key="notBooleanToVisibilityConverter" />
+    </Window.Resources>
     <Grid Name="addChildGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -29,7 +32,7 @@
         <TextBox x:Name="ID" Grid.Column="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Path=Id, Mode=TwoWay}" MaxLength="9" FontSize="32"  Style="{StaticResource myTrigger}" TextChanged="Enable"/>
         <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=FirstName, Mode=TwoWay}" FontSize="32" Style="{StaticResource myTrigger}" TextChanged="Enable"/>
         <CheckBox x:Name="IfNeeds" Content="{DynamicResource yes}" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="4" IsChecked="{Binding Path=IsSpecialNeeds, Mode=TwoWay}" FontSize="32"/>
-        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{Binding Path=SpecialNeeds, Mode=TwoWay}" IsEnabled="{Binding IsChecked, ElementName=IfNeeds}"/>
+        <TextBox x:Name="SpecialNeeds" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" TextWrapping="Wrap" Text="{Binding Path=SpecialNeeds, Mode=TwoWay}" Visibility="{Binding ElementName=IfNeeds, Path = IsChecked, Converter={StaticResource notBooleanToVisibilityConverter}}"/>
         <Button x:Name="button" Content="{DynamicResource send}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="2" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" IsEnabled="False"/>
         <DatePicker x:Name ="datePicker" HorizontalAlignment="Stretch" Grid.Row="3" SelectedDate="{Binding Path=BirthDate, Mode=TwoWay}" Grid.Column="1" SelectedDateChanged="Enable"/>
         <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="20" SelectionChanged="Enable">

@@ -328,7 +328,7 @@ namespace BL
                 Origin = source,
                 Destination = dest,
             };
-            GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest); ////////////////////////////////
             GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
             GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
             return leg.Distance.Value;
@@ -403,7 +403,6 @@ namespace BL
                             nannies.Add(MyDal.AllNannys()[j]);
                             preferness[j] = 0;
                         }
-                        //j = MyDal.AllNannys().Count();
                     }
                 }
             }
@@ -529,7 +528,7 @@ namespace BL
         /// </summary>
         /// <param name="sorted"></param>
         /// <returns>group list</returns>
-        public IEnumerable<IGrouping<int, Contract>> ContractByDistance(bool sorted)
+        IEnumerable<IGrouping<int, Contract>> IBL.ContractByDistance(bool sorted = false)
         {
             IEnumerable<IGrouping<int, Contract>> results;
 
@@ -617,6 +616,11 @@ namespace BL
             foreach (Contract contract in list)
                 numbers.Add(contract.Number);
             return numbers;
+        }
+
+        void IBL.Reset()
+        {
+            MyDal.Reset();
         }
     }
 }

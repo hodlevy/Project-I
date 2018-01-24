@@ -105,4 +105,9 @@
     <System:String x:Key="bymax">לפי מקסימום</System:String>
     <System:String x:Key="bymin">לפי מינימום</System:String>
     <FontFamily x:Key="Font">Guttman Calligraphic</FontFamily>
+    <System:String x:Key="bydistance">לפי מרחק</System:String>
+    <System:String x:Key="listdistance">רשימת חוזים לפי מרחק</System:String>
+    <System:String x:Key="bymother">לפי אמא</System:String>
+    <System:String x:Key="listbymother">רשימת ילדים לפי אמא</System:String>
+    <System:String x:Key="reset">?לאתחל</System:String>
 </ResourceDictionary>

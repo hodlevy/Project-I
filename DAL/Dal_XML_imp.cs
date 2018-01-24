@@ -404,5 +404,17 @@ namespace DAL
             return contracts;
         }
         #endregion
+        void Idal.Reset()
+        {
+            List<Nanny> nannies = null;
+            SaveToXML(nannies, nannyPath);
+            List<Mother> mothers = null;
+            SaveToXML(mothers, motherPath);
+            List<Child> children = null;
+            //SaveChildListLinq(children);
+            SaveToXML(children, childPath);
+            List<Contract> contracts = null;
+            SaveToXML(contracts, contractPath);
+        }
     }
 }

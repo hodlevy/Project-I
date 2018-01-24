@@ -53,5 +53,12 @@ namespace UI
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are You Sure?", "WARNING", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if(result == MessageBoxResult.Yes)
+                GetBL.bl.Reset();
+        }
     }
 }
