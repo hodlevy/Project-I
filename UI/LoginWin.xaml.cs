@@ -46,7 +46,13 @@ namespace UI
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if ((textBox.Text == "hodlevy" || textBox.Text == "davidk" || textBox.Text == "ashein") && passwordBox.Password == "123456")
+            {
+                MessageBox.Show("Welcome!");
+                Close();
+            }
+            else
+                MessageBox.Show("You Are Wrong!");
         }
     }
 }
