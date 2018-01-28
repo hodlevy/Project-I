@@ -24,16 +24,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private void textBox_Copy_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string str = null;
-            foreach(char ch in textBox_Copy.Text)
-            {
-                str += "•";
-            }
-            textBox_Copy.Text = str;
-        }
-
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
             button.Background = Brushes.Orange;
