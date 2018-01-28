@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BE;
 using DAL;
 using GoogleMapsApi;
@@ -316,6 +314,7 @@ namespace BL
         #endregion
         /// <summary>
         /// google maps function for calculate distances
+        /// This function doesn't work and get stuck. 
         /// </summary>
         /// <param name="source"></param>
         /// <param name="dest"></param>
@@ -328,7 +327,7 @@ namespace BL
                 Origin = source,
                 Destination = dest,
             };
-            GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest); ////////////////////////////////
+            GoogleMapsApi.Entities.Directions.Response.DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest); // This is the line that stuck the program
             GoogleMapsApi.Entities.Directions.Response.Route route = drivingDirections.Routes.First();
             GoogleMapsApi.Entities.Directions.Response.Leg leg = route.Legs.First();
             return leg.Distance.Value;

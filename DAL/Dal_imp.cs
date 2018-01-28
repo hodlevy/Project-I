@@ -350,32 +350,56 @@ namespace DAL
 
         Nanny Idal.GetNanny(string nannyID)
         {
-            throw new NotImplementedException();
+            Nanny nanny = new Nanny();
+            List<Nanny> list = null;
+            list = DataSource.listNanny.FindAll(item => item.Id == nannyID);
+            if (list.Count() != 0)
+                nanny = list[0];
+            return nanny;
         }
 
         Mother Idal.GetMother(string motherID)
         {
-            throw new NotImplementedException();
+            Mother mother = new Mother();
+            List<Mother> list = null;
+            list = DataSource.listMother.FindAll(item => item.Id == motherID);
+            if (list.Count() != 0)
+                mother = list[0];
+            return mother;
         }
 
         Child Idal.GetChild(string childID)
         {
-            throw new NotImplementedException();
+            Child child = new Child();
+            List<Child> list = null;
+            list = DataSource.listChild.FindAll(item => item.Id == childID);
+            if (list.Count() != 0)
+                child = list[0];
+            return child;
         }
 
         Contract Idal.GetContract(int number)
         {
-            throw new NotImplementedException();
+            Contract contract = new Contract();
+            List<Contract> list = null;
+            list = DataSource.listContract.FindAll(item => item.Code == number);
+            if (list.Count() != 0)
+                contract = list[0];
+            return contract;
         }
 
         Contract Idal.GetContractByID(string ID)
         {
-            throw new NotImplementedException();
+            List<Contract> contracts = null;
+            contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
+            return contracts[0];
         }
 
         List<Contract> Idal.GetContractsByID(string ID)
         {
-            throw new NotImplementedException();
+            List<Contract> contracts = null;
+            contracts = DataSource.listContract.FindAll(item => item.NannyId == ID || item.MotherId == ID || item.ChildId == ID);
+            return contracts;
         }
 
         void Idal.Reset()

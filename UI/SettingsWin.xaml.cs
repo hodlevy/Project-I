@@ -57,8 +57,16 @@ namespace UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are You Sure?", "WARNING", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if(result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes)
+            {
                 GetBL.bl.Reset();
+                MessageBox.Show("Mission Complete!", "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            if (result == MessageBoxResult.No) 
+            {
+                MessageBox.Show("Mission Complete!\nAll The Data Was Deleted.", "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Just KIDDING! :D", "HaHaHa", MessageBoxButton.OK);
+            }
         }
     }
 }
